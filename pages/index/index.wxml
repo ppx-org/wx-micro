@@ -1,0 +1,108 @@
+
+<view class="searchHeader">
+
+
+<view class="searchView">
+
+<view bindtap='scan' style='display:flex;flex-direction:column;font-size:20rpx;align-items:center;width:65rpx'>
+  <image src='/png/img/scan.png' style='width:40rpx;height:40rpx'></image>
+  <text>扫一扫</text>
+</view>
+
+
+
+
+<view style='display:flex;flex-direction:row;font-size:26rpx;width:560rpx;border-bottom:1px solid;'>
+  <icon type="search" size="20" color='white' style='margin-top:10rpx;'/>
+  <input placeholder="寻找宝贝" placeholder-style="color:white;" style='margin-top:5rpx;'/>
+</view>
+
+
+<view bindtap='storeMap' style='display:flex;flex-direction:column;font-size:20rpx;align-items:center;width:65rpx'>
+  <image src='/png/img/position.png' style='width:40rpx;height:40rpx'></image>
+  <text>提货</text>
+</view>
+
+
+</view>
+</view>
+
+
+
+<view class="container" style='padding-top:86rpx'>
+  
+
+
+
+<swiper indicator-dots="true" autoplay="true" interval="5000" duration="500" style="height:200rpx">
+  <block wx:for="{{imgUrls}}" wx:key='*this'>
+    <swiper-item>
+      <image src="{{item}}" class="slide-image" style="width:750rpx;height:200rpx"/>
+    </swiper-item>
+  </block>
+</swiper>
+
+
+<view style='display: flex;flex-direction: row;justify-content:space-around;margin-top:20rpx'>
+
+<view style='display:flex;flex-direction:column;font-size:20rpx;align-items:center;width:75rpx'>
+  <view style='background-color:blue;border-radius:40rpx;width:75rpx;height:75rpx'>
+  <image src="/png/img/cat.png" style='width:50rpx;height:50rpx;padding:15rpx;'></image>
+  </view>
+  <text>分类</text>
+</view>
+
+<view style='display:flex;flex-direction:column;font-size:20rpx;align-items:center;width:75rpx'>
+  <view style='background-color:blue;border-radius:40rpx;width:75rpx;height:75rpx'>
+  <image src="/png/img/prome.png" style='width:50rpx;height:50rpx;padding:15rpx;'></image>
+  </view>
+  <text>促销</text>
+</view>
+
+<view style='display:flex;flex-direction:column;font-size:20rpx;align-items:center;width:75rpx'>
+  <view style='background-color:blue;border-radius:40rpx;width:75rpx;height:75rpx'>
+  <image src="/png/img/brand.png" style='width:50rpx;height:50rpx;padding:15rpx;'></image>
+  </view>
+  <text>品牌</text>
+</view>
+
+
+<view style='display:flex;flex-direction:column;font-size:20rpx;align-items:center;width:75rpx'>
+  <view style='background-color:blue;border-radius:40rpx;width:75rpx;height:75rpx'>
+  <image src="/png/img/theme.png" style='width:50rpx;height:50rpx;padding:15rpx;'></image>
+  </view>
+  <text>专题</text>
+</view>
+
+</view>
+
+
+<view style="margin-top:15rpx;margin-bottom:10rpx">
+<text style='background-color:green;font-size:23rpx;padding:10rpx 20rpx 10rpx 10rpx;color:white;border-bottom-right-radius:25rpx;border-top-right-radius:25rpx'>店长推荐</text>
+</view>
+
+
+<view style="padding:0rpx 10rpx;display:flex;flex-direction:row;justify-content:space-between;flex-wrap:wrap;">
+
+<block wx:for="{{prodList}}" wx:key='pid' wx:for-index="index" wx:for-item="item">
+
+<block wx:if="{{item.level}}">
+  <view style="width:100%">{{item.level.levelName}}</view>
+</block>
+
+<view style="display:flex;flex-direction:column;">
+  <image src="https://img.alicdn.com/imgextra/i1/2127913984/TB2mJeXX6gy_uJjSZKPXXaGlFXa_!!2127913984.jpg_2200x2200Q50s50.jpg" style="width:350rpx;height:350rpx"></image>
+  <view>活页本b5笔记本文具</view>
+  <view>11.9</view>
+</view>
+</block>
+
+</view>
+
+
+
+
+
+
+
+</view>

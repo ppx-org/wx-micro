@@ -1,0 +1,17 @@
+
+.searchHeader {
+  z-index: 1000;
+  position: fixed;
+  background-color: #E16504;
+  width:100%;
+  height:86rpx;
+  color:white;
+}
+
+.searchView {
+  margin-top:10rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content:space-around;
+}
+
