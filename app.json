@@ -1,13 +1,12 @@
 {
   "pages":[
+	"pages/cart/cart",
+	"pages/index/index",
+	"pages/my/my",
     "pages/my/myorder/myorder",
-    "pages/cart/cart",
-    "pages/index/index",
-    
-    "pages/my/my",
-    "pages/product/detail/detail",
-    "pages/logs/logs"
-    
+	"pages/order/firmorder",
+    "pages/product/product",
+    "pages/search/search"
   ],
   "window":{
     "backgroundTextStyle":"light",
