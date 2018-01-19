@@ -1,5 +1,6 @@
 {
   "pages":[
+    "pages/my/myorder/myorder",
     "pages/cart/cart",
     "pages/index/index",
     
@@ -11,7 +12,7 @@
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "皮皮两元店",
+    "navigationBarTitleText": "xxxxxxxxx",
     "navigationBarTextStyle":"black"
   },
   "tabBar": {

@@ -1,5 +1,76 @@
-
 <view>
 
-sss
+
+<view>
+	<image src="" style="width:30rpx;height:30rpx"></image>
+	<text>6882855</text>
 </view>
+
+<view style="display:flex;justify-content:space-around;">
+	<view style="display:flex;flex-direction:column;">
+		<text>217</text>
+		<text>favorite</text>
+	</view>
+	
+	<view style="display:flex;flex-direction:column;">
+		<text>242</text>
+		<text>foot</text>
+	</view>
+</view>
+
+
+<view style="display:flex;justify-content:space-between;"> 
+	<view>my order</view>
+	<view>view more order ></view>
+</view>
+
+
+<view style="display:flex;justify-content:space-around;">
+
+	<view style="display:flex;flex-direction:column;">	
+		<image src="" style="width:60rpx;height:60rpx"></image>
+		<text>待pay</text>
+	</view>
+	
+	<view style="display:flex;flex-direction:column;">	
+		<image src="" style="width:60rpx;height:60rpx"></image>
+		<text>待整理</text>
+	</view>
+	
+	<view style="display:flex;flex-direction:column;">	
+		<image src="" style="width:60rpx;height:60rpx"></image>
+		<text>待pick up</text>
+	</view>
+	
+</view>
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+</view>
+
+
+
+
+
+
+
+
+
+
+
+
