@@ -6,7 +6,11 @@
     "pages/my/myorder/myorder",
 	"pages/order/firmorder",
     "pages/product/product",
-    "pages/search/search"
+    "pages/search/search",
+	"pages/show/brand/brand",
+	"pages/show/category/category",
+	"pages/show/promo/promo",
+	"pages/show/themo/themo"
   ],
   "window":{
     "backgroundTextStyle":"light",
