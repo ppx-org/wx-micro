@@ -1,0 +1,75 @@
+<view>
+
+
+<view style="display:flex;">
+	<view bindtap="allOrder" style="border-bottom:2px solid {{allBottomColor}};width:30%">
+		<text>all</text>
+	</view>
+	
+	<view bindtap="allOrder2" style="border-bottom:2px solid {{waitBottomColor}};width:30%">
+		<text>all2</text>
+	</view>
+
+	<view bindtap="allOrder3" style="border-bottom:2px solid white;width:30%">
+		<text>all2</text>
+	</view>
+</view>
+
+
+<view style='display:none'>
+	<view>
+		<text>status</text>
+	</view>
+
+	<view style="width:420rpx;display:flex;flex-direction:column;justify-content:space-between;margin:3rpx;">
+		<view style='font-size:24rpx;height:62rpx;overflow:hidden;text-overflow:ellipsis;display:-webkit-box !important; -webkit-line-clamp:2;-webkit-box-orient:vertical'>4本25.8元 海底两万 正版彩图注意版小学生课外阅读书籍一二三年级必读故事里有你有我</view>
+		<view style="font-size:24rpx;color:red">限制10件</view>
+		<view style="font-size:24rpx;display:flex;justify-content:space-between;">
+		
+	</view>
+	
+	
+	<view style="width:420rpx;display:flex;flex-direction:column;justify-content:space-between;margin:3rpx;">
+	<text style="color:red">￥9</text><text style="text-decoration:line-through;">￥16.8</text>
+	<text>x 1</text>
+	</view>
+</view>
+
+<view>allN all:<text style="">19.00</text></view>
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+</view>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</view>

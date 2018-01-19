@@ -1,4 +1,90 @@
 
 <view class="container">
 
+
+<view>
+	<input placeholder="word" placeholder-style="color:white;" style="border-bottom:1px solid gray"/>
+	<text style="background-color:orange;color:white">search</text>
 </view>
+
+
+<view>
+	<view>
+		<text>history search</text>
+		<image src="" style="width:30rpx;height:30rpx"></image>
+	</view>
+
+	<view>
+		<text style="">abcefghijk</text><text style="">abcefghijk</text>
+	</view>
+
+	<view>
+		<text>promo search</text>
+	</view>
+
+	<view>
+		<text style="">abcefghijk</text><text style="">abcefghijk</text>
+	</view>
+</view>
+
+
+<view>
+	<view>
+		<text>综合排序</text>
+		<text>最新排序</text>
+		<text>筛选</text><image src="/png/fonticon/filter.png" src="width:20rpx;height:20rpx"></image>
+	</view>
+</view>
+
+
+<view>
+	
+	
+
+</view>
+
+
+
+<view style="display:none">
+	<view>
+		<text>brand</text>
+		
+		<image src="/png/fonticon/up.png"></image>
+		
+		<image src="/png/fonticon/down.png"></image>
+	</view>
+
+	<!-- 固定宽度和高度,超两行用... -->
+	<view>
+		<text>brand1</text><text>brand2</text><text>brand2</text>
+	</view>
+	
+	
+	
+	
+	
+</view>
+
+
+
+
+</view>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
