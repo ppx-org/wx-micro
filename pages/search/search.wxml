@@ -1,39 +1,65 @@
+<import src="../../common/templet.wxml"/>
 
 <view class="container">
 
 
-<view>
-	<input placeholder="word" placeholder-style="color:white;" style="border-bottom:1px solid gray"/>
-	<text style="background-color:orange;color:white">search</text>
+<view style='display:flex;justify-content:space-between;'>
+
+	<input placeholder="word" style="border-bottom:1px solid gray;width:400rpx;" confirm-type="search"/>
+ 
+	<button  style="display:flex;background-color:orange;color:white;" size="mini">搜索</button>
+ 
 </view>
 
 
-<view>
-	<view>
-		<text>history search</text>
-		<image src="" style="width:30rpx;height:30rpx"></image>
+<view style="font-size:26rpx;display:none">
+	<view style='display:flex;justify-content:space-between;margin:5rpx 20rpx;'>
+		<text>历史搜索</text>
+		<image src="/png/fonticon/remove.png" style="width:30rpx;height:30rpx"></image>
 	</view>
 
-	<view>
-		<text style="">abcefghijk</text><text style="">abcefghijk</text>
+	<view style='display:flex;flex-wrap:wrap;'>
+		<text style="white-space:nowrap;background-color:Gainsboro;padding:5rpx 15rpx;border-radius:20rpx;margin-left:20rpx;margin-top:20rpx;">男士钱包</text>
+    <text style="white-space:nowrap;background-color:Gainsboro;padding:5rpx 15rpx;border-radius:20rpx;margin-left:20rpx;margin-top:20rpx;">小天才学习软件</text>
+    <text style="white-space:nowrap;background-color:Gainsboro;padding:5rpx 15rpx;border-radius:20rpx;margin-left:20rpx;margin-top:20rpx;">学生书架</text>
+    <text style="white-space:nowrap;background-color:Gainsboro;padding:5rpx 15rpx;border-radius:20rpx;margin-left:20rpx;margin-top:20rpx">儿童书柜来了啊</text>
 	</view>
 
-	<view>
-		<text>promo search</text>
+
+	<view style='display:flex;justify-content:space-between;margin:30rpx 20rpx 15rpx 20rpx;'>
+		<text>推荐搜索</text>
 	</view>
 
-	<view>
-		<text style="">abcefghijk</text><text style="">abcefghijk</text>
+	<view style='display:flex;flex-wrap:wrap;'>
+		<text style="white-space:nowrap;background-color:Gainsboro;padding:5rpx 15rpx;border-radius:20rpx;margin-left:20rpx;margin-top:20rpx;">男士钱包</text>
+    <text style="white-space:nowrap;background-color:Gainsboro;padding:5rpx 15rpx;border-radius:20rpx;margin-left:20rpx;margin-top:20rpx;">小天才学习软件</text>
+    <text style="white-space:nowrap;background-color:Gainsboro;padding:5rpx 15rpx;border-radius:20rpx;margin-left:20rpx;margin-top:20rpx;">学生书架</text>
+    <text style="white-space:nowrap;background-color:Gainsboro;padding:5rpx 15rpx;border-radius:20rpx;margin-left:20rpx;margin-top:20rpx;">儿童书柜来了啊</text>
 	</view>
 </view>
 
 
-<view>
-	<view>
-		<text>综合排序</text>
+<view style="font-size:28rpx">
+	<view style="display:flex;justify-content:space-around;height:60rpx;background-color:;align-items: center;border-bottom:1px solid Gainsboro">
+		<text style="color:red">综合排序</text>
 		<text>最新排序</text>
-		<text>筛选</text><image src="/png/fonticon/filter.png" src="width:20rpx;height:20rpx"></image>
+    <view bindtap='filter'>
+      <text>筛选</text>
+      <image src="/png/fonticon/filter.png" style="width:28rpx;height:28rpx"></image>
+    </view>
+		
 	</view>
+
+  <view style="padding:0;display:flex;justify-content:space-between;flex-wrap:wrap;background-color:#F7F7F7">
+
+    <block wx:for="{{prodList}}" wx:key='{{pid}}' wx:for-index="index" wx:for-item="item">
+      <template is="prodShow" data="{{...item}}"/>
+    </block>
+  
+  
+  </view>
+  <view style='font-size:26rpx;color:gray;padding:10rpx 0rpx;text-align:center;width:100%'>------ 已经到底了 ------</view>
+
 </view>
 
 
@@ -45,13 +71,15 @@
 
 
 
-<view style="display:none">
-	<view>
+<view style="display:{{filterShow}};flex-direction:column; position:fixed;top:0;right:0;background-color:blue;z-index:2000;width:520rpx;height:100%">
+  <view style="background-color:Gainsboro;font-size:26rpx;color:LightSlateGray;padding:7rpx;">筛选</view>
+  
+  <view>
 		<text>brand</text>
 		
-		<image src="/png/fonticon/up.png"></image>
+		<image src="/png/fonticon/up.png" style="width:30rpx;height:30rpx"></image>
 		
-		<image src="/png/fonticon/down.png"></image>
+		<image src="/png/fonticon/down.png" style="width:30rpx;height:30rpx"></image>
 	</view>
 
 	<!-- 固定宽度和高度,超两行用... -->

@@ -88,7 +88,7 @@
 
 <view style="padding:0;display:flex;justify-content:space-between;flex-wrap:wrap;background-color:#F7F7F7">
 
-<block wx:for="{{prodList}}" wx:key='pid' wx:for-index="index" wx:for-item="item">
+<block wx:for="{{prodList}}" wx:key='{{pid}}' wx:for-index="index" wx:for-item="item">
 
 
 <view wx:if="{{item.level}}" style="width:100%;background-color:#F7F7F7;heigth:55rpx;font-size:28rpx;">
