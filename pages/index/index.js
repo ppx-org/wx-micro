@@ -19,26 +19,36 @@ Page({
     prodList:[]
   },
   onLoad() {
+    wx.setTabBarBadge({
+      index: 2,
+      text: '5'
+    })
+
+    var r = { "swiperList": [], "actionStatus": "OK", "levelList": [{ "levelId": 1, "levelName":"店长推荐","firstProdId":1},{"levelId":2,"levelName":"第二层","firstProdId":5}],"errorCode":"0","page":{"pageSize":6,"pageNumber":1,"totalRows":0,"hasMore":false},"prodList":[{"pid":1,"p":"9.80","t":"test1我是化装品","f":0,"level":{"levelId":1,"levelName":"第一层","firstProdId":1}},{"pid":2,"p":"6.90","t":"test2我是化装品","f":1,"level":null},{"pid":3,"p":"7.90","t":"test3","f":1,"level":null},{"pid":4,"p":"7.80","t":"test4","f":1,"level":null},{"pid":5,"p":"12.80","t":"test5","f":1,"level":{"levelId":2,"levelName":"第二层","firstProdId":5}}]};
+    var levelList = r.levelList;
+    r.prodList.map(function (v) {
+      v.level = getLevel(levelList, v.pid);
+    })
+    
+    this.setData({
+      prodList: r.prodList
+    })
+    
+    /*
     getApp().request("MHome/listJson", {}, function (r) {
       
       var levelList = r.levelList;
-      //var prodList = r.prodList;
       r.prodList.map(function(v){
         v.level = getLevel(levelList, v.pid);
       })
       getCurrentPages()[0].setData({
         prodList: r.prodList
       })
-      console.log(r.prodList);
+      console.log(JSON.stringify(r));
     })
+    */
   },
   scan: function() {
-    getApp().request("MSearch/listWord", {}, function(r) {
-      console.log(r);
-    })
-
-    /*
-    console.log('sss');
     // 允许从相机和相册扫码
     wx.scanCode({
       success: (res) => {
@@ -47,13 +57,15 @@ Page({
         })
         console.log(res)
       }
-    })*/
+    })
     
     /*
     wx.navigateTo({
       url: '/pages/product/detail/detail?id=98765',
-    })*/
+    })
     console.log(getApp().globalData.SERVER_URL);
+    */
+    
   },
   storeMap: function() {
     var latitude = 23.0867590917;
@@ -62,8 +74,13 @@ Page({
       latitude: latitude,
       longitude: longitude,
       scale: 18,
-      name: '皮皮8号店',
+      name: '皮皮7号店',
       address:'赤岗路188号'
+    })
+  },
+  search: function() {
+    wx.navigateTo({
+      url: '/pages/search/search',
     })
   }
 })

@@ -4,9 +4,13 @@
 <template name="prodShow">
 
 <view style="display:flex;flex-direction:column;">
-	<image src="https://img.alicdn.com/imgextra/i1/2127913984/TB2mJeXX6gy_uJjSZKPXXaGlFXa_!!2127913984.jpg_2200x2200Q50s50.jpg" style="width:350rpx;height:350rpx"></image>
-	<view>活页本b5笔记本文具</view>
-  <view>11.9</view>
+	<image src="https://gw1.alicdn.com/bao/uploaded/i1/738413102/TB2gznFj5qAXuNjy1XdXXaYcVXa_!!738413102.jpg_130x130.jpg" style="width:370rpx;height:370rpx"></image>
+	<view style="width:370rpx;height:28rpx;display:-webkit-box !important; overflow:hidden;-webkit-line-clamp:1;-webkit-box-orient:vertical;font-size:25rpx;">学生用桌上书架简易儿童桌面小活页本b5笔记文具xxxxxxx112</view>
+  <view>
+  <text style="color:green;font-size:23rpx;border:1px solid green;border-radius:7rpx"><block wx:if="{{f==1}}">直接提货</block><block wx:if="{{f==0}}">2小时提货</block></text>
+  <text style="margin-left:15rpx;color:red;font-size:23rpx;border:1px solid red;border-radius:7rpx">特价:9.9</text>
+  </view>
+  <view style="font-size:30rpx;color:red"><text style="font-size:24rpx;">￥</text>11.9</view>
 </view>
 
 </template>
