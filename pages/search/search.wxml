@@ -7,7 +7,7 @@
 
 	<input placeholder="word" style="border-bottom:1px solid gray;width:400rpx;" confirm-type="search"/>
   
-	<button  style="display:flex;background-color:orange;color:white;" size="mini">搜索</button>
+	<button  style="display:flex;background-color:#FE7506;color:white;" size="mini">搜索</button>
  
 </view>
 
@@ -46,7 +46,7 @@
       <view style="float:right;width:3rpx;height:3rpx;margin-top:12rpx" class="dot-bottom"></view>
     </view>
 
-		<text style="color:red">综合排序</text>
+		<text style="color:#FE7506">综合排序</text>
 		<text>新品优先</text>
 
     

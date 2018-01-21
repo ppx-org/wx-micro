@@ -1,48 +1,27 @@
 <view>
 
 
-<view>
-	<image src="" style="width:30rpx;height:30rpx"></image>
+<view style="height:120rpx;display:flex;align-items:center;padding-left:20rpx;background-color:#FE7506;color:white">
+	<image src="/png/my.png" style="width:80rpx;height:80rpx"></image>
 	<text>6882855</text>
 </view>
 
-<view style="display:flex;justify-content:space-around;">
-	<view style="display:flex;flex-direction:column;">
+<view style="display:flex;justify-content:space-around;font-size:30rpx;">
+	<view style="display:flex;flex-direction:column;align-items:center;">
 		<text>217</text>
-		<text>favorite</text>
+    <image style="width:48rpx;height:48rpx" src="/png/img/favorite.png"></image>
+		<text>收藏夹</text>
 	</view>
 	
-	<view style="display:flex;flex-direction:column;">
+	<view style="display:flex;flex-direction:column;align-items:center;">
 		<text>242</text>
-		<text>foot</text>
+    <image style="width:48rpx;height:48rpx" src="/png/img/foot.png"></image>
+		<text>足迹</text>
 	</view>
 </view>
 
+<view style="width:100%;height:20rpx;background-color:#EEEEEE"></view>
 
-<view style="display:flex;justify-content:space-between;"> 
-	<view>my order</view>
-	<view>view more order ></view>
-</view>
-
-
-<view style="display:flex;justify-content:space-around;">
-
-	<view style="display:flex;flex-direction:column;">	
-		<image src="" style="width:60rpx;height:60rpx"></image>
-		<text>待pay</text>
-	</view>
-	
-	<view style="display:flex;flex-direction:column;">	
-		<image src="" style="width:60rpx;height:60rpx"></image>
-		<text>待整理</text>
-	</view>
-	
-	<view style="display:flex;flex-direction:column;">	
-		<image src="" style="width:60rpx;height:60rpx"></image>
-		<text>待pick up</text>
-	</view>
-	
-</view>
 
 
 

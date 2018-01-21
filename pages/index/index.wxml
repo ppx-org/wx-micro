@@ -86,12 +86,12 @@
 
 
 
-<view style="padding:0;display:flex;justify-content:space-between;flex-wrap:wrap;background-color:#F7F7F7">
+<view style="padding:0;display:flex;justify-content:space-between;flex-wrap:wrap;background-color:#EEEEEE">
 
 <block wx:for="{{prodList}}" wx:key='{{pid}}' wx:for-index="index" wx:for-item="item">
 
 
-<view wx:if="{{item.level}}" style="width:100%;background-color:#F7F7F7;heigth:55rpx;font-size:28rpx;">
+<view wx:if="{{item.level}}" style="width:100%;background-color:#EEEEEE;heigth:55rpx;font-size:28rpx;">
   <text style='position:relative;;background-color:orange;padding:8rpx 30rpx 8rpx 20rpx;color:white;border-bottom-right-radius:20rpx;border-top-right-radius:20rpx;'>{{item.level.levelName}}</text>
 </view>
 
