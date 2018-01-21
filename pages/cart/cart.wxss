@@ -1,0 +1,8 @@
+
+.prodView {
+  width:420rpx;display:flex;flex-direction:column;justify-content:space-between;margin:3rpx;
+}
+
+.prodTitleText {
+  font-size:24rpx;height:66rpx;overflow:hidden;text-overflow:ellipsis;display:-webkit-box !important; -webkit-line-clamp:2;-webkit-box-orient:vertical
+}

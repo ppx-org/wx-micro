@@ -5,6 +5,8 @@ const app = getApp()
 Page({
   
   data: {
+    maskIndex:2500,
+    deliveryIndex:0,
     filterDisplay: "none",
     filterWidth:"-550rpx",
     prodList: []
@@ -21,13 +23,34 @@ Page({
   openFilter:function() {
     this.setData({
       filterDisplay:"flex",
-      filterWidth:"0rpx"
+      filterWidth:"0rpx",
+      deliveryIndex: 0,
+      maskIndex: 2500,
     })
   },
   closeFilter:function() {
     this.setData({
       filterDisplay:"none",
-      filterWidth:"-550rpx"
+      filterWidth:"-550rpx",
+      deliveryIndex: 0,
     })
+  },
+
+
+  showDelivery:function() {
+    if (this.data.deliveryIndex == 0) {
+      this.setData({
+        maskIndex:1500,
+        deliveryIndex: 2000,
+        filterDisplay: "flex",
+      })
+    }
+    else {
+      this.setData({
+        deliveryIndex: 0,
+        filterDisplay: "none",
+      })
+    }
   }
+
 })

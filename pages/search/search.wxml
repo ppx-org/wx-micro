@@ -3,10 +3,10 @@
 <view class="container">
 
 
-<view style='display:flex;justify-content:space-between;'>
+<view style='display:flex;justify-content:space-between;height:60rpx;position:relative;z-index:2000;background-color:white'>
 
 	<input placeholder="word" style="border-bottom:1px solid gray;width:400rpx;" confirm-type="search"/>
- 
+  
 	<button  style="display:flex;background-color:orange;color:white;" size="mini">搜索</button>
  
 </view>
@@ -39,18 +39,36 @@
 </view>
 
 
-<view style="font-size:28rpx">
-	<view style="display:flex;justify-content:space-around;height:60rpx;background-color:;align-items: center;border-bottom:1px solid Gainsboro">
-		<text style="color:red">综合排序</text>
-		<text>最新排序</text>
-    <view bindtap='openFilter'>
-      <text>筛选</text>
-      <image src="/png/fonticon/filter.png" style="width:28rpx;height:28rpx"></image>
+<view style="font-size:28rpx;">
+	<view style="display:flex;justify-content:space-around;height:60rpx;background-color:;align-items: center;border-bottom:1px solid Gainsboro;position:relative;z-index:2000;background-color:white">
+    <view bindtap='showDelivery'>
+      <text>提货类型 </text>
+      <view style="float:right;width:3rpx;height:3rpx;margin-top:12rpx" class="dot-bottom"></view>
     </view>
-		
+
+		<text style="color:red">综合排序</text>
+		<text>新品优先</text>
+
+    
+    
+    <view bindtap='openFilter'>
+      <text>筛选</text><image src="/png/fonticon/filter.png" style="width:28rpx;height:28rpx"></image>
+    </view>
 	</view>
 
-  <view style="padding:0;display:flex;justify-content:space-between;flex-wrap:wrap;background-color:#F7F7F7">
+  <view style="position:relative;z-index:{{deliveryIndex}};background-color:white;">
+    <view style="display:flex;justify-content:space-between;padding:18rpx 35rpx;">
+      <text>全部</text><icon type="success_no_circle" size='17' color="red"/>
+    </view>
+    <view style="padding:18rpx 35rpx;border-top:1rpx solid Gainsboro;">立即提货</view>
+    <view style="padding:18rpx 35rpx;border-top:1rpx solid Gainsboro;">2小时提货</view>
+
+  </view>
+
+
+
+
+  <view style="position:absolute;top:122rpx; padding:0;display:flex;justify-content:space-between;flex-wrap:wrap;background-color:#F7F7F7">
 
     <block wx:for="{{prodList}}" wx:key='{{pid}}' wx:for-index="index" wx:for-item="item">
       <template is="prodShow" data="{{...item}}"/>
@@ -71,9 +89,9 @@
 
 
 
-<view bindtap="closeFilter" style="position:fixed;top:0;left:0;width:100%;height:100%;background-color:black;display:{{filterDisplay}};opacity: 0.5;z-index:1000"></view>
+<view bindtap="closeFilter" style="position:fixed;top:0;left:0;width:100%;height:100%;background-color:black;display:{{filterDisplay}};opacity: 0.5;z-index:{{maskIndex}}"></view>
 
-<view style="font-size:22rpx;flex-direction:column; position:fixed;top:0;right:{{filterWidth}};background-color:white;z-index:2000;width:550rpx;height:100%; transition:right .3s;">
+<view style="font-size:22rpx;flex-direction:column; position:fixed;top:0;right:{{filterWidth}};background-color:white;z-index:3000;width:550rpx;height:100%; transition:right .3s;">
   <view style="background-color:Gainsboro;color:LightSlateGray;padding:7rpx;">筛选</view>
   
 
