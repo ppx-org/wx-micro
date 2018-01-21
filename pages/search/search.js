@@ -5,7 +5,8 @@ const app = getApp()
 Page({
   
   data: {
-    filterShow: "none",
+    filterDisplay: "none",
+    filterWidth:"-550rpx",
     prodList: []
   },
   
@@ -15,11 +16,18 @@ Page({
       prodList: r.prodList
     })
 
-
+    //this.openFilter();
   },
-  filter:function() {
+  openFilter:function() {
     this.setData({
-      filterShow:"flex"
+      filterDisplay:"flex",
+      filterWidth:"0rpx"
+    })
+  },
+  closeFilter:function() {
+    this.setData({
+      filterDisplay:"none",
+      filterWidth:"-550rpx"
     })
   }
 })
