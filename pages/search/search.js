@@ -5,6 +5,12 @@ const app = getApp()
 Page({
   
   data: {
+    myScrollTop:0,
+    myTopShow:false,
+    scrollTop: { 
+      show:true,
+      scrollTop:0
+    },
     maskIndex:2500,
     deliveryIndex:0,
     filterDisplay: "none",
@@ -51,6 +57,31 @@ Page({
         filterDisplay: "none",
       })
     }
+  },
+
+  viewScroll:function(e) {
+    
+    if (e.detail.scrollTop >= 2) {
+      this.setData({
+        myTopShow: true
+      })
+    }
+    else {
+      this.setData({
+        myTopShow: false
+      })
+    }
+   },
+  closeToTop:function() {
+    this.setData({
+      myTopShow: false
+    })
+  },
+  gotoTop:function() {
+    this.setData({
+      myScrollTop: 0,
+      myTopShow:false
+    })
   }
 
 })

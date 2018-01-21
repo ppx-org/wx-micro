@@ -83,16 +83,20 @@ Page({
       url: '/pages/search/search',
     })
   },
-  //下拉刷新
+  // 下拉刷新
   onPullDownRefresh: function () {
-    wx.showNavigationBarLoading() //在标题栏中显示加载
+    wx.showNavigationBarLoading() // 在标题栏中显示加载
 
-    //模拟加载
+    // 模拟加载
     setTimeout(function () {
       // complete
-      wx.hideNavigationBarLoading() //完成停止加载
-      wx.stopPullDownRefresh() //停止下拉刷新
+      wx.hideNavigationBarLoading() // 完成停止加载
+      wx.stopPullDownRefresh() // 停止下拉刷新
     }, 800);
+  },
+  // 上拉加载
+  onReachBottomDistance: function() {
+    
   }
 })
 
