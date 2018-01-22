@@ -50,14 +50,14 @@
 
 
 
-<view style='display:flex;flex-direction:column;font-size:24rpx;width:75rpx;align-items:center;justify-content:space-between'>
+<view bindtap='gotoPromo' style='display:flex;flex-direction:column;font-size:24rpx;width:75rpx;align-items:center;justify-content:space-between'>
   <view style='background-color:red;border-radius:40rpx;width:76rpx;height:76rpx;'>
   <image src="/png/img/promo.png" style='width:50rpx;height:50rpx;padding:13rpx'></image>
   </view>
   <text>促销</text>
 </view>
 
-<view style='display:flex;flex-direction:column;font-size:24rpx;width:75rpx;align-items:center;justify-content:space-between'>
+<view bindtap='gotoBrand' style='display:flex;flex-direction:column;font-size:24rpx;width:75rpx;align-items:center;justify-content:space-between'>
   <view style='background-color:green;border-radius:40rpx;width:76rpx;height:76rpx;'>
   <image src="/png/img/brand.png" style='width:50rpx;height:50rpx;padding:13rpx'></image>
   </view>
@@ -65,7 +65,7 @@
 </view>
 
 
-<view style='display:flex;flex-direction:column;font-size:24rpx;width:75rpx;align-items:center;justify-content:space-between'>
+<view bindtap='gotoTheme' style='display:flex;flex-direction:column;font-size:24rpx;width:75rpx;align-items:center;justify-content:space-between'>
   <view style='background-color:blue;border-radius:40rpx;width:76rpx;height:76rpx;'>
   <image src="/png/img/theme.png" style='width:50rpx;height:50rpx;padding:13rpx'></image>
   </view>
@@ -73,7 +73,7 @@
 </view>
 
 
-<view style='display:flex;flex-direction:column;font-size:24rpx;width:75rpx;align-items:center;justify-content:space-between'>
+<view bindtap='gotoCategory' style='display:flex;flex-direction:column;font-size:24rpx;width:75rpx;align-items:center;justify-content:space-between'>
   <view style='background-color:orange;border-radius:40rpx;width:76rpx;height:76rpx;'>
   <image src="/png/img/cat.png" style='width:50rpx;height:50rpx;padding:13rpx'></image>
   </view>

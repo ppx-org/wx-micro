@@ -1,63 +1,35 @@
 
-<view class="container">
-
-<!-- swiper -->
-<image style="width:750rpx;heigth:750rpx"></image>
-
-<text>title</text>
-<text>11.8</text>
+<view class="container" style="background-color:#EEEEEE;height:100vh">
 
 
 
-<view>已选择XXXXXX</view>
-<view bindtap="viewProductPara">prod para</view>
+<view style="display:flex;flex-wrap:wrap;">
+  <view class="brand">
+    <image src="/png/home.png" style="width:150rpx;height:150rpx"></image>
+    <text style="font-size:30rpx;">NIKE</text>
+  </view>
 
+  <view class="brand">
+    <image src="/png/home.png" style="width:150rpx;height:150rpx"></image>
+    <text style="font-size:30rpx;">苹果</text>
+  </view>
 
+  <view class="brand">
+    <image src="/png/home.png" style="width:150rpx;height:150rpx"></image>
+    <text style="font-size:30rpx;">可口可乐</text>
+  </view>
 
+  <view class="brand">
+    <image src="/png/home.png" style="width:150rpx;height:150rpx"></image>
+    <text style="font-size:30rpx;">发光玩具</text>
+  </view>
 
-<view style="display:none;position:fixed;left:0;bottom:0;height:0px;stransition: height 0.3s;position:fixed;"> 
-	<view>
-
-		<view>
-			<image style="width:170rpx;height:170rpx;"></image>
-		</view>
-		
-		<view style="display:flex;flex-direction:column;">
-			<view style="display:flex;justify-content:space-between;margin:10rpx;">
-				<text>xx-xx</text>
-				<icon bindtap="closeSku" type="close" size="20" color="black"/>
-			</view>
-			<view>stock:4888N</view>
-			<view>请选择</view>
-		</view>
-	</view>
-	
-	
-	<view style="height:300rpx;overflow:scroll">
-		<view><text style="">SKU_NAME_XXX</text></view>
-		
-		<view style="display:flex;justify-content:space-between;margin:10rpx;">
-			<view>buy num</view>
-			<view>
-				<text bindtap="add">-</text><text>1</text><text bindtap="minus">+</text>
-			</view>
-		</view>
-	</view>
-	
-	
-	<view style="position:fixed;left:0;bottom:0;height:0;height:60rpx;">
-		<view style="width:50%">add cart</view>
-		<view style="width:50%">immidate buy</view>
-	</view>
+  <view class="brand">
+    <image src="/png/home.png" style="width:150rpx;height:150rpx"></image>
+    <text style="font-size:30rpx;">发光玩具</text>
+  </view>
 </view>
 
-
-
-<view style="position:fixed;left:0;bottom:0;height:0;height:60rpx;">
-	<view style="width:250rpx">favo</view>
-	<view style="width:250rpx">add cart</view>
-	<view style="width:250rpx">immidate buy</view>
-</view>
 
 
 

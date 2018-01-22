@@ -1,17 +1,33 @@
 
-<view class="container">
+<view class="container" >
 
 <!-- swiper -->
-<image style="width:750rpx;heigth:750rpx"></image>
+<image src="https://gd3.alicdn.com/imgextra/i1/0/T17sKfFQtbXXXXXXXX_!!0-item_pic.jpg_400x400.jpg" style="width:750rpx;height:750rpx"></image>
 
-<text>title</text>
-<text>11.8</text>
+<view style="font-size:28rpx;margin:0rpx 10rpx;">简约现代创意食物柜简易学生桌上置物书架宿舍书柜儿单旧面小书架</view>
+<view style="margin-left:10rpx;">
+  <text style="color:#FE7506;font-size:24rpx;">￥</text>
+  <text style="color:#FE7506;font-size:42rpx;">9.9</text>
+  <text style="color:green;font-size:23rpx;border:1px solid green;border-radius:7rpx">立即提货</text>
+  <text style="margin-left:15rpx;color:red;font-size:23rpx;border:1px solid red;border-radius:7rpx">特价:9.9</text>
+</view>
+
+<view style="margin-left:10rpx;color:gray;font-size:22rpx;">价格<text style="text-decoration:line-through">￥12.80</text></view>
 
 
+<view style='background-color:#EEEEEE;width:100%;height:10rpx'></view>
 
-<view>已选择XXXXXX</view>
-<view bindtap="viewProductPara">prod para</view>
+<view style="margin:0rpx 10rpx;font-size:30rpx;height:56rpx;display:flex;align-items:center;justify-content:space-between;">
+  <text>选择颜色分类</text><text style="color:gray">></text></view>
+<view style="margin:0rpx 10rpx;font-size:30rpx;height:56rpx;display:flex;align-items:center;justify-content:space-between;border-top:1px solid #EEEEEE;">
+  <text>产品参数</text><text style="color:gray">></text>
+</view>
 
+
+<view style='background-color:#EEEEEE;width:100%;height:55rpx;font-size:28rpx;display:flex;flex-direction:column;align-items:center;justify-content:space-around'>---- 详情 ----</view>
+<view style="height:200rpx">
+我是详情
+</view>
 
 
 
@@ -53,10 +69,10 @@
 
 
 
-<view style="position:fixed;left:0;bottom:0;height:0;height:60rpx;">
-	<view style="width:250rpx">favo</view>
-	<view style="width:250rpx">add cart</view>
-	<view style="width:250rpx">immidate buy</view>
+<view style="position:fixed;left:0;bottom:0;height:80rpx;display:flex;border-top:1px solid #EEEEEE;font-size:28rpx">
+	<view style="width:250rpx;display:flex;justify-content:space-around;align-items:center;background-color:white;">收藏</view>
+	<view style="width:250rpx;display:flex;justify-content:space-around;align-items:center;color:white;background-color:orange">加放购物车</view>
+	<view style="width:250rpx;display:flex;justify-content:space-around;align-items:center;color:white;background-color:#FE7506">立即购买</view>
 </view>
 
 

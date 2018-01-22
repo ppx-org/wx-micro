@@ -3,7 +3,7 @@
 <!-- home search -->
 <template name="prodShow">
 
-<view style="display:flex;flex-direction:column;background-color:white;margin-bottom:8rpx">
+<view bindtap='gotoProduct' style="display:flex;flex-direction:column;background-color:white;margin-bottom:8rpx">
 	<image src="https://gw1.alicdn.com/bao/uploaded/i1/738413102/TB2gznFj5qAXuNjy1XdXXaYcVXa_!!738413102.jpg_320x320.jpg" style="width:370rpx;height:370rpx"></image>
 	<view style="width:370rpx;height:28rpx;display:-webkit-box !important; overflow:hidden;-webkit-line-clamp:1;-webkit-box-orient:vertical;font-size:25rpx;padding-top:3rpx;">学生用桌上书架简易儿童桌面小活页本b5笔记文具xxxxxxx112</view>
   <view>
@@ -26,7 +26,7 @@
   <image src="https://gw2.alicdn.com/bao/uploaded/i1/3688137451/TB2I_kcgcPRfKJjSZFOXXbKEVXa_!!688137451.jpg_130x130.jpg" style="width:160rpx;height:160rpx"></image>
 
   <view style="width:420rpx;display:flex;flex-direction:column;justify-content:space-between;margin:3rpx;">
-	<view style='font-size:24rpx;height:66rpx;overflow:hidden;text-overflow:ellipsis;display:-webkit-box !important; -webkit-line-clamp:2;-webkit-box-orient:vertical'>4本25.8元 海底两万 正版彩图注意版小学生课外阅读书籍一二三年级必读故事里有你有我</view>
+	<view style='font-size:24rpx;height:64rpx;overflow:hidden;text-overflow:ellipsis;display:-webkit-box !important; -webkit-line-clamp:2;-webkit-box-orient:vertical'>4本25.8元 海底两万 正版彩图注意版小学生课外阅读书籍一二三年级必读故事里有你有我</view>
     <view style="font-size:24rpx;color:red">限制10件</view>
   </view>
   

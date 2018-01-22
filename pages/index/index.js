@@ -97,6 +97,21 @@ Page({
   // 上拉加载
   onReachBottomDistance: function() {
     
-  }
+  },
+  gotoPromo:function() {
+    wx.navigateTo({ url: "/pages/show/promo/promo"})
+  },
+  gotoBrand: function () {
+    wx.navigateTo({ url: "/pages/show/brand/brand" })
+  },
+  gotoTheme: function () {
+    wx.navigateTo({ url: "/pages/show/theme/theme" })
+  },
+  gotoCategory: function () {
+    wx.navigateTo({ url: "/pages/show/category/category" })
+  },
+  gotoProduct: function () {
+    wx.navigateTo({ url: "/pages/product/product" })
+  },
 })
 
