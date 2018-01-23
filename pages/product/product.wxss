@@ -1,0 +1,15 @@
+.itemView {
+  display:flex;align-items:center;justify-content:space-around;
+  width:210rpx;height:32rpx;
+  background-color:#EEEEEE;
+  padding:8rpx;
+  margin:4rpx;
+  border-radius:20rpx;
+}
+
+.itemText {
+  font-size:23rpx;
+  text-align:center;
+  overflow:hidden;text-overflow:ellipsis;display:-webkit-box !important; -webkit-line-clamp:1;-webkit-box-orient:vertical
+
+}

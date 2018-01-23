@@ -30,50 +30,75 @@
 </view>
 
 
-
-<view style="display:none;position:fixed;left:0;bottom:0;height:0px;stransition: height 0.3s;position:fixed;"> 
-	<view>
-
-		<view>
-			<image style="width:170rpx;height:170rpx;"></image>
-		</view>
-		
-		<view style="display:flex;flex-direction:column;">
-			<view style="display:flex;justify-content:space-between;margin:10rpx;">
-				<text>xx-xx</text>
-				<icon bindtap="closeSku" type="close" size="20" color="black"/>
-			</view>
-			<view>stock:4888N</view>
-			<view>请选择</view>
-		</view>
-	</view>
-	
-	
-	<view style="height:300rpx;overflow:scroll">
-		<view><text style="">SKU_NAME_XXX</text></view>
-		
-		<view style="display:flex;justify-content:space-between;margin:10rpx;">
-			<view>buy num</view>
-			<view>
-				<text bindtap="add">-</text><text>1</text><text bindtap="minus">+</text>
-			</view>
-		</view>
-	</view>
-	
-	
-	<view style="position:fixed;left:0;bottom:0;height:0;height:60rpx;">
-		<view style="width:50%">add cart</view>
-		<view style="width:50%">immidate buy</view>
-	</view>
-</view>
-
-
-
-<view style="position:fixed;left:0;bottom:0;height:80rpx;display:flex;border-top:1px solid #EEEEEE;font-size:28rpx">
-	<view style="width:250rpx;display:flex;justify-content:space-around;align-items:center;background-color:white;">收藏</view>
+<view style="position:fixed;left:0;bottom:0;height:80rpx;display:flex;border-top:1px solid #EEEEEE;font-size:26rpx">
+	<view style="width:250rpx;display:flex;justify-content:space-around;align-items:center;background-color:white;">
+    <view style="display:flex;">
+      <image src="/png/img/favorite.png" style="width:32rpx;height:32rpx;"></image>
+      <text style="padding-left:5rpx;">收藏</text>
+    </view>
+  </view>
 	<view style="width:250rpx;display:flex;justify-content:space-around;align-items:center;color:white;background-color:orange">加放购物车</view>
 	<view style="width:250rpx;display:flex;justify-content:space-around;align-items:center;color:white;background-color:#FE7506">立即购买</view>
 </view>
+
+
+
+
+
+<view style="display:flex;flex-direction:column;position:fixed;left:0;bottom:0;height:0px;stransition: bottom 0.3s;height:850rpx;background-color:white;width:100%"> 
+	
+	
+		
+		<view style="display:flex;height:190rpx;justify-content:space-between;margin:15rpx;">
+
+      <view style="position:relative;top:-40rpx;width:210rpx;height:210rpx;border:1rpx solid #EEEEEE;background-color:white;border-radius:10rpx;">
+			  <image style="width:200rpx;height:200rpx;padding:5rpx;" src="https://gd3.alicdn.com/imgextra/i1/0/T17sKfFQtbXXXXXXXX_!!0-item_pic.jpg_400x400.jpg"></image>
+		  </view>
+
+			<view style="display:flex;flex-direction:column;justify-content:space-between;width:420rpx;font-size:28rpx;height:150rpx;">
+        <view style="color:red">￥105</view>
+				<view>库存66件</view>
+        <view>请选择 颜色分类</view>
+			</view>
+      <view>
+         <icon bindtap="closeSku" type="cancel" size="26" color="black"/>
+      </view>
+     
+		</view>
+	
+   <view style="border-top:1rpx solid #EEEEEE;margin:15rpx;"></view>
+	
+	<view style="height:400rpx;overflow:scroll;margin:15rpx;">
+		<view><text style="">颜色分类</text></view>
+
+    <view style='display:flex;flex-wrap:wrap;margin-top:10rpx;'>
+		<view class="itemView"><text class="itemText">红色我很长的中了胸怀大志</text></view>
+    <view class="itemView"><text class="itemText">红色</text></view>
+    <view class="itemView"><text class="itemText">红色</text></view>
+    <view class="itemView"><text class="itemText">红色</text></view>
+    </view>
+
+		<view style="height:100rpx;border-top:1rpx solid #EEEEEE;border-bottom:1rpx solid #EEEEEE;display:flex;justify-content:space-between;margin:15rpx;font-size:30rpx;align-items:center;">
+			<view>购买数量</view>
+			<view style="display:flex;align-items:center;" >
+				<button size="mini">-</button>
+        
+        <view style="width:70rpx;text-align:center;font-weight:bold">13</view>
+
+        <button size="mini">+</button>
+			</view>
+		</view>
+	</view>
+	
+	
+	<view style="display:flex;background-color:#FE7506;position:fixed;left:0;bottom:0;height:80rpx;width:100%;color:white;font-size:30rpx;align-items:center;justify-content:space-around;">
+		<text>确定</text>
+	</view>
+</view>
+
+
+
+
 
 
 
