@@ -7,16 +7,20 @@
 </view>
 
 <view style="display:flex;justify-content:space-around;font-size:30rpx;">
-	<view style="display:flex;flex-direction:column;align-items:center;">
-		<text>217</text>
-    <image style="width:48rpx;height:48rpx" src="/png/img/favorite.png"></image>
-		<text>收藏夹</text>
+	<view style="display:flex;flex-direction:column;align-items:center;justify-content:space-around;">
+		<view style="height:36rpx;">217</view>
+   
+      <image style="width:48rpx;height:48rpx" src="/png/img/favorite_selected.png"></image>
+    
+		<view style="height:36rpx">收藏夹</view>
 	</view>
 	
-	<view style="display:flex;flex-direction:column;align-items:center;">
-		<text>242</text>
+	<view style="display:flex;flex-direction:column;align-items:center;justify-content:space-around;">
+		<view style="height:36rpx">242</view>
+    
     <image style="width:48rpx;height:48rpx" src="/png/img/foot.png"></image>
-		<text>足迹</text>
+   
+		<view style="height:36rpx">足迹</view>
 	</view>
 </view>
 

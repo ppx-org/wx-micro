@@ -8,28 +8,22 @@
 
 
 <view class="searchView">
+  <view bindtap='scan' style='display:flex;flex-direction:column;font-size:20rpx;align-items:center;justify-content:space-around;width:65rpx'>
+    <image src='/png/img/scan.png' style='width:40rpx;height:40rpx'></image>
+    <text>扫一扫</text>
+  </view>
 
-<view bindtap='scan' style='display:flex;flex-direction:column;font-size:20rpx;align-items:center;justify-content:space-around;width:65rpx'>
-  <image src='/png/img/scan.png' style='width:40rpx;height:40rpx'></image>
-  <text>扫一扫</text>
+  <view bindtap="search" style='display:flex;flex-direction:row;font-size:26rpx;width:560rpx;align-items:center;border-bottom:1px solid;margin:10rpx 0rpx'>
+    <icon type="search" size="20" color='white' style='margin-top:10rpx;'/>
+    <text>寻找宝贝</text>
+  </view>
+
+  <view bindtap='storeMap' style='display:flex;flex-direction:column;font-size:20rpx;align-items:center;width:65rpx;justify-content:space-around;'>
+    <image src='/png/img/position.png' style='width:40rpx;height:40rpx'></image>
+    <text>提货</text>
+  </view>
 </view>
 
-
-
-
-<view bindtap="search" style='display:flex;flex-direction:row;font-size:26rpx;width:560rpx;align-items:center;border-bottom:1px solid;margin:10rpx 0rpx'>
-  <icon type="search" size="20" color='white' style='margin-top:10rpx;'/>
-  <text>寻找宝贝</text>
-</view>
-
-
-<view bindtap='storeMap' style='display:flex;flex-direction:column;font-size:20rpx;align-items:center;width:65rpx;justify-content:space-around;'>
-  <image src='/png/img/position.png' style='width:40rpx;height:40rpx'></image>
-  <text>提货</text>
-</view>
-
-
-</view>
 </view>
 
 

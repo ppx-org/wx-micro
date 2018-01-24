@@ -11,11 +11,7 @@
 
 .searchView {
   height:100%;
-  /*margin-top:10rpx;*/
   display: flex;
-  flex-direction: row;
   justify-content:space-around;
-  
-  /* padding:0rpx 0rpx; */
 }
 
