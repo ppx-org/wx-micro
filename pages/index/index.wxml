@@ -36,7 +36,7 @@
   <view class="levelView" wx:if="{{item.level}}"><text class="levelTitle">{{item.level.levelName}}</text></view>
   <template is="prodShow" data="{{...item}}"/>
 </block>
-<view class="isBottom">---- 已经到底了 ----</view>
+<view class="isBottom"><view></view>已经到底了<view></view></view>
 </view>
 
 </view>

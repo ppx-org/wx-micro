@@ -1,7 +1,9 @@
 <import src="../../common/templet.wxml"/>
 
-<scroll-view class="container" scroll-y="true" style="height: 100vh" scrollTop="{{myScrollTop}}" bindscroll="viewScroll" >
-
+<!-- 
+<scroll-view class="container" style="height: 100vh" scrollTop="{{myScrollTop}}" bindscroll="viewScroll" >
+-->
+<scroll-view class="container" scroll-y="true"  scrollTop="{{myScrollTop}}"  style="height: 100vh" bindscroll="viewScroll">
 
 <view class="searchView"><input placeholder="笔记本" confirm-type="search"/><button size="mini">搜索</button></view>
 
@@ -24,128 +26,70 @@
 </view>
 
 
-
 <!-- search content -->
-
-<view style="border-top:1px solid #EEEEEE;font-size:28rpx;display:{{historyDisplay == ''? 'none' : ''}}">
+<view style="display:{{historyDisplay == ''? 'none' : ''}}">
 	<view class="resultTitle">
-    <view bindtap='showDelivery'>
-      <text>提货类型 </text>
-      <view style="float:right;width:3rpx;height:3rpx;margin-top:12rpx" class="dot-bottom"></view>
-    </view>
-
-		<text style="color:#FE7506">综合排序</text>
-		<text>新品优先</text>
-
-    
-    
-    <view bindtap='openFilter'>
-      <text>筛选</text><image src="/png/fonticon/filter.png" style="width:28rpx;height:28rpx"></image>
-    </view>
+    <view bindtap='showDelivery'><text>提货类型</text><view class="arrow-bottom"></view></view>
+		<view style="color:#FE7506">综合排序</view>
+		<view>新品优先</view>
+    <view class="openFilter" bindtap='openFilter'><text>筛选</text><image src="/png/fonticon/filter.png"/></view>
 	</view>
 
-  <view style="position:relative;z-index:{{deliveryIndex}};background-color:white;">
-    <view style="height:70rpx;display:flex;justify-content:space-between;padding:0rpx 36rpx;align-items:center">
-      <text>全部</text><icon type="success_no_circle" size='17' color="red"/>
-    </view>
-    <view style="height:70rpx;padding:0rpx 36rpx;display:flex;align-items:center;border-top:1rpx solid Gainsboro;">立即提货</view>
-    <view style="height:70rpx;padding:0rpx 36rpx;display:flex;align-items:center;border-top:1rpx solid Gainsboro;">2小时提货</view>
-
+  <view class="deliveryView" style="z-index:{{deliveryIndex}};">
+    <view class="deliveryItem"><text>全部</text><icon type="success_no_circle" size='17' color="red"/></view>
+    <view class="deliveryItem deliveryBorderTop"><text>立即提货</text></view>
+    <view class="deliveryItem deliveryBorderTop"><text>2小时提货</text></view>
   </view>
 
-
-
-
-  <view style="position:absolute;top:118rpx; padding:0;display:flex;justify-content:space-between;flex-wrap:wrap;background-color:#F7F7F7">
-
-    <block wx:for="{{prodList}}" wx:key='{{pid}}' wx:for-index="index" wx:for-item="item">
+  <view class="prodView">
+    <block wx:for="{{prodList}}" wx:key='{{pid}}'>
       <template is="prodShow" data="{{...item}}"/>
     </block>
-  
-  
+    <view class="isBottom"><view></view>已经到底了<view></view></view>
   </view>
-  <view style='font-size:26rpx;color:gray;padding:10rpx 0rpx;text-align:center;width:100%'>------ 已经到底了 ------</view>
-
 </view>
 
 
-<view>
-	
-	
+<view class="maskView" bindtap="closeFilter" style="display:{{filterDisplay}};z-index:{{maskIndex}}"></view>
+<view class="filterView" style="right:{{filterWidth}};">
+  <view class="filterTitle">筛选</view>
+	<view class="filterBlockTitle"><text>全部类目</text><image src="/png/fonticon/down.png"/></view>
+  <view class="filterBlock">
+      <view><text>(22)我太长了/不好玩/看能不能有省略号</text></view>
+      <view><text>手机/电器/家居</text></view>
+      <view><text>我太长了/不好玩/看能不能有省略号</text></view>
+      <view><text>商业/办公家具</text></view>
+  </view>
+  <view class="filterLine"></view>
 
+	<view class="filterBlockTitle"><text>全部品牌</text><image src="/png/fonticon/down.png"/></view>
+  <view class="filterBlock">
+      <view><text>(1)NIKE</text></view>
+      <view><text>(2)可口可乐</text></view>
+      <view><text>百事可乐</text></view>
+      <view><text>肯德基</text></view>
+  </view>
+  <view class="filterLine"></view>
+
+  <view class="filterBlockTitle"><text>全部专题</text><image src="/png/fonticon/down.png"/></view>
+  <view class="filterBlock">
+      <view><text>动漫</text></view>
+      <view><text>新年</text></view>
+      <view style="background-color:white"></view>
+  </view>
+  <view class="filterLine"></view>
+
+  <view class="filterBlockTitle"><text>全部促销</text><image src="/png/fonticon/down.png"/></view>
+  <view  class="filterBlock">
+      <view><text>特价</text></view>
+      <view><text>折扣</text></view>
+      <view><text>买二送一</text></view>
+      <view><text>加一元多一件是么</text></view>
+  </view>
 </view>
 
+<view class="toTop" wx:if="{{myTopShow}}" catchtap="gotoTop"><image src="/png/fonticon/to_top.png" style=""></image></view>
 
-
-<view bindtap="closeFilter" style="position:fixed;top:0;left:0;width:100%;height:100%;background-color:black;display:{{filterDisplay}};opacity: 0.5;z-index:{{maskIndex}}"></view>
-
-<view style="font-size:22rpx;flex-direction:column; position:fixed;top:0;right:{{filterWidth}};background-color:white;z-index:3000;width:550rpx;height:100%; transition:right .3s;">
-  <view style="background-color:Gainsboro;color:LightSlateGray;padding:7rpx;">筛选</view>
-  
-
-	<view>
-		<view style='display:flex;justify-content:space-between;margin:5rpx 20rpx;'>
-		<text>全部类目</text><image src="/png/fonticon/down.png" style="width:30rpx;height:30rpx"></image>
-	</view>
-  <view style='display:flex;flex-wrap:wrap;margin:8rpx;'>
-      <view class="filterItemView"><text class="filterItemText">(22)我太长了/不好玩/看能不能有省略号</text></view>
-      <view class="filterItemView"><text class="filterItemText">手机/电器/家居</text></view>
-      <view class="filterItemView"><text class="filterItemText">我太长了/不好玩/看能不能有省略号</text></view>
-      <view class="filterItemView"><text class="filterItemText">衣服</text></view>
-  </view>
-  <view style="border-top:1px solid Gainsboro;width:100%;margin-top:10rpx"></view>
-
-
-	<view style='display:flex;justify-content:space-between;margin:5rpx 20rpx;'>
-		<text>全部品牌</text><image src="/png/fonticon/down.png" style="width:30rpx;height:30rpx"></image>
-	</view>
-  <view style='display:flex;flex-wrap:wrap;margin:8rpx;'>
-      <view class="filterItemView"><text class="filterItemText">(1)NIKE</text></view>
-      <view class="filterItemView"><text class="filterItemText">(2)可口可乐</text></view>
-      <view class="filterItemView"><text class="filterItemText">百事可乐</text></view>
-      <view class="filterItemView"><text class="filterItemText">肯德基</text></view>
-  </view>
-  <view style="border-top:1px solid Gainsboro;width:100%;margin-top:10rpx"></view>
-
-  <view style='display:flex;justify-content:space-between;margin:5rpx 20rpx;'>
-		<text>全部专题</text><image src="/png/fonticon/down.png" style="width:30rpx;height:30rpx"></image>
-	</view>
-  <view style='display:flex;flex-wrap:wrap;margin:8rpx;'>
-      <view class="filterItemView"><text class="filterItemText">动漫</text></view>
-      <view class="filterItemView"><text class="filterItemText">新年</text></view>
-  </view>
-  <view style="border-top:1px solid Gainsboro;width:100%;margin-top:10rpx"></view>
-
-  <view style='display:flex;justify-content:space-between;margin:5rpx 20rpx;'>
-		<text>全部促销</text><image src="/png/fonticon/down.png" style="width:30rpx;height:30rpx"></image>
-	</view>
-  <view style='display:flex;flex-wrap:wrap;margin:8rpx;'>
-      <view class="filterItemView"><text class="filterItemText">特价</text></view>
-      <view class="filterItemView"><text class="filterItemText">折扣</text></view>
-      <view class="filterItemView"><text class="filterItemText">买二送一</text></view>
-      <view class="filterItemView"><text class="filterItemText">加一元多一件</text></view>
-  </view>
-
-
-
-  
-
-</view>
-	
-	
-	
-	
-	
-</view>
-
-
-
-
-
-<view style=" border-radius:50rpx;background-color:white; position: fixed; bottom: 10rpx; right: 10rpx; width:60rpx; height:60rpx; border: solid 1px gray;" wx:if="{{myTopShow}}" catchtap="gotoTop">
-<image src="/png/fonticon/to_top.png" style="width:40rpx;height:40rpx;padding:10rpx"></image>
-
-</view>  
 </scroll-view>
 
 

@@ -15,7 +15,7 @@ Page({
     maskIndex:2500,
     deliveryIndex:0,
     filterDisplay: "none",
-    filterWidth:"-550rpx",
+    filterWidth:"-560rpx",
     prodList: []
   },
   
@@ -38,7 +38,7 @@ Page({
   closeFilter:function() {
     this.setData({
       filterDisplay:"none",
-      filterWidth:"-550rpx",
+      filterWidth:"-560rpx",
       deliveryIndex: 0,
     })
   },
@@ -62,27 +62,31 @@ Page({
 
   viewScroll:function(e) {
     
-    if (e.detail.scrollTop >= 2) {
+    if (!this.data.myTopShow && e.detail.scrollTop >= 5) {
       this.setData({
         myTopShow: true
       })
     }
-    else {
+
+    if (this.data.myTopShow && e.detail.scrollTop < 5) {
       this.setData({
         myTopShow: false
       })
     }
    },
-  closeToTop:function() {
-    this.setData({
-      myTopShow: false
-    })
-  },
   gotoTop:function() {
+    
     this.setData({
       myScrollTop: 0,
       myTopShow:false
     })
+  }
+
+
+  ,
+  // 上拉加载
+  onReachBottomDistance: function () {
+    console.log("...onReachBottomDistance");
   }
 
 })

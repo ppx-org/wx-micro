@@ -15,5 +15,7 @@
 }
 
 
-.isBottom {font-size:26rpx;color:gray;padding:10rpx 0rpx;text-align:center;width:100%}
+.isBottom {display:flex;color:gray;width:100%;height:50rpx;justify-content:center;align-items:center;}
+.isBottom view {border-top:1px solid gray;width:90rpx;margin:0rpx 10rpx;}
+
 
