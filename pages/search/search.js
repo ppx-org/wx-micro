@@ -3,8 +3,9 @@
 const app = getApp()
 
 Page({
-  
   data: {
+    historyDisplay:"none",
+
     myScrollTop:0,
     myTopShow:false,
     scrollTop: { 

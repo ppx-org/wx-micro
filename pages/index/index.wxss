@@ -1,17 +1,25 @@
 
-.searchHeader {
-  z-index: 1000;
-  position: fixed;
-  background-color: #E16504;
-  width:100%;
-  height:86rpx;
-  color:white;
-  padding:2rpx 0rpx;
-}
+.searchHeader {z-index: 1000;position: fixed;background-color: #E16504;width:100%;height:86rpx;color:white;padding:2rpx 0rpx;}
+.searchView {height:100%;display: flex;justify-content:space-around;}
 
-.searchView {
-  height:100%;
-  display: flex;
-  justify-content:space-around;
-}
+.scan {display:flex;flex-direction:column;font-size:20rpx;align-items:center;justify-content:space-around;width:65rpx}
+.scan image {width:40rpx;height:40rpx}
+.search {display:flex;font-size:26rpx;width:560rpx;align-items:center;border-bottom:1px solid;margin:10rpx 0rpx}
+.search icon {margin-top:10rpx;}
+.map {display:flex;flex-direction:column;font-size:20rpx;align-items:center;width:65rpx;justify-content:space-around;}
+.map image {width:40rpx;height:40rpx}
 
+.homeContent {padding-top:86rpx}
+.slide-image {width:750rpx;height:200rpx}
+
+.groupView {display:flex;justify-content:space-around;margin:10rpx 0rpx;height:110rpx}
+.groupItem {display:flex;flex-direction:column;width:75rpx;align-items:center;justify-content:space-between}
+.groupItem .imageView {border-radius:40rpx;width:76rpx;height:76rpx;}
+.groupItem image {width:50rpx;height:50rpx;padding:13rpx}
+
+.levelProd {display:flex;justify-content:space-between;flex-wrap:wrap;background-color:#EEEEEE;}
+.levelView {width:100%;background-color:#EEEEEE;font-size:28rpx;}
+.levelTitle {
+  position:relative;background-color:orange;padding:8rpx 30rpx 8rpx 20rpx;color:white;
+  border-bottom-right-radius:20rpx; border-top-right-radius:20rpx;
+}

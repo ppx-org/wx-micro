@@ -1,5 +1,4 @@
 
-
 var getLevel = function (levelList, pid) {
   for (var i = 0; i < levelList.length; i++) {
     if (pid == levelList[i].firstProdId) {
@@ -33,23 +32,9 @@ Page({
     this.setData({
       prodList: r.prodList
     })
-    
-    /*
-    getApp().request("MHome/listJson", {}, function (r) {
-      
-      var levelList = r.levelList;
-      r.prodList.map(function(v){
-        v.level = getLevel(levelList, v.pid);
-      })
-      getCurrentPages()[0].setData({
-        prodList: r.prodList
-      })
-      console.log(JSON.stringify(r));
-    })
-    */
   },
   scan: function() {
-    // 允许从相机和相册扫码
+    // 允许从相机和相册扫码.
     wx.scanCode({
       success: (res) => {
         wx.navigateTo({
@@ -58,16 +43,8 @@ Page({
         console.log(res)
       }
     })
-    
-    /*
-    wx.navigateTo({
-      url: '/pages/product/detail/detail?id=98765',
-    })
-    console.log(getApp().globalData.SERVER_URL);
-    */
-    
   },
-  storeMap: function() {
+  map: function() {
     var latitude = 23.0867590917;
     var longitude = 113.3277297020;
     wx.openLocation({
@@ -76,11 +53,6 @@ Page({
       scale: 18,
       name: '皮皮7号店',
       address:'赤岗路188号'
-    })
-  },
-  search: function() {
-    wx.navigateTo({
-      url: '/pages/search/search',
     })
   },
   // 下拉刷新
@@ -97,21 +69,6 @@ Page({
   // 上拉加载
   onReachBottomDistance: function() {
     
-  },
-  gotoPromo:function() {
-    wx.navigateTo({ url: "/pages/show/promo/promo"})
-  },
-  gotoBrand: function () {
-    wx.navigateTo({ url: "/pages/show/brand/brand" })
-  },
-  gotoTheme: function () {
-    wx.navigateTo({ url: "/pages/show/theme/theme" })
-  },
-  gotoCategory: function () {
-    wx.navigateTo({ url: "/pages/show/category/category" })
-  },
-  gotoProduct: function () {
-    wx.navigateTo({ url: "/pages/product/product" })
-  },
+  }
 })
 

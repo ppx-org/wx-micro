@@ -1,46 +1,34 @@
 <import src="../../common/templet.wxml"/>
 
-<scroll-view scroll-y="true" style="height: 100vh" scrollTop="{{myScrollTop}}" class="container" bindscroll="viewScroll" >
+<scroll-view class="container" scroll-y="true" style="height: 100vh" scrollTop="{{myScrollTop}}" bindscroll="viewScroll" >
 
 
-<view style='display:flex;justify-content:space-between;height:60rpx;position:relative;z-index:2000;background-color:white'>
+<view class="searchView"><input placeholder="笔记本" confirm-type="search"/><button size="mini">搜索</button></view>
 
-	<input placeholder="word" style="border-bottom:1px solid gray;width:400rpx;" confirm-type="search"/>
-  
-	<button  style="display:flex;background-color:#FE7506;color:white;" size="mini">搜索</button>
- 
-</view>
-
-
-<view style="font-size:26rpx;display:none">
-	<view style='display:flex;justify-content:space-between;margin:5rpx 20rpx;'>
-		<text>历史搜索</text>
-		<image src="/png/fonticon/remove.png" style="width:30rpx;height:30rpx"></image>
+<view style="display:{{historyDisplay}}">
+	<view class="searchHistory"><text class="searchItemTitle">历史搜索</text><image src="/png/fonticon/remove.png"/></view>
+	<view class="searchItem">
+		<text>男士钱包我是较长的</text>
+    <text>小天才学习软件</text>
+    <text>学生书架</text>
+    <text>儿童书柜来了啊</text>
 	</view>
 
-	<view style='display:flex;flex-wrap:wrap;'>
-		<text style="white-space:nowrap;background-color:Gainsboro;padding:5rpx 15rpx;border-radius:20rpx;margin-left:20rpx;margin-top:20rpx;">男士钱包</text>
-    <text style="white-space:nowrap;background-color:Gainsboro;padding:5rpx 15rpx;border-radius:20rpx;margin-left:20rpx;margin-top:20rpx;">小天才学习软件</text>
-    <text style="white-space:nowrap;background-color:Gainsboro;padding:5rpx 15rpx;border-radius:20rpx;margin-left:20rpx;margin-top:20rpx;">学生书架</text>
-    <text style="white-space:nowrap;background-color:Gainsboro;padding:5rpx 15rpx;border-radius:20rpx;margin-left:20rpx;margin-top:20rpx">儿童书柜来了啊</text>
-	</view>
-
-
-	<view style='display:flex;justify-content:space-between;margin:30rpx 20rpx 15rpx 20rpx;'>
-		<text>推荐搜索</text>
-	</view>
-
-	<view style='display:flex;flex-wrap:wrap;'>
-		<text style="white-space:nowrap;background-color:Gainsboro;padding:5rpx 15rpx;border-radius:20rpx;margin-left:20rpx;margin-top:20rpx;">男士钱包</text>
-    <text style="white-space:nowrap;background-color:Gainsboro;padding:5rpx 15rpx;border-radius:20rpx;margin-left:20rpx;margin-top:20rpx;">小天才学习软件</text>
-    <text style="white-space:nowrap;background-color:Gainsboro;padding:5rpx 15rpx;border-radius:20rpx;margin-left:20rpx;margin-top:20rpx;">学生书架</text>
-    <text style="white-space:nowrap;background-color:Gainsboro;padding:5rpx 15rpx;border-radius:20rpx;margin-left:20rpx;margin-top:20rpx;">儿童书柜来了啊</text>
+  <view class="seachRecommend"><text class="searchItemTitle">推荐搜索</text>	</view>
+	<view class="searchItem">
+		<text>男士钱包我是较长的</text>
+    <text>小天才学习软件</text>
+    <text>学生书架</text>
+    <text>儿童书柜来了啊</text>
 	</view>
 </view>
 
 
-<view style="font-size:28rpx;">
-	<view style="display:flex;justify-content:space-around;height:60rpx;background-color:;align-items: center;border-bottom:1px solid Gainsboro;position:relative;z-index:2000;background-color:white">
+
+<!-- search content -->
+
+<view style="border-top:1px solid #EEEEEE;font-size:28rpx;display:{{historyDisplay == ''? 'none' : ''}}">
+	<view class="resultTitle">
     <view bindtap='showDelivery'>
       <text>提货类型 </text>
       <view style="float:right;width:3rpx;height:3rpx;margin-top:12rpx" class="dot-bottom"></view>
@@ -57,18 +45,18 @@
 	</view>
 
   <view style="position:relative;z-index:{{deliveryIndex}};background-color:white;">
-    <view style="display:flex;justify-content:space-between;padding:18rpx 35rpx;">
+    <view style="height:70rpx;display:flex;justify-content:space-between;padding:0rpx 36rpx;align-items:center">
       <text>全部</text><icon type="success_no_circle" size='17' color="red"/>
     </view>
-    <view style="padding:18rpx 35rpx;border-top:1rpx solid Gainsboro;">立即提货</view>
-    <view style="padding:18rpx 35rpx;border-top:1rpx solid Gainsboro;">2小时提货</view>
+    <view style="height:70rpx;padding:0rpx 36rpx;display:flex;align-items:center;border-top:1rpx solid Gainsboro;">立即提货</view>
+    <view style="height:70rpx;padding:0rpx 36rpx;display:flex;align-items:center;border-top:1rpx solid Gainsboro;">2小时提货</view>
 
   </view>
 
 
 
 
-  <view style="position:absolute;top:122rpx; padding:0;display:flex;justify-content:space-between;flex-wrap:wrap;background-color:#F7F7F7">
+  <view style="position:absolute;top:118rpx; padding:0;display:flex;justify-content:space-between;flex-wrap:wrap;background-color:#F7F7F7">
 
     <block wx:for="{{prodList}}" wx:key='{{pid}}' wx:for-index="index" wx:for-item="item">
       <template is="prodShow" data="{{...item}}"/>

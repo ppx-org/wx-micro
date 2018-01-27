@@ -1,17 +1,19 @@
 
-.container {
-  box-sizing: border-box;
-} 
+.container {font-size:24rpx;box-sizing: border-box;}
 
+.priceColor {color:red;}
+.priceNumSize {font-size:30rpx;}
+.promo {color:red;font-size:22rpx;border:1px solid red;border-radius:7rpx;margin-left:8rpx;}
+.delivery {font-size:22rpx;border:1px solid green;border-radius:7rpx;color:green;}
 
-.dot-bottom {
-  font-size: 0;  
-  line-height: 0;  
-  border-width: 10rpx;  
-  border-color: black;
-  border-bottom-width: 0;  
-  border-style: dashed;  
-  border-top-style: solid;  
-  border-left-color: transparent;  
-  border-right-color: transparent; 
+/* product show */
+.prodShow {display:flex;flex-direction:column;background-color:white;margin:5rpx 0rpx;}
+.prodShow image {width:370rpx;height:370rpx;}
+.prodShow .promoView {margin:0px 6rpx;padding:0rpx;height:32rpx;}
+.prodShow .title {width:358rpx;height:28rpx;margin:6rpx; line-height:28rpx;
+  display:-webkit-box !important; overflow:hidden;-webkit-line-clamp:1;-webkit-box-orient:vertical;
 }
+
+
+.isBottom {font-size:26rpx;color:gray;padding:10rpx 0rpx;text-align:center;width:100%}
+

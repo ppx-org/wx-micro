@@ -1,4 +1,28 @@
 
+.searchView {display:flex;justify-content:space-between;height:56rpx;position:relative;z-index:2000;background-color:white;padding:8rpx 120rpx;
+  font-size:28rpx;
+}
+.searchView input {border-bottom:1px solid gray;width:360rpx;height:56rpx;}
+.searchView button {display:flex;background-color:#FE7506;color:white;margin:0rpx;height:56rpx;}
+
+.searchItemTitle {display:flex;align-items:center;font-size:28rpx;}
+.searchItem {display:flex;flex-wrap:wrap;}
+.searchItem text {white-space:nowrap;background-color:Gainsboro;padding:20rpx 20rpx;border-radius:20rpx;margin-left:20rpx;margin-bottom:20rpx;}
+.searchHistory {display:flex;justify-content:space-between;margin:20rpx 20rpx;height:40rpx;}
+.searchHistory image {width:40rpx;height:40rpx}
+.seachRecommend {display:flex;justify-content:space-between;margin:0rpx 20rpx 20rpx 20rpx;height:40rpx;}
+
+
+.resultTitle {display:flex;justify-content:space-around;height:70rpx;align-items:center;
+  border-bottom:1px solid Gainsboro;position:relative;z-index:2000;background-color:white;
+}
+
+
+
+
+
+
+
 
 .filterItemView {
   display:flex;align-items:center;justify-content:space-around;
@@ -13,4 +37,17 @@
   text-align:center;
   overflow:hidden;text-overflow:ellipsis;display:-webkit-box !important; -webkit-line-clamp:2;-webkit-box-orient:vertical
 
+}
+
+
+.dot-bottom {
+  font-size: 0;  
+  line-height: 0;  
+  border-width: 10rpx;  
+  border-color: black;
+  border-bottom-width: 0;  
+  border-style: dashed;  
+  border-top-style: solid;  
+  border-left-color: transparent;  
+  border-right-color: transparent; 
 }
