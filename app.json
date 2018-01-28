@@ -1,13 +1,13 @@
 {
   "pages":[
-  "pages/search/search",
+  "pages/product/product",
   "pages/index/index",
 	"pages/cart/cart",
 	"pages/my/my",
   "pages/order/order",
   "pages/order/firm/firmorder",
-  "pages/product/product",
   
+  "pages/search/search",
 	"pages/show/brand/brand",
 	"pages/show/category/category",
 	"pages/show/promo/promo",
