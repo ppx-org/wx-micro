@@ -24,9 +24,7 @@
 
 <view class="action">
 	<view class="favorite" bindtap='favorite'>
-    <view class="favoriteItem">
-      <view><image src="/png/img/favorite.png"/></view><view style="padding-left:5rpx;">收藏</view>
-    </view>
+    <view class="favoriteItem"><image src="/png/img/favorite.png"/><view style="padding-left:5rpx;">收藏</view></view>
   </view>
 	<view class="cart" bindtap='addToCart'>加入购物车</view>
 	<view class="buy" bindtap='buy'>立即购买</view>
@@ -34,7 +32,7 @@
 
 
 <view class="skuView" style="bottom:{{skuBottom}}rpx;">
-  <view style="display:flex;height:190rpx;justify-content:space-between;margin:15rpx;">
+  <view style="display:flex;height:180rpx;justify-content:space-between;margin:15rpx;e">
     <view class="skuImg"><image src="https://gd3.alicdn.com/imgextra/i1/0/T17sKfFQtbXXXXXXXX_!!0-item_pic.jpg_400x400.jpg"/></view>
     <view class="skuDesc">
       <view style="color:red">￥105</view>
@@ -44,28 +42,24 @@
     <view><icon bindtap="closeSku" type="cancel" size="26" color="gray"/></view>
   </view>
 	
-  <view style="border-top:1rpx solid #EEEEEE;margin:15rpx;"></view>
+  <view style="border-top:1rpx solid #EEEEEE;margin:0rpx;"></view>
 	
-	<view style="height:400rpx;overflow:scroll;margin:15rpx;">
-		<view><text style="">颜色分类</text></view>
+	<view style="height:500rpx;overflow:scroll;margin:15rpx;">
+		<view><text style="font-size:30rpx">颜色分类</text></view>
     <view style='display:flex;flex-wrap:wrap;margin-top:10rpx;'>
-		<view class="itemView"><text class="itemText">红色我很长的中了胸怀大志</text></view>
-    <view class="itemView"><text class="itemText">红色</text></view>
-    <view class="itemView"><text class="itemText">红色</text></view>
-    <view class="itemView"><text class="itemText">红色</text></view>
+		<view class="skuItemView"><text>红色我很长的中了胸怀大志</text></view>
+    <view class="skuItemView"><text>红色</text></view>
+    <view class="skuItemView"><text>红色</text></view>
+    <view class="skuItemView"><text>红色</text></view>
   </view>
 
 	<view class="buyNum">
-			<view>购买数量</view>
-			<view style="display:flex;align-items:center;" >
-				<button size="mini">-</button>
-        <view style="width:70rpx;text-align:center;font-weight:bold">13</view>
-        <button size="mini">+</button>
-			</view>
-		</view>
+	  <view>购买数量</view>
+	  <view class="buyNumAction"><button size="mini">-</button><view style="">13</view><button size="mini">+</button></view>
 	</view>
+</view>
 	
-	<view class="firmOrder" bindtap='gotoFirmOrder'><text>确定</text></view>
+<view class="firmOrder" bindtap='gotoFirmOrder'><text>确定</text></view>
 </view>
 
 

@@ -1,5 +1,8 @@
 
-.container {font-size:24rpx;box-sizing: border-box;}
+.container {
+  font-size:24rpx;
+  box-sizing: border-box;
+  }
 
 .priceColor {color:red;}
 .priceNumSize {font-size:30rpx;}

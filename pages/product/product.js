@@ -3,7 +3,8 @@ const app = getApp()
 
 Page({
   data: {
-    skuBottom:-890
+    //skuBottom:-890
+    skuBottom: 0
   },
   onLoad: function (option) {
     console.log(option.id)

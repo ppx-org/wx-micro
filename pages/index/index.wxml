@@ -24,7 +24,7 @@
   <view class="imageView" style="background-color:green;"><image src="/png/img/brand.png"></image></view><text>品牌</text>
 </navigator>
 <navigator class="groupItem" url='/pages/show/theme/theme' >
-  <view class="imageView" style="background-color:blue;"><image src="/png/img/brand.png"></image></view><text>专题</text>
+  <view class="imageView" style="background-color:blue;"><image src="/png/img/theme.png"></image></view><text>专题</text>
 </navigator>
 <navigator class="groupItem" url='/pages/show/category/category' >
   <view class="imageView" style="background-color:orange;"><image src="/png/img/cat.png"></image></view><text>分类</text>
