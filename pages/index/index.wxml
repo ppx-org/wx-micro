@@ -3,11 +3,16 @@
 <view class="container">
 <view class="searchHeader">
 <view class="searchView">
-  <navigator class="scan" bindtap='scan'><image src='/png/img/scan.png'/><text>扫一扫</text></navigator>
+  <navigator class="map" bindtap='map'><image src='/png/img/position.png'/><text>提货</text></navigator>
+  <navigator style="display:flex;align-items:center;" url="/pages/store/store">
+    <text style="font-size:26rpx">007号</text>
+    <image src='/png/fonticon/down-white.png' style="width:20rpx;height:20rpx;margin-left:4rpx;"></image>
+  </navigator>
+
   <navigator class="search" url="/pages/search/search">
     <icon type="search" size="20" color='white'/><text>寻找宝贝</text>
   </navigator>
-  <navigator class="map" bindtap='map'><image src='/png/img/position.png'/><text>提货</text></navigator>
+  <navigator class="scan" bindtap='scan'><image src='/png/img/scan.png'/><text>扫一扫</text></navigator>
 </view>
 </view>
 
