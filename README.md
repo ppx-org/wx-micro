@@ -1,4 +1,3 @@
 # wx-micro
-wx-micro
 
-123
+v1.0.0
