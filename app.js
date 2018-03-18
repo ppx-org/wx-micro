@@ -1,68 +1,56 @@
 var SERVER_URL = "http://localhost/demo/";
+var PPX_TOKEN = "";
+var STORE_ID = 1;
+var MER_ID = 1;
 
-//app.js
 App({
-  
   // data:{x:'', y:''}
-  // MSearch/listWord
+  // url:MSearch/listWord
   request: function (url, data, callback) {
-    wx.request({
-      method: "POST",
-      url: SERVER_URL + url,
-      data: data,
-      header: {
-        'PPXTOKEN': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJvcGVuaWQiOiJvRDFuNjBIWkhXQmE2dWNXU2RZNTBITldQZnE0Iiwic2Vzc2lvbl9rZXkiOiJUQW5jcU1EUlRoTlpxZUVzbWIzeHJRPT0iLCJpYXQiOjE1MTU0NjgzMTd9.FYiDa1kF8mV5cBWM6YPVC5nFPow7qpwm9muEHTKDl0E',
-        "storeId":1,
-        "merchantId":-1
+    wx.request({method: "POST",url:SERVER_URL+url,data:data,
+      header: {'PPX_TOKEN':PPX_TOKEN,"STORE_ID":STORE_ID,"MER_ID": MER_ID},
+      success: function (r) { 
+        //console.log(r.data);
+        callback(r.data);
       },
-      success: function (res) {
-        //console.log(res.data);
-        callback(res.data);
-      },
-      fail: function(res) {
-        console.log(res.data)
+      fail: function(r) { 
+        console.log(r.data); 
       }
     })
   },
 
-  onLaunch: function () { 
-    console.log("xxxxxxxxxx001");
-    
-    // 展示本地存储能力
-    var ppxToken = wx.getStorageSync('PPXTOKEN') || '';
-    if (ppxToken == '') {
-      ppxToken = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJvcGVuaWQiOiJvRDFuNjBIWkhXQmE2dWNXU2RZNTBITldQZnE0Iiwic2Vzc2lvbl9rZXkiOiJUQW5jcU1EUlRoTlpxZUVzbWIzeHJRPT0iLCJpYXQiOjE1MTU0NjgzMTd9.FYiDa1kF8mV5cBWM6YPVC5nFPow7qpwm9muEHTKDl0E'
-      wx.setStorageSync('ppxTocken', ppxToken);
-
+  ppxLogin: function (callback) {
+    // 本地存储
+    PPX_TOKEN = wx.getStorageSync('PPX_TOKEN') || '';
+    if (PPX_TOKEN == '') {
+      // 登录
+      wx.login({
+        success: r => {
+          // 发送 res.code 到后台换取 openId, sessionKey, unionId
+          wx.request({method:"POST",url:SERVER_URL+'MLogin/login',data:{jsCode:r.code},
+            success: function (r) {
+              console.log("token from server;");
+              wx.setStorageSync('PPX_TOKEN', r.data.PPX_TOKEN);
+              console.log(r.data);
+              callback();
+            },
+            fail: function (r) {console.log(r.data)}
+          })
+        }, 
+        fail: function (r) {console.log(r);}
+      })
     }
-    console.log("xxxxxxxxxx002:" + ppxToken);
-
+    else {
+      console.log("token from local;");
+      callback();
+    }
     
+  },
 
-
-    // 登录
-    wx.login({
-      success: res => {
-        console.log(res);
-        // 发送 res.code 到后台换取 openId, sessionKey, unionId
-        wx.request({
-          method: "POST",
-          url: SERVER_URL + 'MLogin/login',
-          data: {jsCode:res.code},
-          success: function (res) {
-            // res.result == 1 res.PPXTOKEN
-            // console.log(res.data);
-            console.log(res.data);
-          },
-          fail: function (res) {
-            console.log(res.data)
-          }
-        })
-      }
-    })
-    // 获取用户信息
+  onLaunch: function (options) {
     
   },
   globalData: {
+
   }
 })

@@ -3,11 +3,12 @@
 <view class="container">
 <view class="searchHeader">
 <view class="searchView">
-  <navigator class="map" bindtap='map'><image src='/png/img/position.png'/><text>提货</text></navigator>
+  <view class="map" bindtap='map'><image src='/png/img/position.png'/><text>提货</text></view>
   <navigator style="display:flex;align-items:center;" url="/pages/store/store">
-    <text style="font-size:26rpx">007号</text>
+    <text style="font-size:26rpx">{{store.name}}</text>
     <image src='/png/fonticon/down-white.png' style="width:20rpx;height:20rpx;margin-left:4rpx;"></image>
   </navigator>
+
 
   <navigator class="search" url="/pages/search/search">
     <icon type="search" size="20" color='white'/><text>寻找宝贝</text>
@@ -18,7 +19,7 @@
 
 <view class="homeContent">
 <swiper indicator-dots="true" autoplay="true" interval="5000" duration="500" style="height:200rpx">
-    <swiper-item wx:for="{{imgUrls}}" wx:key='*this'><image src="{{item}}" class="slide-image"/></swiper-item>
+    <swiper-item wx:for="{{swiperList}}" wx:key='*this'><image src="{{item.src}}" class="slide-image"/></swiper-item>
 </swiper>
 
 <view class="groupView">

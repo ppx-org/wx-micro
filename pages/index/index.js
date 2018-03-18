@@ -10,50 +10,42 @@ var getLevel = function (levelList, pid) {
 
 Page({
   data: {
-    imgUrls: [
-      'https://img.alicdn.com/imgextra/i1/93/TB2EaLvmCfD8KJjSszhXXbIJFXa_!!93-0-luban.jpg_q50.jpg',
-      'https://aecpm.alicdn.com/simba/img/TB1CWf9KpXXXXbuXpXXSutbFXXX.jpg_q50.jpg',
-      'https://gw.alicdn.com/imgextra/i1/38/TB2ECMYd7fb_uJkSmRyXXbWxVXa_!!38-0-lubanu.jpg_q50.jpg'
-    ],
+    store:{},
+    swiperList:[{}],
     prodList:[]
   },
   onLoad() {
-    wx.setTabBarBadge({
-      index: 2,
-      text: '5'
-    })
+    var thisPage = this;
+    getApp().ppxLogin(function () {
+      getApp().request("MHome/listHome", null, function(r) {
+        var levelList = r.levelList;
+        r.prodList.map(function (v) {
+          v.level = getLevel(levelList, v.pid);
+        })
 
-    var r = { "swiperList": [], "actionStatus": "OK", "levelList": [{ "levelId": 1, "levelName": "店长推荐", "firstProdId": 1 }, { "levelId": 2, "levelName": "第二层", "firstProdId": 5 }], "errorCode": "0", "page": { "pageSize": 6, "pageNumber": 1, "totalRows": 0, "hasMore": false }, "prodList": [{ "pid": 1, "p": "9.80", "t": "test1我是化装品", "f": 0, "level": { "levelId": 1, "levelName": "第一层", "firstProdId": 1 } }, { "pid": 2, "p": "6.90", "t": "test2我是化装品", "f": 1, "level": null }, { "pid": 3, "p": "7.90", "t": "test3", "f": 1, "level": null }, { "pid": 4, "p": "7.80", "t": "test4", "f": 1, "level": null }, { "pid": 5, "p": "12.80", "t": "test5", "f": 1, "level": { "levelId": 2, "levelName": "第二层", "firstProdId": 5 } }, { "pid": 3, "p": "7.90", "t": "test3", "f": 1, "level": null }]};
-    var levelList = r.levelList;
-    r.prodList.map(function (v) {
-      v.level = getLevel(levelList, v.pid);
-    })
-    
-    this.setData({
-      prodList: r.prodList
-    })
+        thisPage.setData({
+          store: r.store,
+          swiperList: r.swiperList,
+          prodList: r.prodList
+        })
+        console.log(r);
+      })
+      console.log(111)
+    });    
   },
   scan: function() {
     // 允许从相机和相册扫码.
     wx.scanCode({
       success: (res) => {
-        wx.navigateTo({
-          url: "/" +  res.path
-        })
+        wx.navigateTo({url: "/" +  res.path});
         console.log(res)
       }
     })
   },
   map: function() {
-    var latitude = 23.0867590917;
-    var longitude = 113.3277297020;
-    wx.openLocation({
-      latitude: latitude,
-      longitude: longitude,
-      scale: 18,
-      name: '皮皮7号店',
-      address:'赤岗路188号'
-    })
+    var s = this.data.store;
+    
+    wx.openLocation({latitude:new Number(s.lat),longitude:new Number(s.lng),scale:18,name:s.name,address:s.addr});
   },
   // 下拉刷新
   onPullDownRefresh: function () {
