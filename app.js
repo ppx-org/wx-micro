@@ -1,7 +1,11 @@
+// 负载均衡的URL
 var SERVER_URL = "http://localhost/demo/";
 var PPX_TOKEN = "";
-var STORE_ID = 1;
+// 固定值,每个小程序对一个
 var MER_ID = 1;
+// 默认值，在找不到传值时，使用该值
+var STORE_ID = 1;
+
 
 App({
   // data:{x:'', y:''}
