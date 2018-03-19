@@ -14,7 +14,7 @@ App({
   // url:MSearch/listWord
   request: function (url, data, callback) {
     wx.request({method: "POST",url:SERVER_URL+url,data:data,
-      header: {'PPX_TOKEN':PPX_TOKEN,"STORE_ID":STORE_ID,"MER_ID": MER_ID},
+      header: {'PPX_TOKEN':PPX_TOKEN,"STORE_ID":STORE_ID,"MER_ID":MER_ID,"PROMO_CODE":PROMO_CODE},
       success: function (r) { 
         //console.log(r.data);
         callback(r.data);
