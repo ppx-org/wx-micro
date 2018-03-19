@@ -5,6 +5,8 @@ var PPX_TOKEN = "";
 var MER_ID = 1;
 // 默认值，在找不到传值时，使用该值
 var STORE_ID = 1;
+// 促销编码
+var PROMO_CODE = "";
 
 
 App({
