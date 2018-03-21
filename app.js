@@ -1,15 +1,21 @@
+// 负载均衡的URL
 var SERVER_URL = "http://localhost/demo/";
 var IMG_URL = "http://localhost/demo/img/";
 var PPX_TOKEN = "";
-var STORE_ID = 1;
+// 固定值,每个小程序对一个
 var MER_ID = 1;
+// 默认值，在找不到传值时，使用该值
+var STORE_ID = 1;
+// 促销编码
+var PROMO_CODE = "";
+
 
 App({
   // data:{x:'', y:''}
   // url:MSearch/listWord
   request: function (url, data, callback) {
     wx.request({method: "POST",url:SERVER_URL+url,data:data,
-      header: {'PPX_TOKEN':PPX_TOKEN,"STORE_ID":STORE_ID,"MER_ID": MER_ID},
+      header: {'PPX_TOKEN':PPX_TOKEN,"STORE_ID":STORE_ID,"MER_ID":MER_ID,"PROMO_CODE":PROMO_CODE},
       success: function (r) { 
         //console.log(r.data);
         callback(r.data);
