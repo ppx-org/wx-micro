@@ -10,6 +10,7 @@ var getLevel = function (levelList, pid) {
 
 Page({
   data: {
+    IMG_URL: getApp().globalData.IMG_URL,
     store:{},
     swiperList:[{}],
     prodList:[]

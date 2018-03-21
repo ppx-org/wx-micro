@@ -40,10 +40,10 @@
 <view class="levelProd">
 <block wx:for="{{prodList}}" wx:key='{{pid}}' wx:for-index="index" wx:for-item="item">
   <view class="levelView" wx:if="{{item.level}}"><text class="levelTitle">{{item.level.levelName}}</text></view>
-  <template is="prodShow" data="{{...item}}"/>
+  <template is="prodShow" data="{{...item, imgUrls:IMG_URL}}"/>
 </block>
 <view class="isBottom"><view></view>已经到底了<view></view></view>
 </view>
 
 </view>
-</view>
+</view> 

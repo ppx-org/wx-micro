@@ -3,13 +3,13 @@
 <!-- home|search -->
 <template name="prodShow">
 <navigator class="prodShow" url='/pages/product/product'>
-	<image src="https://gw1.alicdn.com/bao/uploaded/i1/738413102/TB2gznFj5qAXuNjy1XdXXaYcVXa_!!738413102.jpg_320x320.jpg"></image>
-	<view class="title">学生用桌上书架简易儿童桌面小活页本b5笔记文具xxxxxxx112</view>
+	<image src="{{imgUrls}}{{src}}"></image>
+	<view class="title">{{t}}</view>
   <view class="promoView">
     <text class="delivery"><block wx:if="{{f==1}}">立即提货</block><block wx:if="{{f==0}}">2小时提货</block></text>
-    <text class="promo">1件9折,2件或以上8.5折</text>
+    <text class="promo"></text>
   </view>
-  <view class="priceColor">￥<text class="priceNumSize">99.90</text> </view>
+  <view class="priceColor">￥<text class="priceNumSize">{{p}}</text> </view>
 </navigator>
 </template>
 

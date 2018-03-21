@@ -1,4 +1,5 @@
 var SERVER_URL = "http://localhost/demo/";
+var IMG_URL = "http://localhost/demo/img/";
 var PPX_TOKEN = "";
 var STORE_ID = 1;
 var MER_ID = 1;
@@ -51,6 +52,6 @@ App({
     
   },
   globalData: {
-
+    IMG_URL: IMG_URL
   }
 })
