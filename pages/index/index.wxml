@@ -42,7 +42,9 @@
   <view class="levelView" wx:if="{{item.level}}"><text class="levelTitle">{{item.level.levelName}}</text></view>
   <template is="prodShow" data="{{...item, imgUrls:IMG_URL}}"/>
 </block>
-<view class="isBottom"><view></view>已经到底了<view></view></view>
+
+<view class="isBottom" wx:if="{{page.loading}}"><view></view>正在努力加载<view></view></view>
+<view class="isBottom" wx:if="{{!page.hasMore}}"><view></view>已经到底了<view></view></view>
 </view>
 
 </view>
