@@ -1,0 +1,21 @@
+
+
+.storeList {
+  border-bottom:1px solid #EEEEEE;height:180rpx;padding:0 20rpx;display:flex;justify-content:space-between;align-items:center;
+}
+
+.imgView {
+  width:150rpx;height:150rpx;
+}
+
+.imgView image {
+  width:150rpx;height:150rpx;background-color:blue;position:relative;
+}
+
+.contentView {
+  display:flex;justify-content:space-around;flex-direction:column;height:150rpx;
+}
+
+.position {
+  width:60rpx;height:60rpx;background-color:blue
+}

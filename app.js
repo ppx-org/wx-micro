@@ -55,7 +55,8 @@ App({
   },
 
   onLaunch: function (options) {
-    
+    // 测试用
+    PPX_TOKEN = wx.getStorageSync('PPX_TOKEN')
   },
   globalData: {
     IMG_URL: IMG_URL

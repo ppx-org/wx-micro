@@ -3,9 +3,15 @@ const app = getApp()
 
 Page({
   data: {
-    width:"100rpx"
+    list:[],
+    backUrl:"http://test-1253864162.file.myqcloud.com/cat.png"
   },
-  onLoad: function (option) {
-    console.log(option.id)
+  onLoad: function () {
+    var thisPage = this;
+    getApp().request("MQuery/listCategory", null, function (r) {
+      thisPage.setData({
+        list: r.arrayList
+      })
+    })
   }
 })

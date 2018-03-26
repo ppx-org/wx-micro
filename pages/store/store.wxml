@@ -1,29 +1,20 @@
 <view class="container" >
 
 
-<view style="border-bottom:1px solid #EEEEEE;height:180rpx;padding:0 20rpx;display:flex;justify-content:space-between;align-items:center;">
-<view style="width:150rpx;height:150rpx;">
-<image style="width:150rpx;height:150rpx;background-color:blue;position:relative;" src="http://img1.imgtn.bdimg.com/it/u=2538525871,3051926416&fm=27&gp=0.jpg"></image>
+
+
+<view class="storeList" wx:for="{{list}}" wx:key='*this'>
+<view class="imgView">
+<image src="{{item.img}}"></image>
 </view>
-<view style="display:flex;justify-content:space-around;flex-direction:column;height:150rpx;">
-  <view style="font-size:32rpx;">皮皮007号店</view>
-  <view style="width:460rpx;">广州市海珠区赤岗路188号xxx门口</view>
-  <view>电话:13800138000</view>
+<view class="contentView">
+  <view style="font-size:32rpx;">{{item.name}}</view>
+  <view style="width:460rpx;">{{item.addr}}</view>
+  <view>电话:{{item.phone}}</view>
 </view>
-<image style="width:60rpx;height:60rpx;background-color:blue" src="/png/img/position.png"></image>
+<image class="position" src="/png/img/position.png"></image>
 </view>
 
-<view style="border-bottom:1px solid #EEEEEE;height:180rpx;padding:0 20rpx;display:flex;justify-content:space-between;align-items:center;">
-<view style="width:150rpx;height:150rpx;">
-<image style="width:150rpx;height:150rpx;background-color:blue;position:relative;" src="http://img1.imgtn.bdimg.com/it/u=2538525871,3051926416&fm=27&gp=0.jpg"></image>
-</view>
-<view style="display:flex;justify-content:space-around;flex-direction:column;height:150rpx;">
-  <view style="font-size:32rpx;">皮皮008号店</view>
-  <view style="width:460rpx;">广州市海珠区赤岗路98号xxx门口</view>
-  <view>电话:13800138000</view>
-</view>
-<image style="width:60rpx;height:60rpx;background-color:blue" src="/png/img/position.png"></image>
-</view>
 
 	
 </view>
