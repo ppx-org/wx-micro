@@ -5,12 +5,12 @@
 
 <view style="display:flex;flex-wrap:wrap;">
   <view class="promo">
-    <image src="/png/home.png" style="width:750rpx;height:150rpx"></image>
+    <image src="/png/home.png" style="width:375rpx;height:150rpx"></image>
     <text style="font-size:30rpx;">promo1</text>
   </view>
 
   <view class="promo">
-    <image src="/png/home.png" style="width:750rpx;height:150rpx"></image>
+    <image src="/png/home.png" style="width:375rpx;height:150rpx"></image>
     <text style="font-size:30rpx;">promo2</text>
   </view>
 
