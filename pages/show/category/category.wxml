@@ -6,105 +6,18 @@
 <view class="mainDash"></view>{{item.cn}}<view class="mainDash"></view>
 </view>
 
-<view style="subView" wx:for="{{item.children}}" wx:key="*this">
-  <view class="subCategory">
-    <view style="background-position: -0rpx -150rpx;background-image: url({{backUrl}});"></view>
+<view class="subView">
+  <block wx:for="{{item.children}}" wx:key="*this" >
+  <view class="subCategory" style="background-color:{{item.backColor}}">
+    <view wx:if="{{item.cn}}" style="background-position: -0rpx -150rpx;background-image: url({{backUrl}});"></view>
     <text style="font-size:30rpx;">{{item.cn}}</text>
   </view>
+  </block>
 </view>
 </block>
 
 
 
-
-
-<view style="font-size:32rpx;display:flex;width:100%;height:70rpx;justify-content:center;align-items:center;background-color:#EEEEEE">
-<view style='border-top:1px solid gray;width:90rpx;margin:0rpx 10rpx;'></view>玩具<view style='border-top:1px solid gray;width:90rpx;margin:0rpx 10rpx;'></view>
-</view>
-
-<view style="display:flex;flex-wrap:wrap;justify-content:space-between;margin:0rpx 20rpx;">
-  <view class="subCategory">
-    <view style="background-position: -0rpx -150rpx;background-image: url({{backUrl}});"></view>
-    <text style="font-size:30rpx;">雨伞</text>
-  </view>
-
-  <view class="subCategory">
-    <view style="background-position: -150rpx -0rpx;"></view>
-    <text style="font-size:30rpx;">毛巾</text>
-  </view>
-
-  <view class="subCategory">
-    <view style="background-position: -300rpx -0rpx;"></view>
-    <text style="font-size:30rpx;">浴巾</text>
-  </view>
-
-  <view class="subCategory">
-    <view style="background-position: -450rpx -0rpx;"></view>
-    <text style="font-size:30rpx;">面罩</text>
-  </view>
-
-  <view class="subCategory">
-    <view style="background-position: -600rpx -0rpx;"></view>
-    <text style="font-size:30rpx;">果盘</text>
-  </view>
-  <view class="subCategory">
-    <view style="background-position: -600rpx -0rpx;"></view>
-    <text style="font-size:30rpx;">果盘</text>
-  </view>
-  <view class="subCategory">
-    <view style="background-position: -600rpx -0rpx;"></view>
-    <text style="font-size:30rpx;">果盘</text>
-  </view>
-  <view class="subCategory">
-    <view style="background-position: -600rpx -0rpx;"></view>
-    <text style="font-size:30rpx;">果盘</text>
-  </view>
-  
-</view>
-
-<view style="font-size:32rpx;display:flex;width:100%;height:70rpx;justify-content:center;align-items:center;background-color:#EEEEEE">
-<view style='border-top:1px solid gray;width:90rpx;margin:0rpx 10rpx;'></view>玩具<view style='border-top:1px solid gray;width:90rpx;margin:0rpx 10rpx;'></view>
-</view>
-
-<view style="display:flex;flex-wrap:wrap;justify-content:space-between;margin:0rpx 20rpx;">
-  <view class="subCategory">
-    <view style="background-position: -0rpx -0rpx;"></view>
-    <text style="font-size:30rpx;">雨伞</text>
-  </view>
-
-  <view class="subCategory">
-    <view style="background-position: -150rpx -0rpx;"></view>
-    <text style="font-size:30rpx;">毛巾</text>
-  </view>
-
-  <view class="subCategory">
-    <view style="background-position: -300rpx -0rpx;"></view>
-    <text style="font-size:30rpx;">浴巾</text>
-  </view>
-
-  <view class="subCategory">
-    <view style="background-position: -450rpx -0rpx;"></view>
-    <text style="font-size:30rpx;">面罩</text>
-  </view>
-
-  <view class="subCategory">
-    <view style="background-position: -600rpx -0rpx;"></view>
-    <text style="font-size:30rpx;">果盘</text>
-  </view>
-  <view class="subCategory">
-    <view style="background-position: -600rpx -0rpx;"></view>
-    <text style="font-size:30rpx;">果盘</text>
-  </view>
-  <view class="subCategory">
-    <view style="background-position: -600rpx -0rpx;"></view>
-    <text style="font-size:30rpx;">果盘</text>
-  </view>
-  <view class="subCategory">
-    <view style="background-position: -600rpx -0rpx;"></view>
-    <text style="font-size:30rpx;">果盘</text>
-  </view>
-  
-</view>
 
 
 
