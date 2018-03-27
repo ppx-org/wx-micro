@@ -5,29 +5,15 @@
 
 <view style="display:flex;flex-wrap:wrap;">
   <view class="promo">
-    <image src="/png/home.png" style="width:150rpx;height:150rpx"></image>
-    <text style="font-size:30rpx;">动漫</text>
+    <image src="/png/home.png" style="width:750rpx;height:150rpx"></image>
+    <text style="font-size:30rpx;">promo1</text>
   </view>
 
   <view class="promo">
-    <image src="/png/home.png" style="width:150rpx;height:150rpx"></image>
-    <text style="font-size:30rpx;">佩佩猪</text>
+    <image src="/png/home.png" style="width:750rpx;height:150rpx"></image>
+    <text style="font-size:30rpx;">promo2</text>
   </view>
 
-  <view class="promo">
-    <image src="/png/home.png" style="width:150rpx;height:150rpx"></image>
-    <text style="font-size:30rpx;">可口可乐</text>
-  </view>
-
-  <view class="promo">
-    <image src="/png/home.png" style="width:150rpx;height:150rpx"></image>
-    <text style="font-size:30rpx;">发光玩具</text>
-  </view>
-
-  <view class="promo">
-    <image src="/png/home.png" style="width:150rpx;height:150rpx"></image>
-    <text style="font-size:30rpx;">发光玩具</text>
-  </view>
 </view>
 
 
