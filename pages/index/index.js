@@ -33,9 +33,7 @@ Page({
           page: r.mPage,
           levelList: levelList
         })
-        console.log(r);
       })
-      console.log(111)
     });    
   },
   scan: function() {

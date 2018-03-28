@@ -1,15 +1,16 @@
 
 <view class="container" >
 
-<!-- swiper -->
-<image src="https://gd3.alicdn.com/imgextra/i1/0/T17sKfFQtbXXXXXXXX_!!0-item_pic.jpg_400x400.jpg" style="width:750rpx;height:750rpx"/>
+<swiper indicator-dots="true" autoplay="true" interval="5000" duration="500" style="height:750rpx">
+    <swiper-item wx:for="{{img}}" wx:key='*this'><image src="{{item}}" class="slide-image"/></swiper-item>
+</swiper>
 
-<view style="font-size:28rpx;margin:0rpx 10rpx;">简约现代创意食物柜简易学生桌上置物书架宿舍书柜儿单旧面小书架</view>
+<view style="font-size:28rpx;margin:0rpx 10rpx;">{{p.prodTitle}}</view>
 <view style="margin-left:10rpx;color:red">
   <text>￥</text>
-  <text style="font-size:42rpx;margin-right:8rpx;">9.9</text>
-  <text class="delivery">立即提货</text>
-  <text class="promo">特价:9.9</text>
+  <text style="font-size:42rpx;margin-right:8rpx;">{{p.prodPrice}}</text>
+  <text class="delivery">{{p.fast}}</text>
+  <text class="promo">{{p.policy}}</text>
 </view>
 
 <view class="originPrice">价格<text>￥12.80</text></view>

@@ -8,21 +8,11 @@
 <view class="searchView"><input placeholder="笔记本" confirm-type="search"/><button size="mini">搜索</button></view>
 
 <view style="display:{{historyDisplay}}">
-	<view class="searchHistory"><text class="searchItemTitle">历史搜索</text><image src="/png/fonticon/remove.png"/></view>
-	<view class="searchItem">
-		<text>男士钱包我是较长的</text>
-    <text>小天才学习软件</text>
-    <text>学生书架</text>
-    <text>儿童书柜来了啊</text>
-	</view>
+  <view class="searchHistory"><text class="searchItemTitle">历史搜索</text><image src="/png/fonticon/remove.png"/></view>
+  <view class="searchItem"><text wx:for="{{lastWordList}}" wx:key="*this">{{item}}</text></view>
 
-  <view class="seachRecommend"><text class="searchItemTitle">推荐搜索</text>	</view>
-	<view class="searchItem">
-		<text>男士钱包我是较长的</text>
-    <text>小天才学习软件</text>
-    <text>学生书架</text>
-    <text>儿童书柜来了啊</text>
-	</view>
+  <view class="seachRecommend"><text class="searchItemTitle">热门搜索</text></view>
+  <view class="searchItem"><text wx:for="{{hotWordList}}" wx:key="*this">{{item}}</text></view>
 </view>
 
 
