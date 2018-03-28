@@ -1,4 +1,3 @@
-// 获取应用实例
 const app = getApp()
 
 Page({
@@ -9,6 +8,8 @@ Page({
   onLoad: function () {
     var thisPage = this;
     getApp().request("MQuery/listCategory", null, function (r) {
+	  if (!r.arrayList) return;
+	  
       var len = r.arrayList.length;
       for (var i = 0; i < len; i++) {
         var patchN = 4 - r.arrayList[i].children.length % 4;

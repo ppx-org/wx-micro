@@ -1,38 +1,11 @@
 
 <view class="container" style="background-color:#EEEEEE;height:100vh">
 
-
-
 <view style="display:flex;flex-wrap:wrap;">
-  <view class="theme">
-    <image src="/png/home.png" style="width:150rpx;height:150rpx"></image>
-    <text style="font-size:30rpx;">动漫</text>
-  </view>
-
-  <view class="theme">
-    <image src="/png/home.png" style="width:150rpx;height:150rpx"></image>
-    <text style="font-size:30rpx;">佩佩猪</text>
-  </view>
-
-  <view class="theme">
-    <image src="/png/home.png" style="width:150rpx;height:150rpx"></image>
-    <text style="font-size:30rpx;">可口可乐</text>
-  </view>
-
-  <view class="theme">
-    <image src="/png/home.png" style="width:150rpx;height:150rpx"></image>
-    <text style="font-size:30rpx;">发光玩具</text>
-  </view>
-
-  <view class="theme">
-    <image src="/png/home.png" style="width:150rpx;height:150rpx"></image>
-    <text style="font-size:30rpx;">发光玩具</text>
+  <view class="brand" wx:for="{{list}}" wx:key="*this">
+    <view wx:if="{{item.tn}}" style="background-position: -{{item.x*150}}rpx -{{item.y*150}}rpx;background-image: url({{backUrl}});"></view>
+    <text style="font-size:30rpx;">{{item.tn}}</text>
   </view>
 </view>
-
-
-
-
-
 
 </view>

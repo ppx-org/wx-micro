@@ -1,4 +1,3 @@
-// 获取应用实例
 const app = getApp()
 
 Page({
@@ -9,6 +8,7 @@ Page({
   onLoad: function () {
     var thisPage = this;
     getApp().request("MQuery/listBrand", null, function (r) {
+	  if (!r.arrayList) return;
       var patchN = 4 - r.arrayList.length % 4;
       for (var j = 0; j < patchN; j++) {
         r.arrayList.push({ backColor: "#EEEEEE" });

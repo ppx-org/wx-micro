@@ -1,24 +1,11 @@
 
 <view class="container" style="background-color:#EEEEEE;height:100vh">
 
-
-
 <view style="display:flex;flex-wrap:wrap;">
-  <view class="promo">
-    <image src="/png/home.png" style="width:375rpx;height:150rpx"></image>
-    <text style="font-size:30rpx;">promo1</text>
+  <view class="brand" wx:for="{{list}}" wx:key="*this">
+    <view wx:if="{{item.gn}}" style="background-position: -{{item.x*300}}rpx -{{item.y*150}}rpx;background-image: url({{backUrl}});"></view>
+    <text style="font-size:30rpx;">{{item.gn}}</text>
   </view>
-
-  <view class="promo">
-    <image src="/png/home.png" style="width:375rpx;height:150rpx"></image>
-    <text style="font-size:30rpx;">promo2</text>
-  </view>
-
 </view>
-
-
-
-
-
 
 </view>
