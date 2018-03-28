@@ -3,9 +3,22 @@ const app = getApp()
 
 Page({
   data: {
-    
+    list: [],
+    backUrl: ""
   },
-  onLoad: function (option) {
-    console.log(option.id)
+  onLoad: function () {
+    var thisPage = this;
+    getApp().request("MQuery/listBrand", null, function (r) {
+      var patchN = 4 - r.arrayList.length % 4;
+      for (var j = 0; j < patchN; j++) {
+        r.arrayList.push({ backColor: "#EEEEEE" });
+      }
+      thisPage.setData({
+        backUrl: r.imgSrc,
+        list: r.arrayList
+      })
+    })
   }
 })
+
+
