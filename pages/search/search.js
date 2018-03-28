@@ -4,8 +4,8 @@ const app = getApp()
 Page({
   data:{ 
     historyDisplay:"",
-	lastWordList:[],
-	hotWordList:[],
+	  lastWordList:[],
+	  hotWordList:[],
 
     myScrollTop:0,
     myTopShow:false,

@@ -4,6 +4,8 @@ Page({
   data: {
     IMG_URL: getApp().globalData.IMG_URL,
     skuBottom:-890,
+    argsBottom:-890,
+    filterDisplay: "none",
   	p:{},
   	img:[],
 	  sku:[],
@@ -30,7 +32,10 @@ Page({
     });
   },
   viewSku: function() {
-    this.setData({skuBottom: 0});
+    this.setData({skuBottom:0,filterDisplay:'flex'});
+  },
+  viewArgs: function () {
+    this.setData({argsBottom:0,filterDisplay:'flex'});
   },
   favorite: function() {
     wx.showToast({ title: "收藏成功", icon:"none"})
@@ -47,7 +52,14 @@ Page({
   },
   closeSku:function() {
     this.setData({
-      skuBottom:-890
+      skuBottom:-890,
+      filterDisplay:"none"
+    });
+  },
+  closeArgs: function () {
+    this.setData({
+      argsBottom: -890,
+      filterDisplay: "none"
     });
   },
   gotoFirmOrder:function() {
