@@ -2,7 +2,7 @@
 <view class="container" style="background-color:#EEEEEE;height:100vh">
 
 <view style="display:flex;flex-wrap:wrap;">
-  <view class="brand" wx:for="{{list}}" wx:key="*this">
+  <view class="brand" wx:for="{{list}}" wx:key="*this" style="background-color:{{item.tn ?'':'#EEEEEE'}}">
     <view wx:if="{{item.bn}}" style="background-position: -{{item.x*150}}rpx -{{item.y*150}}rpx;background-image: url({{backUrl}});"></view>
     <text style="font-size:30rpx;">{{item.bn}}</text>
   </view>

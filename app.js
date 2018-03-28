@@ -11,6 +11,9 @@ var PROMO_CODE = "";
 
 
 App({
+  getFastName: function (fast) {
+    return fast == 1 ? '立即提取' : '2小时提取';
+  },
   // data:{x:'', y:''}
   // url:MSearch/listWord
   request: function (url, data, callback) {

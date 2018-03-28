@@ -2,7 +2,7 @@
 <view class="container" >
 
 <swiper indicator-dots="true" autoplay="true" interval="5000" duration="500" style="height:750rpx">
-    <swiper-item wx:for="{{img}}" wx:key='*this'><image src="{{item}}" class="slide-image"/></swiper-item>
+    <swiper-item wx:for="{{img}}" wx:key='*this'><image src="{{IMG_URL+item}}" class="slide-image"/></swiper-item>
 </swiper>
 
 <view style="font-size:28rpx;margin:0rpx 10rpx;">{{p.prodTitle}}</view>
@@ -13,10 +13,10 @@
   <text class="promo">{{p.policy}}</text>
 </view>
 
-<view class="originPrice">价格<text>￥12.80</text></view>
+<view class="originPrice">价格<text>￥{{p.prodPrice}}</text></view>
 <view style='background-color:#EEEEEE;width:100%;height:6rpx'></view>
 
-<view class="selectSku"><text>选择颜色分类</text><image src="/png/fonticon/to_right.png"/></view>
+<view class="selectSku" bindtap='viewSku'><text>选择颜色分类</text><image src="/png/fonticon/to_right.png"/></view>
 <view class="productArgs"><text>产品参数</text><image src="/png/fonticon/to_right.png"/></view>
 <view class="isBottom"><view></view>详情<view></view></view>
 
@@ -33,8 +33,8 @@
 
 
 <view class="skuView" style="bottom:{{skuBottom}}rpx;">
-  <view style="display:flex;height:180rpx;justify-content:space-between;margin:15rpx;e">
-    <view class="skuImg"><image src="https://gd3.alicdn.com/imgextra/i1/0/T17sKfFQtbXXXXXXXX_!!0-item_pic.jpg_400x400.jpg"/></view>
+  <view style="display:flex;height:180rpx;justify-content:space-between;margin:15rpx;">
+    <view class="skuImg"><image src="{{firstSku.skuImgSrc}}"/></view>
     <view class="skuDesc">
       <view style="color:red">￥105</view>
       <view>库存66件</view>
@@ -46,21 +46,18 @@
   <view style="border-top:1rpx solid #EEEEEE;margin:0rpx;"></view>
 	
 	<view style="height:500rpx;overflow:scroll;margin:15rpx;">
-		<view><text style="font-size:30rpx">颜色分类</text></view>
+		<view><text style="font-size:30rpx">{{p.skuDesc}}</text></view>
     <view style='display:flex;flex-wrap:wrap;margin-top:10rpx;'>
-		<view class="skuItemView"><text>红色我很长的中了胸怀大志</text></view>
-    <view class="skuItemView"><text>红色</text></view>
-    <view class="skuItemView"><text>红色</text></view>
-    <view class="skuItemView"><text>红色</text></view>
-  </view>
+      <view class="skuItemView" wx:for="{{sku}}" wx:key="*this"><text>{{item.skuName}}</text></view>
+    </view> 
 
-	<view class="buyNum">
-	  <view>购买数量</view>
-	  <view class="buyNumAction"><button size="mini">-</button><view style="">13</view><button size="mini">+</button></view>
-	</view>
-</view>
+	  <view class="buyNum">
+	    <view>购买数量</view>
+	    <view class="buyNumAction"><button size="mini">-</button><view>1</view><button size="mini">+</button></view>
+	  </view>
+  </view>
 	
-<view class="firmOrder" bindtap='gotoFirmOrder'><text>确定</text></view>
+  <view class="firmOrder" bindtap='gotoFirmOrder'><text>确定</text></view>
 </view>
 
 

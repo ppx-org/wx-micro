@@ -7,12 +7,10 @@
 </view>
 
 <view class="subView">
-  <block wx:for="{{item.children}}" wx:key="*this" >
-  <view class="subCategory" style="background-color:{{item.backColor}}">
+  <view class="subCategory" wx:for="{{item.children}}" wx:key="*this" style="background-color:{{item.tn ?'':'#EEEEEE'}}">
     <view wx:if="{{item.cn}}" style="background-position: -{{item.x*150}}rpx -{{item.x*150}}rpx;background-image: url({{backUrl}});"></view>
     <text style="font-size:30rpx;">{{item.cn}}</text>
   </view>
-  </block>
 </view>
 </block>
 

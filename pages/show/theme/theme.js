@@ -11,8 +11,9 @@ Page({
     getApp().request("MQuery/listTheme", null, function (r) {
 	  if (!r.arrayList) return;
       var patchN = 4 - r.arrayList.length % 4;
+      patchN = patchN == 4 ? 0 : patchN;
       for (var j = 0; j < patchN; j++) {
-        r.arrayList.push({ backColor: "#EEEEEE" });
+        r.arrayList.push({});
       }
       thisPage.setData({
         backUrl: r.imgSrc,
