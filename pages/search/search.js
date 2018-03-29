@@ -3,26 +3,27 @@ const app = getApp()
 
 Page({
   data:{
-	word:"",
+    IMG_URL: getApp().globalData.IMG_URL,
+	  word:"",
 	
     historyDisplay:"",
-	lastWordList:[],
-	hotWordList:[],
+	  lastWordList:[],
+	  hotWordList:[],
 
     myScrollTop:0,
     myTopShow:false,
     scrollTop:{show:true,scrollTop:0},
     maskIndex:2500,
-    deliveryIndex:0,
+    deliveryDisplay:"none",
     filterDisplay:"none",
     filterWidth:"-560rpx",
     prodList: [],
-	page:{hasMore:true,loading:false},
+	  page:{hasMore:true,loading:false},
 	
-	catList:[],
-	themeList:[],
-	brandList:[],
-	promoList:[]
+	  catList:[],
+	  themeList:[],
+  	brandList:[],
+  	promoList:[]
 	
 	
   },
@@ -32,36 +33,36 @@ Page({
     getApp().request("MSearch/listWord", null, function(r){
       thisPage.setData({
         lastWordList:r.lastWordList,
-        hotWordList:r.hotWordList,
+        hotWordList:r.hotWordList
 		
       })
     })
-	  
-    var r = { "swiperList": [], "actionStatus": "OK", "levelList": [{ "levelId": 1, "levelName": "店长推荐", "firstProdId": 1 }, { "levelId": 2, "levelName": "第二层", "firstProdId": 5 }], "errorCode": "0", "page": { "pageSize": 6, "pageNumber": 1, "totalRows": 0, "hasMore": false }, "prodList": [{ "pid": 1, "p": "9.80", "t": "test1我是化装品", "f": 0, "level": { "levelId": 1, "levelName": "第一层", "firstProdId": 1 } }, { "pid": 2, "p": "6.90", "t": "test2我是化装品", "f": 1, "level": null }, { "pid": 3, "p": "7.90", "t": "test3", "f": 1, "level": null }, { "pid": 4, "p": "7.80", "t": "test4", "f": 1, "level": null }, { "pid": 5, "p": "12.80", "t": "test5", "f": 1, "level": { "levelId": 2, "levelName": "第二层", "firstProdId": 5 } }, { "pid": 3, "p": "7.90", "t": "test3", "f": 1, "level": null }] };
-    this.setData({
-      prodList: r.prodList
-    })
-    //this.openFilter();
   },
   search:function(e) {
 	  
   },
   query:function(para) {
-	var q = [];
-	for (i in obj) {q.push(i + "=" + obj[i]);}
-	  
-	getApp().request("MQuery/query?" + q.join("&"), null, function(r){
-      thisPage.setData({
-		historyDisplay:"none",
-		
-		page:r.page,
-        prodList:r.arrayList,
-		
-		catList:r.catList,
-		themeList:r.themeList,
-		brandList:r.brandList,
-		promoList:r.promoList
-      })
+	  var q = [];
+    for (var i in para) { q.push(i + "=" + para[i]);}
+    var thisPage = this;
+	  getApp().request("MQuery/query?" + q.join("&"), null, function(r){
+      if (r.page.totalRows == 0) {
+        thisPage.setData({
+          historyDisplay: "none"
+        });
+      }
+      else {
+        thisPage.setData({
+          historyDisplay: "none",
+          page: r.page,
+          prodList: r.arrayList,
+
+          catList: r.catList,
+          themeList: r.themeList,
+          brandList: r.brandList,
+          promoList: r.promoList
+        })
+      }
     })
   },  
   openFilter:function() {
@@ -81,16 +82,16 @@ Page({
   },
 
   showDelivery:function() {
-    if (this.data.deliveryIndex == 0) {
+    if (this.data.deliveryDisplay == "none") {
       this.setData({
         maskIndex:1500,
-        deliveryIndex: 2000,
+        deliveryDisplay: "",
         filterDisplay: "flex",
       })
     }
     else {
       this.setData({
-        deliveryIndex: 0,
+        deliveryDisplay: "none",
         filterDisplay: "none",
       })
     }
@@ -124,13 +125,23 @@ Page({
   
   wordblur:function(e) {
 	console.log(e.detail);
-	this.setData({word:e.detail.value});
+	  this.setData({word:e.detail.value});
   },
   lastWordTap:function(e) {
-	console.log(e.detail);
+	  console.log(e.detail);
+  },
+  removeHistory:function() {
+    var thisPage = this;
+    getApp().request("MSearch/deleteLastWord", null, function (r) {
+      thisPage.setData({
+        lastWordList:[]
+      })
+    })
   },
   hotWordTap:function(e) {
-	console.log(e.detail); 
+    var w = e.target.dataset.word;
+    this.setData({word:w});
+    this.query({w:w});
   }
 
 })

@@ -27,10 +27,7 @@
   transition: bottom 0.4s;height:850rpx;background-color:white;width:100%;justify-content:space-between;z-index:3000;
 }
 
-.argsView {
-  display:flex;flex-direction:column;position:fixed;left:0;
-  transition: bottom 0.4s;height:850rpx;background-color:white;width:100%;justify-content:space-between;z-index:3000;
-}
+
 
 
 .skuImg {position:relative;top:-40rpx;width:210rpx;height:210rpx;border:1rpx solid #EEEEEE;background-color:white;border-radius:10rpx;}
@@ -55,4 +52,16 @@
   padding:10rpx;line-height: 40rpx;text-align:center;
   overflow:hidden;text-overflow:ellipsis;display:-webkit-box !important; -webkit-line-clamp:1;-webkit-box-orient:vertical
 
+}
+
+
+
+.argsView {
+  display:flex;flex-direction:column;position:fixed;left:0;
+  transition: bottom 0.4s;height:850rpx;background-color:white;width:100%;z-index:3000;
+}
+
+.argsView view {
+  margin:20rpx 20rpx;font-size:28rpx;height:30rpx;display:flex;
+  justify-content:space-between;border-top:1px solid #EEEEEE;
 }

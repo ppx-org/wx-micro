@@ -5,10 +5,10 @@
 -->
 <scroll-view class="container" scroll-y="true" scrollTop="{{myScrollTop}}" style="height:100vh" bindscroll="viewScroll">
 
-<view class="searchView"><input placeholder="真功夫" value="{{word}}" confirm-type="search" bindblur="wordblur"><button size="mini" bindtap="search">搜索</button></view>
+<view class="searchView"><input placeholder="真功夫" value="{{word}}" confirm-type="search" bindblur="wordblur"/><button size="mini" bindtap="search">搜索</button></view>
 
 <view style="display:{{historyDisplay}}">
-  <view class="searchHistory"><text class="searchItemTitle">历史搜索</text><image src="/png/fonticon/remove.png"/></view>
+  <view class="searchHistory"><text class="searchItemTitle">历史搜索</text><image bindtap="removeHistory" src="/png/fonticon/remove.png"/></view>
   <view class="searchItem"><text wx:for="{{lastWordList}}" wx:key="*this" bindtap="lastWordTap" data-word="{{item}}">{{item}}</text></view>
 
   <view class="seachRecommend"><text class="searchItemTitle">热门搜索</text></view>
@@ -25,7 +25,7 @@
     <view class="openFilter" bindtap='openFilter'><text>筛选</text><image src="/png/fonticon/filter.png"/></view>
 	</view>
 
-  <view class="deliveryView" style="z-index:{{deliveryIndex}};">
+  <view class="deliveryView" style="display:{{deliveryDisplay}};z-index:2000;">
     <view class="deliveryItem"><text>全部</text><icon type="success_no_circle" size='17' color="red"/></view>
     <view class="deliveryItem deliveryBorderTop"><text>立即提货</text></view>
     <view class="deliveryItem deliveryBorderTop"><text>2小时提货</text></view>
@@ -33,9 +33,10 @@
 
   <view class="prodView">
     <block wx:for="{{prodList}}" wx:key='{{pid}}'>
-      <template is="prodShow" data="{{...item}}"/>
+      <template is="prodShow" data="{{...item, imgUrls:IMG_URL}}"/>
     </block>
-    <view class="isBottom"><view></view>已经到底了<view></view></view>
+    <view class="isBottom" wx:if="{{page.loading}}"><view></view>正在努力加载<view></view></view>
+    <view class="isBottom" wx:if="{{!page.hasMore}}"><view></view>已经到底了<view></view></view>
   </view>
 </view>
 
@@ -45,36 +46,25 @@
   <view class="filterTitle">筛选</view>
 	<view class="filterBlockTitle"><text>全部类目</text><image src="/png/fonticon/down.png"/></view>
   <view class="filterBlock">
-      <view><text>(22)我太长了/不好玩/看能不能有省略号</text></view>
-      <view><text>手机/电器/家居</text></view>
-      <view><text>我太长了/不好玩/看能不能有省略号</text></view>
-      <view><text>商业/办公家具</text></view>
+      <view wx:for="{{catList}}" wx:key="*this"><text>({{item.n}}){{item.cn}}</text></view>
   </view>
-  <view class="filterLine"></view>
-
-	<view class="filterBlockTitle"><text>全部品牌</text><image src="/png/fonticon/down.png"/></view>
+  
+  <view class="filterLine" wx:if="{{brandList.length>0}}"></view>
+	<view class="filterBlockTitle" wx:if="{{brandList.length>0}}"><text>全部品牌</text><image src="/png/fonticon/down.png"/></view>
   <view class="filterBlock">
-      <view><text>(1)NIKE</text></view>
-      <view><text>(2)可口可乐</text></view>
-      <view><text>百事可乐</text></view>
-      <view><text>肯德基</text></view>
+      <view wx:for="{{brandList}}" wx:key="*this"><text>({{item.n}}){{item.bn}}</text></view>
   </view>
-  <view class="filterLine"></view>
 
-  <view class="filterBlockTitle"><text>全部专题</text><image src="/png/fonticon/down.png"/></view>
+  <view class="filterLine" wx:if="{{themeList.length>0}}"></view>
+  <view class="filterBlockTitle" wx:if="{{themeList.length>0}}"><text>全部专题</text><image src="/png/fonticon/down.png"/></view>
   <view class="filterBlock">
-      <view><text>动漫</text></view>
-      <view><text>新年</text></view>
-      <view style="background-color:white"></view>
+      <view wx:for="{{themeList}}" wx:key="*this"><text>({{item.n}}){{item.tn}}</text></view>
   </view>
-  <view class="filterLine"></view>
 
-  <view class="filterBlockTitle"><text>全部促销</text><image src="/png/fonticon/down.png"/></view>
+  <view class="filterLine" wx:if="{{promoList.length>0}}"></view>
+  <view class="filterBlockTitle" wx:if="{{promoList.length>0}}"><text>全部促销</text><image src="/png/fonticon/down.png"/></view>
   <view  class="filterBlock">
-      <view><text>特价</text></view>
-      <view><text>折扣</text></view>
-      <view><text>买二送一</text></view>
-      <view><text>加一元多一件是么</text></view>
+      <view wx:for="{{promoList}}" wx:key="*this"><text>({{item.n}}){{item.pn}}</text></view>
   </view>
 </view>
 
