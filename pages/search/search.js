@@ -2,17 +2,16 @@
 const app = getApp()
 
 Page({
-  data:{ 
+  data:{
+	word:"",
+	
     historyDisplay:"",
-	  lastWordList:[],
-	  hotWordList:[],
+	lastWordList:[],
+	hotWordList:[],
 
     myScrollTop:0,
     myTopShow:false,
-    scrollTop:{ 
-      show:true,
-      scrollTop:0
-    },
+    scrollTop:{show:true,scrollTop:0},
     maskIndex:2500,
     deliveryIndex:0,
     filterDisplay:"none",
@@ -125,6 +124,7 @@ Page({
   
   wordblur:function(e) {
 	console.log(e.detail);
+	this.setData({word:e.detail.value});
   },
   lastWordTap:function(e) {
 	console.log(e.detail);

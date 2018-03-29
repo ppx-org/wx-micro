@@ -5,7 +5,7 @@
 -->
 <scroll-view class="container" scroll-y="true" scrollTop="{{myScrollTop}}" style="height:100vh" bindscroll="viewScroll">
 
-<view class="searchView"><input placeholder="真功夫" confirm-type="search" bindblur="wordblur"><button size="mini" bindtap="search">搜索</button></view>
+<view class="searchView"><input placeholder="真功夫" value="{{word}}" confirm-type="search" bindblur="wordblur"><button size="mini" bindtap="search">搜索</button></view>
 
 <view style="display:{{historyDisplay}}">
   <view class="searchHistory"><text class="searchItemTitle">历史搜索</text><image src="/png/fonticon/remove.png"/></view>
