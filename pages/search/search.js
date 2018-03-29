@@ -69,7 +69,7 @@ Page({
     this.setData({
       filterDisplay:"flex",
       filterWidth:"0rpx",
-      deliveryIndex: 0,
+      deliveryDisplay: "none",
       maskIndex: 2500,
     })
   },
@@ -77,7 +77,7 @@ Page({
     this.setData({
       filterDisplay:"none",
       filterWidth:"-560rpx",
-      deliveryIndex: 0,
+      deliveryDisplay: "none",
     })
   },
 
