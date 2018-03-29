@@ -44,8 +44,14 @@ Page({
     })
     //this.openFilter();
   },
-  query:function(w) {
-	getApp().request("MQuery/query?w=" + w, null, function(r){
+  search:function(e) {
+	  
+  },
+  query:function(para) {
+	var q = [];
+	for (i in obj) {q.push(i + "=" + obj[i]);}
+	  
+	getApp().request("MQuery/query?" + q.join("&"), null, function(r){
       thisPage.setData({
 		historyDisplay:"none",
 		
@@ -112,8 +118,19 @@ Page({
     })
   },
   // 上拉加载
-  onReachBottomDistance: function () {
+  onReachBottomDistance:function () {
     console.log("...onReachBottomDistance");
+  },
+  
+  
+  wordblur:function(e) {
+	console.log(e.detail);
+  },
+  lastWordTap:function(e) {
+	console.log(e.detail);
+  },
+  hotWordTap:function(e) {
+	console.log(e.detail); 
   }
 
 })
