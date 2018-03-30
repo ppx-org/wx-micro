@@ -5,7 +5,8 @@ Page({
   data:{
 	 // TOOD 把word改成query对象
     IMG_URL: getApp().globalData.IMG_URL,
-	  word:"",
+    keyWord:"",
+	  queryObj:{w:""},
 	
     historyDisplay:"",
 	  lastWordList:[],
@@ -19,7 +20,7 @@ Page({
     filterDisplay:"none",
     filterWidth:"-560rpx",
     prodList: [],
-	  page:{hasMore:true,loading:false},
+    page: { hasMore: true, loading: false},
 	
 	  catList:[],
 	  themeList:[],
@@ -34,22 +35,29 @@ Page({
     getApp().request("MSearch/listWord", null, function(r){
       thisPage.setData({
         lastWordList:r.lastWordList,
-        hotWordList:r.hotWordList
-		
+        hotWordList:r.hotWordList,
+        keyWord:r.keyWord
       })
     })
   },
   search:function(e) {
-	  
+    var q = this.data.queryObj;
+    if (q.w == "") {
+      q.w = this.data.keyWord;
+    }
+    this.setData({queryObj:q});
+    this.query();
   },
-  query:function(para) {
+  query:function() {
+    var para = this.data.queryObj;
 	  var q = [];
     for (var i in para) { q.push(i + "=" + para[i]);}
     var thisPage = this;
 	  getApp().request("MQuery/query?" + q.join("&"), null, function(r){
       if (r.page.totalRows == 0) {
         thisPage.setData({
-          historyDisplay: "none"
+          historyDisplay: "none",
+          page: r.page
         });
       }
       else {
@@ -125,11 +133,15 @@ Page({
   
   
   wordblur:function(e) {
-	console.log(e.detail);
-	  this.setData({word:e.detail.value});
+    var q = this.data.queryObj;
+    q.w = e.detail.value;
+    
+    this.setData({queryObj:q});
   },
   lastWordTap:function(e) {
-	  console.log(e.detail);
+    var w = e.target.dataset.word;
+    this.setData({ queryObj: { w: w } });
+    this.query();
   },
   removeHistory:function() {
     var thisPage = this;
@@ -141,8 +153,8 @@ Page({
   },
   hotWordTap:function(e) {
     var w = e.target.dataset.word;
-    this.setData({word:w});
-    this.query({w:w});
+    this.setData({queryObj:{w:w}});
+    this.query();
   }
 
 })
