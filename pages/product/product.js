@@ -27,7 +27,12 @@ Page({
           sku:r.mProduct.skuList,
 		      favor:r.favor,
           firstSku:firstSku
+          
+          
+          // test---------------------------------------
+          , argsBottom: 0, filterDisplay: 'flex' 
         })
+
       })
     });
   },

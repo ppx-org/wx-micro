@@ -59,9 +59,19 @@
 .argsView {
   display:flex;flex-direction:column;position:fixed;left:0;
   transition: bottom 0.4s;height:850rpx;background-color:white;width:100%;z-index:3000;
+  border-radius: 20rpx 20rpx 0 0;
+  justify-content:space-between;
+}
+.argsTitle {
+  margin-top:10rpx;font-size:30rpx;display:flex;align-items:center;justify-content:space-around;
 }
 
-.argsView view {
-  margin:20rpx 20rpx;font-size:28rpx;height:30rpx;display:flex;
-  justify-content:space-between;border-top:1px solid #EEEEEE;
+.argsItem {
+  margin:20rpx 20rpx;font-size:30rpx;height:30rpx;display:flex;
+  padding-bottom: 10rpx;
+  border-bottom:1px solid #EEEEEE;
+}
+
+.finish {
+  display:flex;background-color:#FE7506;height:80rpx;width:100%;color:white;font-size:30rpx;align-items:center;justify-content:space-around;
 }

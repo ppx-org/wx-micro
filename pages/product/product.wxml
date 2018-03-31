@@ -10,7 +10,7 @@
   <text>￥</text>
   <text style="font-size:42rpx;margin-right:8rpx;">{{p.prodPrice}}</text>
   <text class="delivery">{{p.fast}}</text>
-  <text class="promo">{{p.policy}}</text>
+  <text class="promo" wx:if="{{p.policy}}">{{p.policy}}</text>
 </view>
 
 <view class="originPrice">价格<text>￥{{p.prodPrice}}</text></view>
@@ -66,9 +66,12 @@
 <view class="maskView" bindtap="closeArgs" style="display:{{filterDisplay}};z-index:2500"></view>
 <view class="argsView" style="bottom:{{argsBottom}}rpx;">
 
+<view>
+  <view class="argsTitle"><text>产品参数</text></view>
+  <view class="argsItem" wx:for="{{p.prodArg}}" wx:key='*this'><text style="width:200rpx;">{{item.n}}</text><text>{{item.v}}</text></view>
+</view>
 
-<view wx:for="{{p.prodArg}}" wx:key='*this'><text>{{item.n}}</text><text>{{item.v}}</text></view>
-
+<view class="finish" bindtap='closeArgs'><text>完成</text></view>
 
 </view>
 
