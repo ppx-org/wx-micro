@@ -20,7 +20,7 @@
 <view style="display:{{historyDisplay==''?'none':''}}">
 	<view class="resultTitle">
     <view bindtap='showDelivery'>
-      <text wx:if="{{queryObj.fast==''}}">提货类型</text><text wx:if="{{queryObj.fast=='1'}}">立即提货</text>
+      <text wx:if="{{queryObj.fast==''}}">提货类型</text><text wx:if="{{queryObj.fast=='1'}}" style="color:#FE7506">立即提货</text>
       <view class="arrow-bottom"></view>
     </view>
 		<view style="{{queryObj.o==0?'color:#FE7506':''}}" bindtap='normalSort'>综合排序</view>
@@ -52,13 +52,13 @@
   <view class="filterTitle">筛选</view>
 	<view class="filterBlockTitle"><text>全部类目</text><image src="/png/fonticon/down.png"/></view>
   <view class="filterBlock">
-      <view wx:for="{{catList}}" wx:key="*this"><text>({{item.n}}){{item.cn}}</text></view>
+      <view wx:for="{{catList}}" wx:key="*this" bindtap='searchCat' data-cid="{{item.cid}}"><text>({{item.n}}){{item.cn}}</text></view>
   </view>
   
   <view class="filterLine" wx:if="{{brandList.length>0}}"></view>
 	<view class="filterBlockTitle" wx:if="{{brandList.length>0}}"><text>全部品牌</text><image src="/png/fonticon/down.png"/></view>
   <view class="filterBlock">
-      <view wx:for="{{brandList}}" wx:key="*this"><text>({{item.n}}){{item.bn}}</text></view>
+      <view wx:for="{{brandList}}" wx:key="*this" bindtap='searchBrand' data-bid="{{item.bid}}"><text>({{item.n}}){{item.bn}}</text></view>
   </view>
 
   <view class="filterLine" wx:if="{{themeList.length>0}}"></view>

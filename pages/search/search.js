@@ -45,6 +45,10 @@ Page({
     if (q.w == "") {
       q.w = this.data.keyWord;
     }
+
+    // 默认值
+    q = { w: q.w, o: 0, fast:"" };
+
     this.setData({queryObj:q});
     this.query();
   },
@@ -57,7 +61,8 @@ Page({
       if (r.page.totalRows == 0) {
         thisPage.setData({
           historyDisplay: "none",
-          page: r.page
+          page: r.page,
+          prodList:[]
         });
       }
       else {
@@ -188,6 +193,19 @@ Page({
       this.query();
       this.showDelivery();
     } 
+  },
+
+  searchCat:function(e) {
+    var cId = e.currentTarget.dataset.cid;
+    this.data.queryObj.cId = cId;
+    this.setData({ queryObj: this.data.queryObj });
+    this.query();
+  },
+  searchBrand: function (e) {
+    var bId = e.currentTarget.dataset.bid;
+    this.data.queryObj.bId = bId;
+    this.setData({ queryObj: this.data.queryObj });
+    this.query();
   }
 
 })
