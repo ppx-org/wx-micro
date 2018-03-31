@@ -206,6 +206,18 @@ Page({
     this.data.queryObj.bId = bId;
     this.setData({ queryObj: this.data.queryObj });
     this.query();
+  },
+  searchTheme: function (e) {
+    var tId = e.currentTarget.dataset.tid;
+    this.data.queryObj.tId = tId;
+    this.setData({ queryObj: this.data.queryObj });
+    this.query();
+  },
+  searchPromo: function (e) {
+    var gId = e.currentTarget.dataset.gid;
+    this.data.queryObj.gId = gId;
+    this.setData({ queryObj: this.data.queryObj });
+    this.query();
   }
 
 })
