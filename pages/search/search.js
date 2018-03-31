@@ -6,7 +6,7 @@ Page({
 	 // TOOD 把word改成query对象
     IMG_URL: getApp().globalData.IMG_URL,
     keyWord:"",
-	  queryObj:{w:""},
+    queryObj: { w: "", o: 0, fast:""},
 	
     historyDisplay:"",
 	  lastWordList:[],
@@ -140,7 +140,8 @@ Page({
   },
   lastWordTap:function(e) {
     var w = e.target.dataset.word;
-    this.setData({ queryObj: { w: w } });
+    this.data.queryObj.w = w;
+    this.setData({ queryObj: this.data.queryObj });
     this.query();
   },
   removeHistory:function() {
@@ -153,8 +154,40 @@ Page({
   },
   hotWordTap:function(e) {
     var w = e.target.dataset.word;
-    this.setData({queryObj:{w:w}});
+    this.data.queryObj.w = w;
+    this.setData({ queryObj: this.data.queryObj});
     this.query();
+  },
+
+  normalSort:function() {
+    if (this.data.queryObj.o == 1 && this.data.prodList.length > 0) {
+      this.data.queryObj.o = 0;
+      this.setData({ queryObj: this.data.queryObj });
+      this.query();
+    }
+  },
+  newSort: function () {
+    if (this.data.queryObj.o == 0 && this.data.prodList.length > 0) {
+      this.data.queryObj.o = 1;
+      this.setData({ queryObj: this.data.queryObj });
+      this.query();
+    }
+  },
+  deliveryAll:function() {
+    if (this.data.queryObj.fast != "") {
+      this.data.queryObj.fast = "";
+      this.setData({ queryObj: this.data.queryObj });
+      this.query();
+      this.showDelivery();
+    } 
+  },
+  deliveryFast:function() {
+    if (this.data.queryObj.fast != "1") {
+      this.data.queryObj.fast = "1";
+      this.setData({ queryObj: this.data.queryObj });
+      this.query();
+      this.showDelivery();
+    } 
   }
 
 })

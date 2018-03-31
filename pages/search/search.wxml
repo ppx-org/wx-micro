@@ -19,17 +19,22 @@
 <!-- search content -->
 <view style="display:{{historyDisplay==''?'none':''}}">
 	<view class="resultTitle">
-    <view bindtap='showDelivery'><text>提货类型</text><view class="arrow-bottom"></view></view>
-		<view style="color:#FE7506">综合排序</view>
-		<view>新品优先</view>
+    <view bindtap='showDelivery'>
+      <text wx:if="{{queryObj.fast==''}}">提货类型</text><text wx:if="{{queryObj.fast=='1'}}">立即提货</text>
+      <view class="arrow-bottom"></view>
+    </view>
+		<view style="{{queryObj.o==0?'color:#FE7506':''}}" bindtap='normalSort'>综合排序</view>
+		<view style="{{queryObj.o==1?'color:#FE7506':''}}" bindtap='newSort'>新品优先</view>
     <view class="openFilter" bindtap='openFilter'><text>筛选</text><image src="/png/fonticon/filter.png"/></view>
 	</view>
 
   <view class="deliveryView" style="display:{{deliveryDisplay}};z-index:2000;">
-    <view class="deliveryItem"><text>全部</text><icon type="success_no_circle" size='17' color="red"/></view>
-    <view class="deliveryItem deliveryBorderTop"><text>立即提货</text></view>
-    <view class="deliveryItem deliveryBorderTop"><text>2小时提货</text></view>
-  </view>
+    <view class="deliveryItem" bindtap='deliveryAll'>
+      <text>全部</text><icon wx:if="{{queryObj.fast==''}}" type="success_no_circle" size='17' color="red"/>
+    </view>
+    <view class="deliveryItem deliveryBorderTop" bindtap='deliveryFast'>
+      <text>立即提货</text><icon wx:if="{{queryObj.fast=='1'}}" type="success_no_circle" size='17' color="red"/></view>
+    </view>
 
   <view class="prodView">
     <block wx:for="{{prodList}}" wx:key='{{pid}}'>
@@ -38,7 +43,7 @@
     <view class="isBottom" wx:if="{{page.loading}}"><view></view>正在努力加载<view></view></view>
     <view class="isBottom" wx:if="{{!page.hasMore && page.totalRows > 4}}"><view></view>已经到底了<view></view></view>
   </view>
-   <view class="isBottom" wx:if="{{page.totalRows==0}}"><view></view>找不商品<view></view></view>
+  <view class="isBottom" wx:if="{{page.totalRows==0}}"><view></view>找不商品<view></view></view>
 </view>
 
 
