@@ -77,7 +77,7 @@
   <view class="filterBlockTitle" wx:if="{{promoList.length>0}}"><text>全部促销</text><image src="/png/fonticon/down.png"/></view>
   <view  class="filterBlock">
       <view wx:for="{{promoList}}" wx:key="*this" bindtap='searchPromo' data-gid="{{item.gid}}">
-        <text style="{{queryObj.gId==item.gid?'color:#FE7506':''}}">({{item.n}}){{item.pn}}</text>
+        <text style="{{queryObj.gId==item.gid?'color:#FE7506':''}}">({{item.n}}){{item.gN}}</text>
       </view>
   </view>
 </view>
