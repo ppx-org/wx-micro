@@ -197,27 +197,35 @@ Page({
 
   searchCat:function(e) {
     var cId = e.currentTarget.dataset.cid;
+    cId = (cId == this.data.queryObj.cId) ? "" : cId;
     this.data.queryObj.cId = cId;
-    this.setData({ queryObj: this.data.queryObj });
+    this.setData({ queryObj: this.data.queryObj});
     this.query();
+    this.closeFilter();
   },
   searchBrand: function (e) {
     var bId = e.currentTarget.dataset.bid;
+    bId = (bId == this.data.queryObj.bId) ? "" : bId;
     this.data.queryObj.bId = bId;
-    this.setData({ queryObj: this.data.queryObj });
+    this.setData({ queryObj: this.data.queryObj});
     this.query();
+    this.closeFilter();
   },
   searchTheme: function (e) {
     var tId = e.currentTarget.dataset.tid;
+    tId = (tId == this.data.queryObj.tId) ? "" : tId;
     this.data.queryObj.tId = tId;
-    this.setData({ queryObj: this.data.queryObj });
+    this.setData({ queryObj: this.data.queryObj});
     this.query();
+    this.closeFilter();
   },
   searchPromo: function (e) {
     var gId = e.currentTarget.dataset.gid;
+    gId = (gId == this.data.queryObj.gId) ? "" : gId;
     this.data.queryObj.gId = gId;
-    this.setData({ queryObj: this.data.queryObj });
+    this.setData({ queryObj: this.data.queryObj});
     this.query();
+    this.closeFilter();
   }
 
 })

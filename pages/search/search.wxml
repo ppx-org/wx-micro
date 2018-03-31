@@ -52,25 +52,33 @@
   <view class="filterTitle">筛选</view>
 	<view class="filterBlockTitle"><text>全部类目</text><image src="/png/fonticon/down.png"/></view>
   <view class="filterBlock">
-      <view wx:for="{{catList}}" wx:key="*this" bindtap='searchCat' data-cid="{{item.cid}}"><text>({{item.n}}){{item.cn}}</text></view>
+      <view wx:for="{{catList}}" wx:key="*this" bindtap='searchCat' data-cid="{{item.cid}}">
+        <text style="{{queryObj.cId==item.cid?'color:#FE7506':''}}">({{item.n}}){{item.cn}}</text>
+      </view>
   </view>
   
   <view class="filterLine" wx:if="{{brandList.length>0}}"></view>
-	<view class="filterBlockTitle" wx:if="{{brandList.length>0}}"><text>全部品牌</text><image src="/png/fonticon/down.png"/></view>
+    <view class="filterBlockTitle" wx:if="{{brandList.length>0}}"><text>全部品牌</text><image src="/png/fonticon/down.png"/></view>
   <view class="filterBlock">
-      <view wx:for="{{brandList}}" wx:key="*this" bindtap='searchBrand' data-bid="{{item.bid}}"><text>({{item.n}}){{item.bn}}</text></view>
+      <view wx:for="{{brandList}}" wx:key="*this" bindtap='searchBrand' data-bid="{{item.bid}}">
+        <text style="{{queryObj.bId==item.bid?'color:#FE7506':''}}">({{item.n}}){{item.bn}}</text>
+      </view>
   </view>
 
   <view class="filterLine" wx:if="{{themeList.length>0}}"></view>
   <view class="filterBlockTitle" wx:if="{{themeList.length>0}}"><text>全部专题</text><image src="/png/fonticon/down.png"/></view>
   <view class="filterBlock">
-      <view wx:for="{{themeList}}" wx:key="*this" bindtap='searchTheme' data-tid="{{item.tid}}"><text>({{item.n}}){{item.tn}}</text></view>
+      <view wx:for="{{themeList}}" wx:key="*this" bindtap='searchTheme' data-tid="{{item.tid}}">
+        <text style="{{queryObj.tId==item.tid?'color:#FE7506':''}}">({{item.n}}){{item.tn}}</text>
+      </view>
   </view>
 
   <view class="filterLine" wx:if="{{promoList.length>0}}"></view>
   <view class="filterBlockTitle" wx:if="{{promoList.length>0}}"><text>全部促销</text><image src="/png/fonticon/down.png"/></view>
   <view  class="filterBlock">
-      <view wx:for="{{promoList}}" wx:key="*this" bindtap='searchPromo' data-gid="{{item.gid}}"><text>({{item.n}}){{item.pn}}</text></view>
+      <view wx:for="{{promoList}}" wx:key="*this" bindtap='searchPromo' data-gid="{{item.gid}}">
+        <text style="{{queryObj.gId==item.gid?'color:#FE7506':''}}">({{item.n}}){{item.pn}}</text>
+      </view>
   </view>
 </view>
 
