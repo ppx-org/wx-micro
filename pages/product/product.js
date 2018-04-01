@@ -48,9 +48,18 @@ Page({
     this.setData({argsBottom:0,filterDisplay:'flex'});
   },
   favorite: function() {
-    getApp().request("MFavorite/addProduct?prodId=" + this.data.p.prodId, null, function (r) {
-
-      wx.showToast({ title: "收藏成功", icon: "none" })
+    var url = (this.data.favor) ? "MFavorite/removeProduct?prodId=" : "MFavorite/addProduct?prodId=";
+    var thisPage = this;
+    getApp().request(url + this.data.p.prodId, null, function (r) {
+      if (thisPage.data.favor) {
+        thisPage.setData({favor:false})
+        wx.showToast({ title: "取消收藏成功", icon: "none" });
+      }
+      else {
+        thisPage.setData({ favor: true })
+        wx.showToast({ title: "收藏成功", icon: "none" });
+      }
+       
     });
 
      
@@ -95,7 +104,5 @@ Page({
         break;
       }
     }
-
-    console.log("out:", this.data.selectSku);
   }
 })
