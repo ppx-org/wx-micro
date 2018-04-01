@@ -1,4 +1,6 @@
-const app = getApp()
+const app = getApp();
+
+var favorLoading = false;
 
 Page({
   data: {
@@ -10,7 +12,8 @@ Page({
   	img:[],
 	  sku:[],
 	  favor:false,
-    selectSku:{}
+    selectSku:{},
+    actionType:""
   },
   onLoad: function (option) {
 	  var prodId = option.id;
@@ -48,6 +51,10 @@ Page({
     this.setData({argsBottom:0,filterDisplay:'flex'});
   },
   favorite: function() {
+    if (favorLoading) {
+      return;
+    }
+    favorLoading = true;
     var url = (this.data.favor) ? "MFavorite/removeProduct?prodId=" : "MFavorite/addProduct?prodId=";
     var thisPage = this;
     getApp().request(url + this.data.p.prodId, null, function (r) {
@@ -59,20 +66,33 @@ Page({
         thisPage.setData({ favor: true })
         wx.showToast({ title: "收藏成功", icon: "none" });
       }
-       
-    });
-
-     
+      favorLoading = false;
+    });  
   },
   addToCart: function() {
-    this.setData({
-      skuBottom:0
-    });
+    if (this.data.selectSku.skuId) {
+      var thisPage = this;
+      getApp().request("MCart/addSku?skuId=" + this.data.selectSku.skuId, null, function (r) {
+        thisPage.setData({ favor: false })
+        wx.showToast({ title: "加入购物车成功", icon: "none" });
+      });
+    }
+    else {
+      this.setData({skuBottom:0, actionType:"addToCart"});
+    }
   },
   buy: function() {
-    this.setData({
-      skuBottom:0
-    });
+    this.setData({ skuBottom: 0, actionType: "buy" });
+  },
+  ok: function() {
+    var actionType = this.data.actionType;
+    if (actionType == "addToCart") {
+      this.closeSku();
+      this.addToCart();
+    }
+    else {
+      wx.navigateTo({url: '/pages/order/firm/firmorder'});
+    }
   },
   closeSku:function() {
     this.setData({
@@ -85,11 +105,6 @@ Page({
       argsBottom: -890,
       filterDisplay: "none"
     });
-  },
-  gotoFirmOrder:function() {
-    wx.navigateTo({
-      url:'/pages/order/firm/firmorder',
-    })
   },
 
 

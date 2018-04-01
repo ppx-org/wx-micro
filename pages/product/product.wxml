@@ -76,7 +76,7 @@
 	  </view>
   </view>
 	
-  <view class="firmOrder" bindtap='gotoFirmOrder'><text>确定</text></view>
+  <view class="firmOrder" bindtap='ok'><text>确定</text></view>
 </view>
 
 
