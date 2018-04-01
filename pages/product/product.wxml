@@ -16,7 +16,11 @@
 <view class="originPrice">价格<text>￥{{p.prodPrice}}</text></view>
 <view style='background-color:#EEEEEE;width:100%;height:6rpx'></view>
 
-<view class="selectSku" bindtap='viewSku'><text wx:if="{{!selectSku.skuName}}">选择{{p.skuDesc}}</text><text>已选择{{p.skuDesc}}:{{selectSku.skuName}}</text><image src="/png/fonticon/to_right.png"/></view>
+<view class="selectSku" bindtap='viewSku'>
+  <text wx:if="{{!selectSku.skuName}}">选择{{p.skuDesc}}</text>
+  <text wx:if="{{selectSku.skuName}}">已选择{{p.skuDesc}}:{{selectSku.skuName}}</text>
+  <image src="/png/fonticon/to_right.png"/>
+</view>
 <view class="productArgs" bindtap='viewArgs'><text>产品参数</text><image src="/png/fonticon/to_right.png"/></view>
 <view class="isBottom"><view></view>详情<view></view></view>
 
@@ -25,7 +29,10 @@
 
 <view class="action">
 	<view class="favorite" bindtap='favorite'>
-    <view class="favoriteItem"><image src="/png/img/favorite.png"/><view style="padding-left:5rpx;">收藏</view></view>
+    <view class="favoriteItem">
+      <image wx:if="{{!favor}}" src="/png/img/favorite.png"/><image wx:if="{{favor}}" src="/png/img/favorite_selected.png"/>
+      <view style="padding-left:5rpx;">收藏</view>
+    </view>
   </view>
 	<view class="cart" bindtap='addToCart'>加入购物车</view>
 	<view class="buy" bindtap='buy'>立即购买</view>
@@ -35,10 +42,18 @@
 <view class="maskView" bindtap="closeSku" style="display:{{filterDisplay}};z-index:2500"></view>
 <view class="skuView" style="bottom:{{skuBottom}}rpx;">
   <view style="display:flex;height:180rpx;justify-content:space-between;margin:15rpx;">
-    <view class="skuImg"><image wx:if="{{selectSku.skuImgSrc}}" src="{{IMG_URL + selectSku.skuImgSrc}}"/></view>
+    <view class="skuImg">
+      <image wx:if="{{selectSku.skuImgSrc}}" src="{{IMG_URL + selectSku.skuImgSrc}}"/>
+      <image wx:if="{{!selectSku.skuImgSrc && sku[0].skuImgSrc}}" src="{{IMG_URL + sku[0].skuImgSrc}}"/>
+    </view>
     <view class="skuDesc">
-      <view style="color:red">￥{{selectSku.price}}</view>
-      <view>库存{{selectSku.stockNum}}件</view>
+      <view style="color:red">￥
+        <text wx:if="{{selectSku.price}}">{{selectSku.price}}</text>
+        <text wx:if="{{!selectSku.price}}">{{p.prodPrice}}</text>
+      </view>
+      <view>
+        库存<text wx:if="{{selectSku.stockNum}}">{{selectSku.stockNum}}</text><text wx:if="{{!selectSku.stockNum}}">{{p.totalStock}}</text>件
+      </view>
       <view>请选择 {{p.skuDesc}}</view>
     </view>
     <view><icon bindtap="closeSku" type="cancel" size="26" color="gray"/></view>

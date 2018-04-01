@@ -19,16 +19,23 @@ Page({
       getApp().request("MProduct/getProduct?prodId=" + prodId, null, function(r) {
         // 转换提取方式
         r.mProduct.fast = getApp().getFastName(r.mProduct.fast);
+        // 总库存
+        r.mProduct.totalStock = 0;
+        r.mProduct.skuList.forEach(function(o) {
+          r.mProduct.totalStock += o.stockNum;
+        })
+
+
         thisPage.setData({
 		      p:r.mProduct,
           img:r.mProduct.imgSrcList,
           sku:r.mProduct.skuList,
 		      favor:r.favor,
-          selectSku: r.mProduct.skuList[0]
+          selectSku:[]
           
           
           // test---------------------------------------
-          , skuBottom: 0
+          //, skuBottom: 0
         })
 
       })
@@ -41,7 +48,12 @@ Page({
     this.setData({argsBottom:0,filterDisplay:'flex'});
   },
   favorite: function() {
-    wx.showToast({ title: "收藏成功", icon:"none"})
+    getApp().request("MFavorite/addProduct?prodId=" + this.data.p.prodId, null, function (r) {
+
+      wx.showToast({ title: "收藏成功", icon: "none" })
+    });
+
+     
   },
   addToCart: function() {
     this.setData({
