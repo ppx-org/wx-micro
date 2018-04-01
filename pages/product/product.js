@@ -11,7 +11,7 @@ Page({
 	  sku:[],
 	  favor:false,
     firstSku:{},
-    seelct
+    selectSku:{}
   },
   onLoad: function (option) {
 	  var prodId = option.id;
