@@ -16,7 +16,7 @@
 <view class="originPrice">价格<text>￥{{p.prodPrice}}</text></view>
 <view style='background-color:#EEEEEE;width:100%;height:6rpx'></view>
 
-<view class="selectSku" bindtap='viewSku'><text>选择{{p.skuDesc}}</text><image src="/png/fonticon/to_right.png"/></view>
+<view class="selectSku" bindtap='viewSku'><text wx:if="{{!selectSku.skuName}}">选择{{p.skuDesc}}</text><text>已选择{{p.skuDesc}}:{{selectSku.skuName}}</text><image src="/png/fonticon/to_right.png"/></view>
 <view class="productArgs" bindtap='viewArgs'><text>产品参数</text><image src="/png/fonticon/to_right.png"/></view>
 <view class="isBottom"><view></view>详情<view></view></view>
 
@@ -35,10 +35,10 @@
 <view class="maskView" bindtap="closeSku" style="display:{{filterDisplay}};z-index:2500"></view>
 <view class="skuView" style="bottom:{{skuBottom}}rpx;">
   <view style="display:flex;height:180rpx;justify-content:space-between;margin:15rpx;">
-    <view class="skuImg"><image src="{{firstSku.skuImgSrc}}"/></view>
+    <view class="skuImg"><image wx:if="{{selectSku.skuImgSrc}}" src="{{IMG_URL + selectSku.skuImgSrc}}"/></view>
     <view class="skuDesc">
-      <view style="color:red">￥{{firstSku.price}}</view>
-      <view>库存{{firstSku.stockNum}}件</view>
+      <view style="color:red">￥{{selectSku.price}}</view>
+      <view>库存{{selectSku.stockNum}}件</view>
       <view>请选择 {{p.skuDesc}}</view>
     </view>
     <view><icon bindtap="closeSku" type="cancel" size="26" color="gray"/></view>
@@ -49,7 +49,10 @@
 	<view style="height:500rpx;overflow:scroll;margin:15rpx;">
 		<view><text style="font-size:30rpx">{{p.skuDesc}}</text></view>
     <view style='display:flex;flex-wrap:wrap;margin-top:10rpx;'>
-      <view class="skuItemView" wx:for="{{sku}}" wx:key="item" bindtap='selectSku' data-skuId='{{item.skuId}}'><text>{{item.skuName}}</text></view>
+      <view class="skuItemView" wx:for="{{sku}}" wx:key="item" bindtap='selectSku' data-skuId='{{item.skuId}}'
+         style="{{selectSku.skuId==item.skuId?'background-color:#FE7506;color:white':''}}">
+        <text>{{item.skuName}}</text>
+      </view>
     </view> 
 
 	  <view class="buyNum">

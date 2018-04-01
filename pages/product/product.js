@@ -10,7 +10,6 @@ Page({
   	img:[],
 	  sku:[],
 	  favor:false,
-    firstSku:{},
     selectSku:{}
   },
   onLoad: function (option) {
@@ -20,14 +19,12 @@ Page({
       getApp().request("MProduct/getProduct?prodId=" + prodId, null, function(r) {
         // 转换提取方式
         r.mProduct.fast = getApp().getFastName(r.mProduct.fast);
-        var firstSku = r.mProduct.skuList[0];
-        firstSku.skuImgSrc = getApp().globalData.IMG_URL + firstSku.skuImgSrc;
         thisPage.setData({
 		      p:r.mProduct,
           img:r.mProduct.imgSrcList,
           sku:r.mProduct.skuList,
 		      favor:r.favor,
-          firstSku:firstSku
+          selectSku: r.mProduct.skuList[0]
           
           
           // test---------------------------------------
@@ -77,6 +74,16 @@ Page({
 
   selectSku:function(e) {
     var skuid = e.currentTarget.dataset.skuid;
-    console.log("out:", e);
+    var sku = this.data.sku;
+    for (var i = 0; i < sku.length; i++) {
+      if (sku[i].skuId == skuid) {
+        this.setData({
+          selectSku:sku[i]
+        });
+        break;
+      }
+    }
+
+    console.log("out:", this.data.selectSku);
   }
 })
