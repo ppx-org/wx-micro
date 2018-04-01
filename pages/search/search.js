@@ -31,7 +31,7 @@ Page({
   },
   
   onLoad:function () {
-	var thisPage = this;
+	  var thisPage = this;
     getApp().request("MSearch/listWord", null, function(r){
       thisPage.setData({
         lastWordList:r.lastWordList,
