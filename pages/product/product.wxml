@@ -49,7 +49,7 @@
 	<view style="height:500rpx;overflow:scroll;margin:15rpx;">
 		<view><text style="font-size:30rpx">{{p.skuDesc}}</text></view>
     <view style='display:flex;flex-wrap:wrap;margin-top:10rpx;'>
-      <view class="skuItemView" wx:for="{{sku}}" wx:key="item"><text>{{item.skuName}}</text></view>
+      <view class="skuItemView" wx:for="{{sku}}" wx:key="item" bindtap='selectSku' data-skuId='{{item.skuId}}'><text>{{item.skuName}}</text></view>
     </view> 
 
 	  <view class="buyNum">
@@ -66,7 +66,7 @@
 <view class="maskView" bindtap="closeArgs" style="display:{{filterDisplay}};z-index:2500"></view>
 <view class="argsView" style="bottom:{{argsBottom}}rpx;">
 
-<view>
+<view style="height:760rpx;overflow-y:scroll">
   <view class="argsTitle"><text>产品参数</text></view>
   <view class="argsItem" wx:for="{{p.prodArg}}" wx:key='*this'><text style="width:200rpx;">{{item.n}}</text><text>{{item.v}}</text></view>
 </view>

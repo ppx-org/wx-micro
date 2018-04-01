@@ -144,7 +144,7 @@ Page({
     this.setData({queryObj:q});
   },
   lastWordTap:function(e) {
-    var w = e.target.dataset.word;
+    var w = e.currentTarget.dataset.word;
     this.data.queryObj.w = w;
     this.setData({ queryObj: this.data.queryObj });
     this.query();
@@ -158,7 +158,7 @@ Page({
     })
   },
   hotWordTap:function(e) {
-    var w = e.target.dataset.word;
+    var w = e.currentTarget.dataset.word;
     this.data.queryObj.w = w;
     this.setData({ queryObj: this.data.queryObj});
     this.query();

@@ -10,7 +10,8 @@ Page({
   	img:[],
 	  sku:[],
 	  favor:false,
-    firstSku:{}
+    firstSku:{},
+    seelct
   },
   onLoad: function (option) {
 	  var prodId = option.id;
@@ -30,7 +31,7 @@ Page({
           
           
           // test---------------------------------------
-          , argsBottom: 0, filterDisplay: 'flex' 
+          , skuBottom: 0
         })
 
       })
@@ -71,5 +72,11 @@ Page({
     wx.navigateTo({
       url:'/pages/order/firm/firmorder',
     })
+  },
+
+
+  selectSku:function(e) {
+    var skuid = e.currentTarget.dataset.skuid;
+    console.log("out:", e);
   }
 })

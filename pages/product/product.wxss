@@ -67,10 +67,12 @@
 }
 
 .argsItem {
-  margin:20rpx 20rpx;font-size:30rpx;height:30rpx;display:flex;
-  padding-bottom: 10rpx;
+  margin:20rpx 20rpx;font-size:30rpx;display:flex;
+  padding-bottom:8rpx;
   border-bottom:1px solid #EEEEEE;
 }
+
+.argsItem text {padding-bottom: 10rpx;}
 
 .finish {
   display:flex;background-color:#FE7506;height:80rpx;width:100%;color:white;font-size:30rpx;align-items:center;justify-content:space-around;
