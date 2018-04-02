@@ -1,12 +1,15 @@
 
 <view class="container">
 
-
-<block wx:for="{{skuList}}" wx:key="*this">
+<checkbox-group bindchange="listenCheckboxChange">
+<block wx:for="{{skuList}}" wx:key="item">
 <view style="width:100%;border-top:1px solid Gainsboro"></view>
 <view style="display:flex;flex-direction:row;justify-content:space-between;margin:5rpx;">
-  <view style="display:flex;align-items:center;width:50rpx;"><checkbox color="#FE7506"></checkbox></view>
+  <view style="display:flex;align-items:center;width:50rpx;">
+    <checkbox value="{{item.skuId}}" checked="{{item.checked}}" color="#FE7506"></checkbox>
+  </view>
   <image src="{{IMG_URL+item.skuImgSrc}}" style="width:180rpx;height:180rpx"></image>
+  <block wx:if="{{!item.showAction}}">
   <view class="prodView">
     <text class="prodTitleText">{{item.prodTitle}}</text>
     <text style="font-size:24rpx;color:gray;">{{item.skuDesc}}：{{item.skuName}}</text>
@@ -18,9 +21,20 @@
       <view style="font-size:30rpx">x {{item.num}}</view>
     </view>
   </view>
-  <view><image src="/png/fonticon/edit.png" style="width:30rpx;height:30rpx"></image></view>
+  <view><image src="/png/fonticon/edit.png" style="width:30rpx;height:30rpx" data-skuid="{{item.skuId}}" bindtap='edit'></image></view>
+  </block>
+
+  <block wx:if="{{item.showAction}}">
+  <view class="actionView">
+      <view class="action" data-skuid="{{item.skuId}}" bindtap="minus">-</view>
+      <input value="{{item.num}}" style="font-size:30rpx;border:1px solid #EEEEEE;width:250rpx;text-align:center;"/>
+      <view class="action" data-skuid="{{item.skuId}}" bindtap="add">+</view>
+  </view>
+  <view class="finish" bindtap="finish" data-skuid="{{item.skuId}}">完成</view>
+  </block>
 </view>
 </block>
+</checkbox-group>
 
 
 
@@ -32,8 +46,7 @@
 
 <view style="font-size:28rpx;height:80rpx;width:100%;position:fixed;bottom:0;display:flex;justify-content:space-between;border-top:1px solid Gainsboro;background-color:white;">
   <view style="margin-left:5rpx;display:flex;align-items:center;">
-
-    <checkbox color="#FE7506"></checkbox>
+    <checkbox-group bindchange="allCheck"><checkbox color="#FE7506" value="all"></checkbox></checkbox-group>
     <text>全选</text>
   </view>
   <view style="display:flex;align-items:center;">
