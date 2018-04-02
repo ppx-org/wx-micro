@@ -4,7 +4,7 @@
 }
 
 .actionView {
-  width:420rpx;display:flex;justify-content:space-around;align-items:center;
+  width:350rpx;display:flex;justify-content:space-around;align-items:center;
 }
 
 .action {

@@ -26,7 +26,7 @@ price.count = function(r) {
 	        return 0;
 	    }            
 	}
-	r.sort(compare);
+	//r.sort(compare);
 	
 	// console.log(JSON.stringify(r));	
 	var count2discount = 0;

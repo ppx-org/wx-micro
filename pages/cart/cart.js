@@ -10,7 +10,7 @@ Page({
     IMG_URL: getApp().globalData.IMG_URL,
     skuList:[],
     totalNum:0,
-    totalPrice:0,
+    totalPrice:"0.00",
     
   },
   onLoad: function () {
@@ -38,17 +38,18 @@ Page({
       var skuList = this.data.skuList;
       skuList.forEach(function (o) {
         if (skuMap[o.skuId]) {
+          o.checked = true;
           selectedSkuList.push(o);
         }
       });
 
-      // 重新计算价格
+      // 重新计算价格 上面TODO使用selected判断选择的
       var resultSkuList = price.countPrice(selectedSkuList);
       var totalNum = 0;
       var totalPrice = 0;
       resultSkuList.forEach(function (o) {
         totalNum += o.num;
-        totalPrice += new Number(o.price);
+        totalPrice += new Number(o.itemPrice);
       });
       this.setData({ totalNum: totalNum, totalPrice: totalPrice.toFixed(2) });
     }
@@ -63,7 +64,7 @@ Page({
       var totalPrice = 0;
       skuList.forEach(function (o) {
         totalNum += o.num;
-        totalPrice += new Number(o.price);
+        totalPrice += new Number(o.itemPrice);
       });
 
       this.setData({ skuList: skuList, totalNum: totalNum, totalPrice: totalPrice.toFixed(2) });
@@ -71,7 +72,7 @@ Page({
     else {
       var skuList = this.data.skuList;
       skuList.map(function (o) { o.checked = false; })
-      this.setData({ skuList: skuList, totalNum: 0, totalPrice: 0 });
+      this.setData({ skuList: skuList, totalNum: 0, totalPrice: "0.00"});
     }
   },
   edit: function(e) {
@@ -87,10 +88,24 @@ Page({
 
 
   minus: function(e) {
-
+    var skuId = e.currentTarget.dataset.skuid;
+    var skuList = this.data.skuList;
+    skuList.map(function (o) {
+      if (skuId == o.skuId) {
+        o.num = o.num - 1;
+      }
+    });
+    this.setData({ skuList: skuList });
   },
   add: function(e) {
-
+    var skuId = e.currentTarget.dataset.skuid;
+    var skuList = this.data.skuList;
+    skuList.map(function (o) {
+      if (skuId == o.skuId) {
+        o.num += 1;
+      }
+    });
+    this.setData({ skuList: skuList });
   },
   finish: function(e) {
     var skuId = e.currentTarget.dataset.skuid;
@@ -100,6 +115,25 @@ Page({
         o.showAction = false;
       }
     });
-    this.setData({ skuList: skuList });
+    //this.setData({ skuList: skuList });
+
+
+    
+    var selectedSkuList = [];
+    skuList.forEach(function (o) {
+      if (o.checked) {
+        selectedSkuList.push(o);
+      }
+    });
+
+    // 重新计算价格 上面TODO使用selected判断选择的
+    var resultSkuList = price.countPrice(selectedSkuList);
+    var totalNum = 0;
+    var totalPrice = 0;
+    resultSkuList.forEach(function (o) {
+      totalNum += o.num;
+      totalPrice += new Number(o.itemPrice);
+    });
+    this.setData({ skuList: skuList , totalNum: totalNum, totalPrice: totalPrice.toFixed(2) });
   }
 })
