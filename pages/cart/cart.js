@@ -1,4 +1,8 @@
-// 获取应用实例
+
+// 去链接过来，光链接过来还不行！
+var common = require("../../commom/price.js");
+// 使用:common.countPrice(skuList);  最后我们需要执行才能生效！
+
 const app = getApp()
 
 Page({
