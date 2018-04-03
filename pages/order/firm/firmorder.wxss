@@ -1,1 +1,10 @@
 /* pages/order/firm/firmorder.wxss */
+
+
+.totalMsg {
+	border-top:1rpx solid #EEEEEE;display:flex;position:fixed;left:0;bottom:0;height:80rpx;width:100%;font-size:30rpx;align-items:center;
+}
+
+.submitOrder {
+	width:200rpx;background-color:#FE7506;color:white;height:100%;display:flex;align-items:center;justify-content:space-around;
+}

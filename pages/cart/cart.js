@@ -16,7 +16,6 @@ Page({
   onLoad: function () {
     var thisPage = this;
     getApp().request("MCart/listSku", null, function (r) {
-      
       thisPage.setData({
         skuList: r.arrayList
       })
@@ -110,14 +109,13 @@ Page({
   finish: function(e) {
     var skuId = e.currentTarget.dataset.skuid;
     var skuList = this.data.skuList;
+	var num = 0;
     skuList.map(function (o) {
       if (skuId == o.skuId) {
         o.showAction = false;
+		num = o.num;
       }
     });
-    //this.setData({ skuList: skuList });
-
-
     
     var selectedSkuList = [];
     skuList.forEach(function (o) {
@@ -135,5 +133,10 @@ Page({
       totalPrice += new Number(o.itemPrice);
     });
     this.setData({ skuList: skuList , totalNum: totalNum, totalPrice: totalPrice.toFixed(2) });
+	
+	// 保存到数据库
+	getApp().request("MCart/editSkuNum?skuId=" + skuId + "&num=" + num, null, function(r){})
+	
+	
   }
 })

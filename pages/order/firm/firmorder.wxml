@@ -19,35 +19,14 @@
   </block>
  
 
-
-
-
-
-
-
-
-
-
-
-<view style="border-top:1rpx solid #EEEEEE;display:flex;position:fixed;left:0;bottom:0;height:80rpx;width:100%;font-size:30rpx;align-items:center;">
-    <view style="width:550rpx;text-align:right;">
-      <text>共12件商品 合计：</text><text style="color:#FE7506;padding-right:10rpx;">￥1045.12</text>
-    </view>
-		<view style="width:200rpx;background-color:#FE7506;color:white;height:100%;display:flex;align-items:center;justify-content:space-around;">
-      <text>提交订单</text>
-    </view>
+ 
+	<view class="totalMsg">
+		<view style="width:550rpx;text-align:right;">
+		  <text>共{{totalNum}}件商品 合计：</text><text style="color:#FE7506;padding-right:10rpx;">￥{{totalPrice}}</text>
+		</view>
+		 <view bindtap="submitOrder" class="submitOrder"><text>提交订单</text></view>
 	</view>
 
-
-
-
-
-
-	
-	
-	
-	
-	
 </view>
 
 
