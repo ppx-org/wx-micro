@@ -109,11 +109,11 @@ Page({
   finish: function(e) {
     var skuId = e.currentTarget.dataset.skuid;
     var skuList = this.data.skuList;
-	var num = 0;
+	  var num = 0;
     skuList.map(function (o) {
       if (skuId == o.skuId) {
         o.showAction = false;
-		num = o.num;
+		    num = o.num;
       }
     });
     
@@ -134,9 +134,27 @@ Page({
     });
     this.setData({ skuList: skuList , totalNum: totalNum, totalPrice: totalPrice.toFixed(2) });
 	
-	// 保存到数据库
-	getApp().request("MCart/editSkuNum?skuId=" + skuId + "&num=" + num, null, function(r){})
-	
-	
+	  // 保存到数据库
+	  getApp().request("MCart/editSkuNum?skuId=" + skuId + "&num=" + num, null, function(r){});
+  },
+  balance: function() {
+    var selectedSkuId = [];
+    var selectedNum = [];
+    var skuList = this.data.skuList;
+    skuList.forEach(function (o) {
+      if (o.checked) {
+        selectedSkuId.push(o.skuId);
+        selectedNum.push(o.num);
+      }
+    });
+    if (selectedNum.length == 0) {
+      wx.showToast({ title: "你还没有选择宝贝哦", icon: "none" });
+    }
+    else {
+      wx.navigateTo({
+        url: '../order/firm/firmorder?skuIds=' + selectedSkuId.join(",") + "&nums=" + selectedNum.join(",")
+      })
+    }
+    
   }
 })

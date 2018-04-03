@@ -52,7 +52,7 @@
   <view style="display:flex;align-items:center;">
     <text>合计：</text>
     <text style="color:red;margin-right:10rpx;">￥{{totalPrice}}</text>
-    <view style="display:flex;align-items:center;justify-content:space-around;font-size:32rpx;width:200rpx;height:100%;color:white;background-color:#FE7506">结算({{totalNum}})</view>
+    <view class="balance" bindtap='balance'>结算({{totalNum}})</view>
   </view>
 </view>
 

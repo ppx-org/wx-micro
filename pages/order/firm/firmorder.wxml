@@ -13,12 +13,9 @@
 
 <view style=''>
 	
-
-  <block wx:for="{{prodList}}" wx:key='{{pid}}' wx:for-index="index" wx:for-item="item">
+  <block wx:for="{{skuIndexList}}" wx:key='{{*this}}' wx:for-index="index" wx:for-item="item">
      <template is="prodView" data="{{...item}}"/>
   </block>
- 
-
  
 	<view class="totalMsg">
 		<view style="width:550rpx;text-align:right;">

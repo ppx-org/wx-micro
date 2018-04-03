@@ -1,8 +1,11 @@
+
+
+
 Page({
   data: {
-	skuIndexList:[],
-	totalNum:0,
-	totalPrice:0,
+	  skuIndexList:[],
+	  totalNum:0,
+	  totalPrice:0,
 	  
 	// 改成skuList
     prodList: [],
@@ -16,16 +19,20 @@ Page({
     })
 
 	
-	var skuId = options.skuIds.split(",");
-	var num = options.nums;
+	var skuId = [];
+  options.skuIds.split(",").forEach(function(o) {skuId.push(parseInt(o))});
+  var num = [];
+  options.nums.split(",").forEach(function (o) { num.push(parseInt(o)) });
+  
+  console.log(skuId, num);
 	
 	var para = {skuId:skuId, num:num}
 	var thisPage = this;
     getApp().request("MOrder/countPrice", para, function (r) {
       thisPage.setData({
         skuIndexList:r.skuIndexList,
-		totalNum:r.totalNum,
-		totalPrice:r.totalPrice
+		    totalNum:r.totalNum,
+		    totalPrice:r.totalPrice
       })
     })
   },
