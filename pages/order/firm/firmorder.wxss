@@ -1,6 +1,14 @@
 /* pages/order/firm/firmorder.wxss */
 
 
+.addr {
+  display:flex;font-size:28rpx;justify-content:space-around;height:60rpx;
+}
+
+.addr image {
+  background-color:black;width:40rpx;height:40rpx;
+}
+
 .totalMsg {
 	border-top:1rpx solid #EEEEEE;display:flex;position:fixed;left:0;bottom:0;height:80rpx;width:100%;font-size:30rpx;align-items:center;
 }

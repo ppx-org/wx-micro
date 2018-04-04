@@ -20,10 +20,10 @@
 <!-- order -->
 <template name="prodView">
 
-<view style="display:flex;justify-content:space-between;margin:15rpx;">
+<view class="orderProd">
   <image src="{{imgUrls}}{{skuImgSrc}}" style="width:160rpx;height:160rpx"></image>
   <view style="width:420rpx;display:flex;flex-direction:column;justify-content:space-between;margin:3rpx;">
-	<view style='font-size:24rpx;height:64rpx;overflow:hidden;text-overflow:ellipsis;display:-webkit-box !important; -webkit-line-clamp:2;-webkit-box-orient:vertical'>{{prodTitle}}</view>
+	<view class="title">{{prodTitle}}</view>
     <text style="font-size:24rpx;color:gray;">{{skuDesc}}：{{skuName}}</text>
     <view style="font-size:24rpx;color:red">{{prolicyDesc}}</view>
   </view>

@@ -9,7 +9,6 @@
     <image src='/png/fonticon/down-white.png' style="width:20rpx;height:20rpx;margin-left:4rpx;"></image>
   </navigator>
 
-
   <navigator class="search" url="/pages/search/search">
     <icon type="search" size="20" color='white'/><text>寻找宝贝</text>
   </navigator>

@@ -1,45 +1,24 @@
 <import src="../../../common/templet.wxml"/>
 
-
 <view>
 
-<view style="text-align:center;font-size:32rpx;">皮皮7号店 电话:13800138000</view>
-<view style="display:flex;font-size:28rpx;justify-content:space-around;height:60rpx;">
-  <image src="/png/img/position.png" style="background-color:black;width:40rpx;height:40rpx;"></image>
-  <text>提货地址:广州市赤岗路188号</text>
+<view style="text-align:center;font-size:32rpx;">{{store.name}} 电话:{{store.phone}}</view>
+<view class="addr" bindtap='map'>
+  <image src="/png/img/position.png"></image>
+  <text>提货地址:{{store.addr}}</text>
   <text>></text>
 </view>
 
-
-<view style=''>
-	
+<view>
   <block wx:for="{{skuIndexList}}" wx:key='{{*this}}' wx:for-index="index" wx:for-item="item">
      <template is="prodView" data="{{...item, imgUrls:IMG_URL}}"/>
   </block>
- 
 	<view class="totalMsg">
 		<view style="width:550rpx;text-align:right;">
 		  <text>共{{totalNum}}件商品 合计：</text><text style="color:#FE7506;padding-right:10rpx;">￥{{totalPrice}}</text>
 		</view>
 		 <view bindtap="submitOrder" class="submitOrder"><text>提交订单</text></view>
 	</view>
-
 </view>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 </view>
