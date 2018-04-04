@@ -3,7 +3,6 @@ const app = getApp()
 
 Page({
   data:{
-	 // TOOD 把word改成query对象
     IMG_URL: getApp().globalData.IMG_URL,
     keyWord:"",
     queryObj: { w: "", o: 0, fast:""},

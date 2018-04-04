@@ -14,7 +14,7 @@
 <view style=''>
 	
   <block wx:for="{{skuIndexList}}" wx:key='{{*this}}' wx:for-index="index" wx:for-item="item">
-     <template is="prodView" data="{{...item}}"/>
+     <template is="prodView" data="{{...item, imgUrls:IMG_URL}}"/>
   </block>
  
 	<view class="totalMsg">

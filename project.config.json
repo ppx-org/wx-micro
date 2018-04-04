@@ -30,13 +30,13 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": -1,
+			"current": 0,
 			"list": [
 				{
 					"id": 0,
-					"name": "PROD",
-					"pathName": "pages/product/product",
-					"query": "id=10"
+					"name": "firmOrder",
+					"pathName": "pages/order/firm/firmorder",
+					"query": "skuIds=10,11&nums=3,4"
 				}
 			]
 		}

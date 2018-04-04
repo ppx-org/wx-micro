@@ -3,6 +3,7 @@
 
 Page({
   data: {
+    IMG_URL: getApp().globalData.IMG_URL,
 	  skuIndexList:[],
 	  totalNum:0,
 	  totalPrice:0,
