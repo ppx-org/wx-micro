@@ -17,7 +17,7 @@
 
 
 
-<!-- order -->
+<!-- confirm order -->
 <template name="prodView">
 
 <view class="orderProd">

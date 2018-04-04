@@ -5,7 +5,7 @@ Page({
   data: {
     IMG_URL: getApp().globalData.IMG_URL,
     store: {},
-	  skuIndexList:[],
+    skuList:[],
 	  totalNum:0,
 	  totalPrice:0
   },
@@ -20,7 +20,7 @@ Page({
     getApp().request("MOrder/confirmOrder", para, function (r) {
       thisPage.setData({
         store: r.store,
-        skuIndexList: r.skuList,
+        skuList: r.skuList,
         totalNum:r.totalNum,
         totalPrice:r.totalPrice
       })
