@@ -5,19 +5,19 @@
 
 
 <view style="display:flex;font-size:28rpx;">
-	<view bindtap="allOrder" style="color:{{allOrder=='white'?'black':allOrder}};border-bottom:2px solid {{allOrder}};width:60rpx;margin-left:50rpx;">
+	<view bindtap="allOrder" style="color:{{allOrder=='white'?'black':allOrder}};border-bottom:2px solid {{allOrder}};width:58rpx;margin-left:60rpx;">
 		<text>全部</text>
 	</view>
 	
-	<view bindtap="waitPay" style="color:{{waitPay=='white'?'black':waitPay}};border-bottom:2px solid {{waitPay}};width:90rpx;margin-left:50rpx;">
+	<view bindtap="waitPay" style="color:{{waitPay=='white'?'black':waitPay}};border-bottom:2px solid {{waitPay}};width:86rpx;margin-left:95rpx;">
 		<text>待付款</text>
 	</view>
 
-	<view bindtap="waitPrepare" style="color:{{waitPrepare}};border-bottom:2px solid {{waitPrepare}};width:90rpx;margin-left:50rpx;">
+	<view bindtap="waitPrepare" style="color:{{waitPrepare=='white'?'black':waitPrepare}};border-bottom:2px solid {{waitPrepare}};width:86rpx;margin-left:100rpx;">
 		<text>待配货</text>
 	</view>
 
-  <view bindtap="waitDeliver" style="color:{{waitDeliver}};border-bottom:2px solid {{waitDeliver}};width:90rpx;margin-left:50rpx;">
+  <view bindtap="waitDeliver" style="color:{{waitDeliver=='white'?'black':waitDeliver}};border-bottom:2px solid {{waitDeliver}};width:86rpx;margin-left:100rpx;">
 		<text>待提货</text>
 	</view>
 </view>

@@ -43,5 +43,21 @@ Page({
       waitPrepare: "white",
       waitDeliver: "white"
     });
+  },
+  waitPrepare: function () {
+    this.setData({
+      allOrder: "white",
+      waitPay: "white",
+      waitPrepare: "#FE7506",
+      waitDeliver: "white"
+    });
+  },
+  waitDeliver: function () {
+    this.setData({
+      allOrder: "white",
+      waitPay: "white",
+      waitPrepare: "white",
+      waitDeliver: "#FE7506"
+    });
   }
 })
