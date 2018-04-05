@@ -1,0 +1,49 @@
+
+<import src="../../../common/templet.wxml"/>
+
+<view class="container">
+
+<view class="prodView">
+  <block wx:for="{{prodList}}" wx:key='{{*this}}'>
+    <template is="prodShow" data="{{...item, imgUrls:IMG_URL}}"/>
+  </block>
+  <view class="isBottom" wx:if="{{page.loading}}"><view></view>正在努力加载<view></view></view>
+  <view class="isBottom" wx:if="{{!page.hasMore && page.totalRows > 4}}"><view></view>已经到底了<view></view></view>
+</view>
+<view class="isBottom" wx:if="{{prodList.length==0}}"><view></view>找不商品<view></view>
+
+</view>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+</view>
+
+
+
+
+
+
+
+
+
+
+
+

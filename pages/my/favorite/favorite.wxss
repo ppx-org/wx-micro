@@ -1,0 +1,3 @@
+
+
+.prodView {padding:0;display:flex;justify-content:space-between;flex-wrap:wrap;background-color:#EEEEEE}

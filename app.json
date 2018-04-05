@@ -1,5 +1,9 @@
 {
   "pages":[
+    
+    "pages/my/trace/trace",
+    "pages/my/favorite/favorite",
+    "pages/my/my",
     "pages/order/detail/detail",
   
 
@@ -8,7 +12,7 @@
   "pages/order/order",
  
 	
-	"pages/my/my",
+	
   
   "pages/order/firm/firmorder",
   "pages/product/product",
