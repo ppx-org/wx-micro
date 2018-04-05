@@ -1,10 +1,10 @@
 <import src="../../common/templet.wxml"/>
 
 
-<view>
+<view style="background-color:#EEEEEE">
 
 
-<view style="display:flex;font-size:28rpx;">
+<view style="display:flex;font-size:28rpx;background-color:white">
 	<view bindtap="allOrder" style="color:{{allOrder=='white'?'black':allOrder}};border-bottom:2px solid {{allOrder}};width:58rpx;margin-left:60rpx;">
 		<text>全部</text>
 	</view>
@@ -23,13 +23,14 @@
 </view>
 
 
-<view wx:for="{{orderList}}" wx:key='{{*this}}' wx:for-item="o">
+<view wx:for="{{orderList}}" wx:key='{{*this}}' wx:for-item="o" style="background-color:white;margin-top:1px;">
 	<view style='font-size:28rpx;color:#FE7506'>
 		<text wx:if="{{o.orderStatus == 1}}">待付款</text>
     <text wx:if="{{o.orderStatus == 2}}">待配货</text>
     <text wx:if="{{o.orderStatus == 3}}">待提货</text>
     <text wx:if="{{o.orderStatus == 4}}">交易完成</text>
     <text wx:if="{{o.orderStatus == 5}}">交易取消</text>
+    <text style="color:gray;font-size:24rpx;">创建时间:{{o.orderTime}}</text>
 	</view>
 
   <view class="orderProd" wx:for="{{o.listItem}}" wx:key='{{*this}}' wx:for-item="item">

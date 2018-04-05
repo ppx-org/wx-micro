@@ -12,12 +12,18 @@ Page({
     waitDeliver:"white"
   },
   onLoad: function () {
+    this.queryOrder();
+  },
+
+  queryOrder: function (orderStatus, pageNumber) {
     var thisPage = this;
-    getApp().request("MOrder/listMyOrder", {}, function (r) {
+
+    var para = { pageNumber: pageNumber ? pageNumber : 1};
+    getApp().request("MOrder/listMyOrder?orderStatus=" + (orderStatus ? orderStatus:''), para, function (r) {
       var orderList = r.arrayList;
-      orderList.map(function(o){
+      orderList.map(function (o) {
         var orderNum = 0;
-        o.listItem.forEach(function(i) {orderNum += i.itemNum;})
+        o.listItem.forEach(function (i) { orderNum += i.itemNum; })
         o.orderNum = orderNum;
       })
 
@@ -29,6 +35,7 @@ Page({
   },
 
   allOrder:function() {
+    this.queryOrder();
     this.setData({
       allOrder:"#FE7506",
       waitPay:"white",
@@ -37,14 +44,17 @@ Page({
     });
   },
   waitPay: function () {
+    this.queryOrder(1);
     this.setData({
       allOrder: "white",
       waitPay: "#FE7506",
       waitPrepare: "white",
       waitDeliver: "white"
     });
+
   },
   waitPrepare: function () {
+    this.queryOrder(2);
     this.setData({
       allOrder: "white",
       waitPay: "white",
@@ -53,6 +63,7 @@ Page({
     });
   },
   waitDeliver: function () {
+    this.queryOrder(3);
     this.setData({
       allOrder: "white",
       waitPay: "white",
