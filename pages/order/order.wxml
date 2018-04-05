@@ -5,30 +5,34 @@
 
 
 <view style="display:flex;font-size:28rpx;">
-	<view bindtap="allOrder" style="border-bottom:2px solid {{allBottomColor}};width:30%">
+	<view bindtap="allOrder" style="color:{{allOrder=='white'?'black':allOrder}};border-bottom:2px solid {{allOrder}};width:60rpx;margin-left:50rpx;">
 		<text>全部</text>
 	</view>
 	
-	<view bindtap="allOrder2" style="border-bottom:2px solid {{waitBottomColor}};width:30%">
+	<view bindtap="waitPay" style="color:{{waitPay=='white'?'black':waitPay}};border-bottom:2px solid {{waitPay}};width:90rpx;margin-left:50rpx;">
 		<text>待付款</text>
 	</view>
 
-	<view bindtap="allOrder3" style="border-bottom:2px solid white;width:30%">
+	<view bindtap="waitPrepare" style="color:{{waitPrepare}};border-bottom:2px solid {{waitPrepare}};width:90rpx;margin-left:50rpx;">
 		<text>待配货</text>
 	</view>
 
-  <view bindtap="allOrder3" style="border-bottom:2px solid white;width:30%">
+  <view bindtap="waitDeliver" style="color:{{waitDeliver}};border-bottom:2px solid {{waitDeliver}};width:90rpx;margin-left:50rpx;">
 		<text>待提货</text>
 	</view>
 </view>
 
 
-<view wx:for="{{orderList}}" wx:key='{{*this}}' wx:for-item="order">
-	<view>
-		<text style='font-size:28rpx;'>交易成功</text>
+<view wx:for="{{orderList}}" wx:key='{{*this}}' wx:for-item="o">
+	<view style='font-size:28rpx;color:#FE7506'>
+		<text wx:if="{{o.orderStatus == 1}}">待付款</text>
+    <text wx:if="{{o.orderStatus == 2}}">待配货</text>
+    <text wx:if="{{o.orderStatus == 3}}">待提货</text>
+    <text wx:if="{{o.orderStatus == 4}}">交易完成</text>
+    <text wx:if="{{o.orderStatus == 5}}">交易取消</text>
 	</view>
 
-  <view class="orderProd" wx:for="{{order.listItem}}" wx:key='{{*this}}' wx:for-item="item">
+  <view class="orderProd" wx:for="{{o.listItem}}" wx:key='{{*this}}' wx:for-item="item">
     <image src="{{IMG_URL}}{{item.itemImg}}" style="width:160rpx;height:160rpx"></image>
     <view style="width:420rpx;display:flex;flex-direction:column;justify-content:space-between;margin:3rpx;">
       <view class="title">{{item.itemTitle}}</view>
@@ -44,7 +48,7 @@
   </view>
 
   <view style='text-align:right;font-size:28rpx;margin-right:10rpx;'>
-    <view>共{{order.orderNum}}件商品 合计:<text style="">￥{{order.orderPrice}}</text></view>
+    <view>共{{o.orderNum}}件商品 合计:<text style="">￥{{o.orderPrice}}</text></view>
   </view>
   
 

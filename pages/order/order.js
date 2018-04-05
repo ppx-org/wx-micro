@@ -6,8 +6,10 @@ Page({
     IMG_URL: getApp().globalData.IMG_URL,
     page:{},
     orderList: [],
-    allBottomColor:"red",
-    waitBottomColor:"white"
+    allOrder:"#FE7506",
+    waitPay:"white",
+    waitPrepare:"white",
+    waitDeliver:"white"
   },
   onLoad: function () {
     var thisPage = this;
@@ -28,14 +30,18 @@ Page({
 
   allOrder:function() {
     this.setData({
-      allBottomColor: "red",
-      waitBottomColor: "white"
+      allOrder:"#FE7506",
+      waitPay:"white",
+      waitPrepare:"white",
+      waitDeliver:"white"
     });
   },
-  allOrder2: function () {
+  waitPay: function () {
     this.setData({
-      allBottomColor : "white",
-      waitBottomColor: "red"
+      allOrder: "white",
+      waitPay: "#FE7506",
+      waitPrepare: "white",
+      waitDeliver: "white"
     });
   }
 })
