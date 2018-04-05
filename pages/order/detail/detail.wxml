@@ -5,15 +5,41 @@
 </view>
 
 <view style="height:80rpx;color:gray">
-  <view style="text-align:center;font-size:28rpx;">7号店铺 电话:13800138001</view>
+  <view style="text-align:center;font-size:28rpx;">{{store.name}} 电话:{{store.phone}}</view>
   <view style="display:flex;font-size:28rpx;justify-content:space-around;">
-    <text>提货地址:广州市海珠区赤岗路88号</text>
+    <text>提货地址:{{store.addr}}</text>
   </view>
 </view>
 
-<view style="width:100%;height:20rpx;background-color:#EEEEEE"></view>
+<view style="width:100%;height:10rpx;background-color:#EEEEEE"></view>
 
+  <view class="orderProd" wx:for="{{order.listItem}}" wx:key='{{*this}}' wx:for-item="item">
+    <image src="{{IMG_URL}}{{item.itemImg}}" style="width:160rpx;height:160rpx"></image>
+    <view style="width:420rpx;display:flex;flex-direction:column;justify-content:space-between;margin:3rpx;">
+      <view class="title">{{item.itemTitle}}</view>
+      <text style="font-size:24rpx;color:gray;">{{item.itemSku}}</text>
+      <view style="font-size:24rpx;color:red">{{item.itemPromo}}</view>
+    </view>
+    
+    <view style="display:flex;flex-direction:column;font-size:26rpx;text-align:right">
+      <text>￥{{item.itemUnitPrice}}</text>
+      <view style="font-size:30rpx;color:gray">x {{item.itemNum}}</view>
+      <text>￥{{item.itemPrice}}</text>
+    </view>
+  </view>
 
+  <view style='text-align:right;font-size:28rpx;margin-right:10rpx;'>
+    <view>共{{order.orderNum}}件商品 订单价格:<text style="">￥{{order.orderPrice}}</text></view>
+  </view>
+
+  <view style='font-size:24rpx;color:gray;margin-left:10rpx;'>
+  <view>创建时间:{{order.orderTime}}</view>
+
+  <view wx:for="{{statusList}}" wx:key='{{*this}}'>
+    {{item.historyStatusDesc}}:{{item.created}}
+  </view>
+
+  </view>
 
 	
 </view>
