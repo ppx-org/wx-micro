@@ -1,6 +1,13 @@
 // 负载均衡的URL
 var SERVER_URL = "http://localhost/demo/";
 var IMG_URL = "http://localhost/demo/img/";
+
+//SERVER_URL = "http://f92ac233.ngrok.io/demo/";
+//IMG_URL = "http://f92ac233.ngrok.io/demo/img/";
+
+
+
+
 var PPX_TOKEN = "";
 // 固定值,每个小程序对一个
 var MER_ID = 1;

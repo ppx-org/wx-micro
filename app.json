@@ -1,13 +1,15 @@
 {
   "pages":[
     
+    "pages/index/index",
+    
     "pages/my/trace/trace",
     "pages/my/favorite/favorite",
     "pages/my/my",
     "pages/order/detail/detail",
   
 
-  "pages/index/index",
+  
   "pages/cart/cart",
   "pages/order/order",
  
