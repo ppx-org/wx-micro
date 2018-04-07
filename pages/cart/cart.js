@@ -10,15 +10,15 @@ Page({
     IMG_URL: getApp().globalData.IMG_URL,
     skuList:[],
     totalNum:0,
-    totalPrice:"0.00"
-    
+    totalPrice:"0.00",
+    refreshCart:true
   },
   onLoad: function () {
     
     //this.queryCart();
   },
   onShow: function() {
-    if (this.data.skuList.length == 0) {
+    if (this.data.refreshCart) {
       this.queryCart();
     }
     
@@ -37,11 +37,12 @@ Page({
     var thisPage = this;
     getApp().request("MCart/listSku", null, function (r) {
       if (r.result == 0) {
-
+        thisPage.setData({ skuList: [], refreshCart: false });
       }
-      thisPage.setData({
-        skuList: r.arrayList
-      })
+      else {
+        thisPage.setData({ skuList: r.arrayList, refreshCart: false });
+      }
+        
     })
   },
   listenCheckboxChange: function (e) {
@@ -182,7 +183,8 @@ Page({
           thisPage.setData({
             skuList: [],
             totalNum: 0,
-            totalPrice: "0.00"
+            totalPrice: "0.00",
+            refreshCart:true
           })
         }
       })

@@ -71,7 +71,6 @@ App({
     PPX_TOKEN = wx.getStorageSync('PPX_TOKEN')
   },
   globalData: {
-    refreshCart:false,
     IMG_URL: IMG_URL
   }
 })

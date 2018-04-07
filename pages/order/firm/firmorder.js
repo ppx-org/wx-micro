@@ -42,7 +42,6 @@ Page({
       console.log("return.............:", r);
     
       if (r.result == 1) {
-        getApp().globalData.refreshCart = true;
         // 成功，跳到其它页面
         wx.redirectTo({url:"/pages/order/success/success"});
 
