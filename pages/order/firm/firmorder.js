@@ -31,6 +31,27 @@ Page({
     wx.openLocation({ latitude: parseFloat(s.lat), longitude: parseFloat(s.lng), scale: 18, name: s.name, address: s.addr });
   },
   submitOrder: function () {
+    var skuId = [];
+    var num = [];
+    this.data.skuList.forEach(function(sku){
+      skuId.push(sku.skuId);
+      num.push(sku.num);
+    });
+    var para = { skuId: skuId, num: num };
+    getApp().request("MOrder/submitOrder", para, function (r) {
+      console.log("return.............:", r);
     
+      if (r.result == 1) {
+        getApp().globalData.refreshCart = true;
+        // 成功，跳到其它页面
+        wx.redirectTo({url:"/pages/order/success/success"});
+
+      }
+      else if (r.result == -1) {
+        // 数据超出提示"overflowList":[{"skuId":1,"stockNum":3}],
+        
+      }
+      
+    })
   }
 })

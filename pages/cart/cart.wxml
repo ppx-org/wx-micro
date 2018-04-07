@@ -1,6 +1,10 @@
 
 <view class="container">
 
+
+<view style="font-size:30rpx;text-align:center;" wx:if="{{skuList.length == 0}}">你的购物车还是空空的</view>
+
+
 <checkbox-group bindchange="listenCheckboxChange">
 <block wx:for="{{skuList}}" wx:key="item">
 <view style="width:100%;border-top:1px solid Gainsboro"></view>

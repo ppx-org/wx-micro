@@ -2,7 +2,7 @@
 
 <!-- home|search -->
 <template name="prodShow">
-<navigator class="prodShow" url='/pages/product/product'>
+<navigator class="prodShow" url='/pages/product/product?id={{pid}}'>
 	<image src="{{imgUrls}}{{src}}"></image>
 	<view class="title">{{t}}</view>
   <view class="promoView">

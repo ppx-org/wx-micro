@@ -1,5 +1,5 @@
 
-<view class="container" >
+<view class="container">
 
 <swiper indicator-dots="true" autoplay="true" interval="5000" duration="500" style="height:750rpx;width:750rpx">
     <swiper-item wx:for="{{img}}" wx:key='*this'><image src="{{IMG_URL+item}}" style="height:750rpx;width:750rpx" class="slide-image"/></swiper-item>

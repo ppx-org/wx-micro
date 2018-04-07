@@ -3,19 +3,42 @@
 var price = require("../../common/price.js");
 // 使用:common.countPrice(skuList);  最后我们需要执行才能生效！
 
-const app = getApp()
+const app = getApp();
 
 Page({
   data: {
     IMG_URL: getApp().globalData.IMG_URL,
     skuList:[],
     totalNum:0,
-    totalPrice:"0.00",
+    totalPrice:"0.00"
     
   },
   onLoad: function () {
+    
+    //this.queryCart();
+  },
+  onShow: function() {
+    if (this.data.skuList.length == 0) {
+      this.queryCart();
+    }
+    
+    //
+    // console.log("out........:" + getApp().globalData.refreshCart);
+    
+    /*
+    this.setData({
+      skuList: [],
+      totalNum: 0,
+      totalPrice: "0.00"
+    })
+    this.queryCart();*/
+  },
+  queryCart:function() {
     var thisPage = this;
     getApp().request("MCart/listSku", null, function (r) {
+      if (r.result == 0) {
+
+      }
       thisPage.setData({
         skuList: r.arrayList
       })
@@ -151,8 +174,17 @@ Page({
       wx.showToast({ title: "你还没有选择宝贝哦", icon: "none" });
     }
     else {
+      
+      var thisPage = this;
       wx.navigateTo({
-        url: '../order/firm/firmorder?skuIds=' + selectedSkuId.join(",") + "&nums=" + selectedNum.join(",")
+        url: '../order/firm/firmorder?skuIds=' + selectedSkuId.join(",") + "&nums=" + selectedNum.join(","),
+        success: function() {
+          thisPage.setData({
+            skuList: [],
+            totalNum: 0,
+            totalPrice: "0.00"
+          })
+        }
       })
     }
     

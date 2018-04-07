@@ -2,6 +2,7 @@
 var SERVER_URL = "http://localhost/demo/";
 var IMG_URL = "http://localhost/demo/img/";
 
+
 //SERVER_URL = "http://f92ac233.ngrok.io/demo/";
 //IMG_URL = "http://f92ac233.ngrok.io/demo/img/";
 
@@ -15,6 +16,7 @@ var MER_ID = 1;
 var STORE_ID = 1;
 // 促销编码
 var PROMO_CODE = "";
+
 
 
 App({
@@ -69,6 +71,7 @@ App({
     PPX_TOKEN = wx.getStorageSync('PPX_TOKEN')
   },
   globalData: {
+    refreshCart:false,
     IMG_URL: IMG_URL
   }
 })

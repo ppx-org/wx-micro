@@ -1,6 +1,6 @@
 {
   "pages":[
-    
+    "pages/cart/cart",
     "pages/index/index",
     
     "pages/my/trace/trace",
@@ -10,10 +10,10 @@
   
 
   
-  "pages/cart/cart",
+  
   "pages/order/order",
  
-	
+	"pages/order/success/success",
 	
   
   "pages/order/firm/firmorder",
